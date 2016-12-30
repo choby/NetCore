@@ -8,18 +8,10 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Plugins\**" />
-    <EmbeddedResource Remove="Plugins\**" />
+   
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="ConvertListToDataTable.cs" />
-    <Compile Remove="EnabledEnum.cs" />
-    <Compile Remove="Extensions\DataTables.cs" />
-    <Compile Remove="Extensions\Dynamic.cs" />
-    <Compile Remove="HttpHelper.cs" />
-    <Compile Remove="TypeFinder\AppDomain.cs" />
-    <Compile Remove="Utities\DynamicMethodExecutor.cs" />
-    <Compile Remove="Utities\SerializeUtil.cs" />
+    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">

@@ -8,11 +8,7 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="DbContextExtensions.cs" />
-    <Compile Remove="EfDataProviderManager.cs" />
-    <Compile Remove="Extensions.cs" />
-    <Compile Remove="SqlCeDataProvider.cs" />
-    <Compile Remove="SqlServerDataProvider.cs" />
+    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore">

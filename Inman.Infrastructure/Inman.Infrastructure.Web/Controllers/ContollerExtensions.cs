@@ -1,5 +1,7 @@
-﻿using System.IO;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using System.IO;
 
 namespace Inman.Infrastructure.Web
 {
@@ -47,7 +49,7 @@ namespace Inman.Infrastructure.Web
 
             using (var sw = new StringWriter())
             {
-                ViewEngineResult viewResult = System.Web.Mvc.ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
+                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
                 var viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
                 viewResult.View.Render(viewContext, sw);
 
