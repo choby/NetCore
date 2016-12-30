@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
 using Inman.Infrastructure.Common;
 
 namespace Inman.Infrastructure.Web
@@ -142,49 +140,53 @@ namespace Inman.Infrastructure.Web
         /// <returns>Boolean</returns>
         public static bool AreNullOrEmpty(params string[] stringsToValidate) {
             bool result = false;
-            Array.ForEach(stringsToValidate, str => {
+            foreach (var str in stringsToValidate)
+            {
                 if (string.IsNullOrEmpty(str)) result = true;
-            });
+            }
+            //Array.ForEach(stringsToValidate, str => {
+            //    if (string.IsNullOrEmpty(str)) result = true;
+            //});
             return result;
         }
 
 
-        private static AspNetHostingPermissionLevel? _trustLevel = null;
-        /// <summary>
-        /// Finds the trust level of the running application (http://blogs.msdn.com/dmitryr/archive/2007/01/23/finding-out-the-current-trust-level-in-asp-net.aspx)
-        /// </summary>
-        /// <returns>The current trust level.</returns>
-        public static AspNetHostingPermissionLevel GetTrustLevel()
-        {
-            if (!_trustLevel.HasValue)
-            {
-                //set minimum
-                _trustLevel = AspNetHostingPermissionLevel.None;
+        //private static AspNetHostingPermissionLevel? _trustLevel = null;
+        ///// <summary>
+        ///// Finds the trust level of the running application (http://blogs.msdn.com/dmitryr/archive/2007/01/23/finding-out-the-current-trust-level-in-asp-net.aspx)
+        ///// </summary>
+        ///// <returns>The current trust level.</returns>
+        //public static AspNetHostingPermissionLevel GetTrustLevel()
+        //{
+        //    if (!_trustLevel.HasValue)
+        //    {
+        //        //set minimum
+        //        _trustLevel = AspNetHostingPermissionLevel.None;
 
-                //determine maximum
-                foreach (AspNetHostingPermissionLevel trustLevel in
-                        new AspNetHostingPermissionLevel[] {
-                                AspNetHostingPermissionLevel.Unrestricted,
-                                AspNetHostingPermissionLevel.High,
-                                AspNetHostingPermissionLevel.Medium,
-                                AspNetHostingPermissionLevel.Low,
-                                AspNetHostingPermissionLevel.Minimal 
-                            })
-                {
-                    try
-                    {
-                        new AspNetHostingPermission(trustLevel).Demand();
-                        _trustLevel = trustLevel;
-                        break; //we've set the highest permission we can
-                    }
-                    catch (System.Security.SecurityException)
-                    {
-                        continue;
-                    }
-                }
-            }
-            return _trustLevel.Value;
-        }
+        //        //determine maximum
+        //        foreach (AspNetHostingPermissionLevel trustLevel in
+        //                new AspNetHostingPermissionLevel[] {
+        //                        AspNetHostingPermissionLevel.Unrestricted,
+        //                        AspNetHostingPermissionLevel.High,
+        //                        AspNetHostingPermissionLevel.Medium,
+        //                        AspNetHostingPermissionLevel.Low,
+        //                        AspNetHostingPermissionLevel.Minimal 
+        //                    })
+        //        {
+        //            try
+        //            {
+        //                new AspNetHostingPermission(trustLevel).Demand();
+        //                _trustLevel = trustLevel;
+        //                break; //we've set the highest permission we can
+        //            }
+        //            catch (System.Security.SecurityException)
+        //            {
+        //                continue;
+        //            }
+        //        }
+        //    }
+        //    return _trustLevel.Value;
+        //}
 
         /// <summary>
         /// Sets a property on an object to a valuae.
@@ -258,7 +260,7 @@ namespace Inman.Infrastructure.Web
                     return destinationConverter.ConvertFrom(null, culture, value);
                 if (sourceConverter != null && sourceConverter.CanConvertTo(destinationType))
                     return sourceConverter.ConvertTo(null, culture, value, destinationType);
-                if (destinationType.IsEnum && value is int)
+                if (destinationType.GetTypeInfo().IsEnum && value is int)
                     return Enum.ToObject(destinationType, (int)value);
                 if (!destinationType.IsAssignableFrom(value.GetType()))
                     return Convert.ChangeType(value, destinationType, culture);
@@ -295,14 +297,14 @@ namespace Inman.Infrastructure.Web
             return result;
         }
 
-        public static bool OneToManyCollectionWrapperEnabled
-        {
-            get
-            {
-                bool enabled = !String.IsNullOrEmpty(ConfigurationManager.AppSettings["OneToManyCollectionWrapperEnabled"]) &&
-                   Convert.ToBoolean(ConfigurationManager.AppSettings["OneToManyCollectionWrapperEnabled"]);
-                return enabled;
-            }
-        }
+        //public static bool OneToManyCollectionWrapperEnabled
+        //{
+        //    get
+        //    {
+        //        bool enabled = !String.IsNullOrEmpty(ConfigurationManager.AppSettings["OneToManyCollectionWrapperEnabled"]) &&
+        //           Convert.ToBoolean(ConfigurationManager.AppSettings["OneToManyCollectionWrapperEnabled"]);
+        //        return enabled;
+        //    }
+        //}
     }
 }

@@ -8,8 +8,7 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="DataSettingsHelper.cs" />
-    <Compile Remove="DataSettingsManager.cs" />
+   
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NETStandard.Library">

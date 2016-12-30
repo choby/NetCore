@@ -1,4 +1,4 @@
-using System.Web;
+
 
 namespace Inman.Infrastructure.Web
 {
@@ -7,32 +7,32 @@ namespace Inman.Infrastructure.Web
     /// </summary>
     public partial interface IWebHelper
     {
-        /// <summary>
-        /// Get URL referrer
-        /// </summary>
-        /// <returns>URL referrer</returns>
-        string GetUrlReferrer();
+        ///// <summary>
+        ///// Get URL referrer
+        ///// </summary>
+        ///// <returns>URL referrer</returns>
+        //string GetUrlReferrer();
 
-        /// <summary>
-        /// Get context IP address
-        /// </summary>
-        /// <returns>URL referrer</returns>
-        string GetCurrentIpAddress();
+        ///// <summary>
+        ///// Get context IP address
+        ///// </summary>
+        ///// <returns>URL referrer</returns>
+        //string GetCurrentIpAddress();
 
-        /// <summary>
-        /// Gets this page name
-        /// </summary>
-        /// <param name="includeQueryString">Value indicating whether to include query strings</param>
-        /// <returns>Page name</returns>
-        string GetThisPageUrl(bool includeQueryString);
+        ///// <summary>
+        ///// Gets this page name
+        ///// </summary>
+        ///// <param name="includeQueryString">Value indicating whether to include query strings</param>
+        ///// <returns>Page name</returns>
+        //string GetThisPageUrl(bool includeQueryString);
 
-        /// <summary>
-        /// Gets this page name
-        /// </summary>
-        /// <param name="includeQueryString">Value indicating whether to include query strings</param>
-        /// <param name="useSsl">Value indicating whether to get SSL protected page</param>
-        /// <returns>Page name</returns>
-        string GetThisPageUrl(bool includeQueryString, bool useSsl);
+        ///// <summary>
+        ///// Gets this page name
+        ///// </summary>
+        ///// <param name="includeQueryString">Value indicating whether to include query strings</param>
+        ///// <param name="useSsl">Value indicating whether to get SSL protected page</param>
+        ///// <returns>Page name</returns>
+        //string GetThisPageUrl(bool includeQueryString, bool useSsl);
 
         /// <summary>
         /// Gets a value indicating whether current connection is secured
@@ -40,50 +40,50 @@ namespace Inman.Infrastructure.Web
         /// <returns>true - secured, false - not secured</returns>
         bool IsCurrentConnectionSecured();
         
-        /// <summary>
-        /// Gets server variable by name
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <returns>Server variable</returns>
-        string ServerVariables(string name);
+        ///// <summary>
+        ///// Gets server variable by name
+        ///// </summary>
+        ///// <param name="name">Name</param>
+        ///// <returns>Server variable</returns>
+        //string ServerVariables(string name);
 
-        /// <summary>
-        /// Gets store host location
-        /// </summary>
-        /// <param name="useSsl">Use SSL</param>
-        /// <returns>Store host location</returns>
-        string GetStoreHost(bool useSsl);
+        ///// <summary>
+        ///// Gets store host location
+        ///// </summary>
+        ///// <param name="useSsl">Use SSL</param>
+        ///// <returns>Store host location</returns>
+        //string GetStoreHost(bool useSsl);
 
-        /// <summary>
-        /// Gets store location
-        /// </summary>
-        /// <returns>Store location</returns>
-        string GetStoreLocation();
+        ///// <summary>
+        ///// Gets store location
+        ///// </summary>
+        ///// <returns>Store location</returns>
+        //string GetStoreLocation();
 
-        /// <summary>
-        /// Gets store location
-        /// </summary>
-        /// <param name="useSsl">Use SSL</param>
-        /// <returns>Store location</returns>
-        string GetStoreLocation(bool useSsl);
+        ///// <summary>
+        ///// Gets store location
+        ///// </summary>
+        ///// <param name="useSsl">Use SSL</param>
+        ///// <returns>Store location</returns>
+        //string GetStoreLocation(bool useSsl);
 
-        /// <summary>
-        /// Returns true if the requested resource is one of the typical resources that needn't be processed by the cms engine.
-        /// </summary>
-        /// <param name="request">HTTP Request</param>
-        /// <returns>True if the request targets a static resource file.</returns>
-        /// <remarks>
-        /// These are the file extensions considered to be static resources:
-        /// .css
-        ///	.gif
-        /// .png 
-        /// .jpg
-        /// .jpeg
-        /// .js
-        /// .axd
-        /// .ashx
-        /// </remarks>
-        bool IsStaticResource(HttpRequest request);
+        ///// <summary>
+        ///// Returns true if the requested resource is one of the typical resources that needn't be processed by the cms engine.
+        ///// </summary>
+        ///// <param name="request">HTTP Request</param>
+        ///// <returns>True if the request targets a static resource file.</returns>
+        ///// <remarks>
+        ///// These are the file extensions considered to be static resources:
+        ///// .css
+        /////	.gif
+        ///// .png 
+        ///// .jpg
+        ///// .jpeg
+        ///// .js
+        ///// .axd
+        ///// .ashx
+        ///// </remarks>
+        //bool IsStaticResource(HttpRequest request);
         
         /// <summary>
         /// Maps a virtual path to a physical disk path.
@@ -118,24 +118,24 @@ namespace Inman.Infrastructure.Web
         /// <returns>Query string value</returns>
         T QueryString<T>(string name);
 
-        /// <summary>
-        /// Restart application domain
-        /// </summary>
-        /// <param name="makeRedirect">A value indicating whether </param>
-        /// <param name="redirectUrl">Redirect URL; empty string if you want to redirect to the current page URL</param>
-        void RestartAppDomain(bool makeRedirect = false, string redirectUrl = "");
+        ///// <summary>
+        ///// Restart application domain
+        ///// </summary>
+        ///// <param name="makeRedirect">A value indicating whether </param>
+        ///// <param name="redirectUrl">Redirect URL; empty string if you want to redirect to the current page URL</param>
+        //void RestartAppDomain(bool makeRedirect = false, string redirectUrl = "");
         
-        /// <summary>
-        /// Get a value indicating whether the request is made by search engine (web crawler)
-        /// </summary>
-        /// <param name="context">HTTP context</param>
-        /// <returns>Result</returns>
-        bool IsSearchEngine(HttpContextBase context);
+        ///// <summary>
+        ///// Get a value indicating whether the request is made by search engine (web crawler)
+        ///// </summary>
+        ///// <param name="context">HTTP context</param>
+        ///// <returns>Result</returns>
+        //bool IsSearchEngine(HttpContextBase context);
 
-        /// <summary>
-        /// Gets a value that indicates whether the client is being redirected to a new location
-        /// </summary>
-        bool IsRequestBeingRedirected { get; }
+        ///// <summary>
+        ///// Gets a value that indicates whether the client is being redirected to a new location
+        ///// </summary>
+        //bool IsRequestBeingRedirected { get; }
 
         /// <summary>
         /// Gets or sets a value that indicates whether the client is being redirected to a new location using POST
@@ -148,27 +148,27 @@ namespace Inman.Infrastructure.Web
         /// <returns></returns>
         bool IsAjaxRequest();
 
-        /// <summary>
-        /// 操作系统版本
-        /// </summary>
-        string ServerOSVersion  {  get; }
-        /// <summary>
-        /// 系统目录
-        /// </summary>
-        string ServerSystemDirectory { get; }
-        /// <summary>
-        /// 脚本超时时间
-        /// </summary>
+        ///// <summary>
+        ///// 操作系统版本
+        ///// </summary>
+        //string ServerOSVersion  {  get; }
+        ///// <summary>
+        ///// 系统目录
+        ///// </summary>
+        //string ServerSystemDirectory { get; }
+        ///// <summary>
+        ///// 脚本超时时间
+        ///// </summary>
 
-        int ScriptTimeout { get; }
-        /// <summary>
-        /// 语言
-        /// </summary>
-        string InstalledUICulture { get; }
-        /// <summary>
-        /// .Net版本
-        /// </summary>
-        string DotNetVersion { get; }
+        //int ScriptTimeout { get; }
+        ///// <summary>
+        ///// 语言
+        ///// </summary>
+        //string InstalledUICulture { get; }
+        ///// <summary>
+        ///// .Net版本
+        ///// </summary>
+        //string DotNetVersion { get; }
         /// <summary>
         /// 程序运行时间
         /// </summary>
@@ -181,17 +181,17 @@ namespace Inman.Infrastructure.Web
         /// CPU类型
         /// </summary>
         string ProcessorIdentifier { get; }
-        /// <summary>
-        /// ASP.NET占用内存
-        /// </summary>
-        double WorkingMemory { get; }
-        /// <summary>
-        /// ASP.NET占用CPU
-        /// </summary>
-        double ProcessorTime { get; }
-        /// <summary>
-        /// 系统用户名
-        /// </summary>
-        string SystemUserName { get; }
+        ///// <summary>
+        ///// ASP.NET占用内存
+        ///// </summary>
+        //double WorkingMemory { get; }
+        ///// <summary>
+        ///// ASP.NET占用CPU
+        ///// </summary>
+        //double ProcessorTime { get; }
+        ///// <summary>
+        ///// 系统用户名
+        ///// </summary>
+        //string SystemUserName { get; }
     }
 }

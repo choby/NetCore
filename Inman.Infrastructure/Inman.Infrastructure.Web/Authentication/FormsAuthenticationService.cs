@@ -1,7 +1,5 @@
-﻿using System;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.Security;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Inman.Infrastructure.Web
 {
@@ -9,6 +7,7 @@ namespace Inman.Infrastructure.Web
     {
         private readonly TimeSpan _expirationTimeSpan;
         private TicketData _cachedUserData;
+        HttpContext _httpContext;
 
         public FormsAuthenticationService()
         {
@@ -31,20 +30,20 @@ namespace Inman.Infrastructure.Web
 
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
 
-            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket) { HttpOnly = true };
+            //var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket) { HttpOnly = true };
 
-            if (ticket.IsPersistent)
-            {
-                cookie.Expires = ticket.Expiration;
-            }
-            cookie.Secure = FormsAuthentication.RequireSSL;
-            cookie.Path = FormsAuthentication.FormsCookiePath;
-            if (FormsAuthentication.CookieDomain != null)
-            {
-                cookie.Domain = FormsAuthentication.CookieDomain;
-            }
+            //if (ticket.IsPersistent)
+            //{
+            //    cookie.Expires = ticket.Expiration;
+            //}
+            //cookie.Secure = FormsAuthentication.RequireSSL;
+            //cookie.Path = FormsAuthentication.FormsCookiePath;
+            //if (FormsAuthentication.CookieDomain != null)
+            //{
+            //    cookie.Domain = FormsAuthentication.CookieDomain;
+            //}
 
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            _httpContext.Response.Cookies.Append(FormsAuthentication.FormsCookieName, encryptedTicket);
             _cachedUserData = ticketData;
         }
 

@@ -8,12 +8,7 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Auotfac\AutofacRequestLifetimeHttpModule.cs" />
-    <Compile Remove="Auotfac\ComponentLifeStyle.cs" />
-    <Compile Remove="Auotfac\ComponentRegistrationException.cs" />
-    <Compile Remove="Auotfac\ContainerConfigurer.cs" />
-    <Compile Remove="ContainerManager.cs" />
-    <Compile Remove="EventBroker.cs" />
+   
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">

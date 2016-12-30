@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
-using System.Web.Mvc;
 
 namespace Inman.Infrastructure.Web
 {
@@ -19,13 +18,13 @@ namespace Inman.Infrastructure.Web
         /// </summary>
         public bool IsPostRequest
         {
-            get { return Request.HttpMethod.Equals("POST", StringComparison.OrdinalIgnoreCase); }
+            get { return Request.Method.Equals("POST", StringComparison.OrdinalIgnoreCase); }
         }
 
-        protected override void OnException(ExceptionContext filterContext)
-        {
-            LogException(filterContext.Exception);
-        }
+        //protected override void OnException(ExceptionContext filterContext)
+        //{
+        //    LogException(filterContext.Exception);
+        //}
 
         protected virtual void LogException(Exception exception)
         {
