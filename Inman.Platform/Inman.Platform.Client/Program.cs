@@ -1,0 +1,22 @@
+﻿using Grpc.Core;
+using Inman.Platform.ServiceStub;
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Channel channel = new Channel("127.0.0.1:50052", ChannelCredentials.Insecure);
+
+        var client = new UserService.UserServiceClient(channel);
+        //String user = "you";
+
+        var reply =  client.LoginValidate(new LoginStuff { UserName = "hurong", Password= "vcCArGsDhKHRTS9Hp0Eonw0VtMiyXmCZgI+s+NiXzVg=" });
+        Console.WriteLine("LoginResult: " + reply.Success);
+        Console.WriteLine("User: " + reply.User);
+
+        channel.ShutdownAsync().Wait();
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadKey();
+    }
+}
