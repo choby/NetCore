@@ -1,15 +1,13 @@
 ﻿using Grpc.Core;
-using Inman.Platform.Data.Repository;
 using Inman.Platform.Server;
 using Inman.Platform.Service;
 using Inman.Platform.ServiceStub;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PetaPoco.NetCore;
 using System;
-using System.Data.SqlClient;
+using static Inman.Platform.ServiceStub.StockItemService;
 using static Inman.Platform.ServiceStub.UserService;
-
+using static Inman.Platform.ServiceStub.ProductService;
+using static Inman.Platform.ServiceStub.GoodsService;
 class Program
 {
     static IServiceProvider serviceProvider;
@@ -20,10 +18,15 @@ class Program
         serviceProvider = services.BuildServiceProvider();
 
         const int Port = 50052;
-        
+
         Server server = new Server
         {
-            Services = { UserService.BindService(serviceProvider.GetService<UserServiceBase>()) },
+            Services = {
+                UserService.BindService(serviceProvider.GetService<UserServiceBase>()),
+                StockItemService.BindService(serviceProvider.GetService<StockItemServiceBase>()),
+                 ProductService.BindService(serviceProvider.GetService<ProductServiceBase>()),
+                  GoodsService.BindService(serviceProvider.GetService<GoodsServiceBase>())
+            },
             Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
         };
         server.Start();

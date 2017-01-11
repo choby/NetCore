@@ -22,19 +22,17 @@ namespace Inman.Platform.ServiceStub {
     static UserserviceReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChF1c2Vyc2VydmljZS5wcm90byIwCgpMb2dpblN0dWZmEhAKCFVzZXJOYW1l",
-            "GAEgASgJEhAKCFBhc3N3b3JkGAIgASgJIjMKC0xvZ2luUmVzdWx0Eg8KB1N1",
-            "Y2Nlc3MYASABKAgSEwoEVXNlchgCIAEoCzIFLlVzZXIiNAoEVXNlchIKCgJJ",
-            "ZBgBIAEoBRIOCgZPcGVuSWQYAiABKAkSEAoIVXNlck5hbWUYAyABKAkyOwoL",
-            "VXNlclNlcnZpY2USLAoNTG9naW5WYWxpZGF0ZRILLkxvZ2luU3R1ZmYaDC5M",
-            "b2dpblJlc3VsdCIAQh2qAhpJbm1hbi5QbGF0Zm9ybS5TZXJ2aWNlU3R1YmIG",
-            "cHJvdG8z"));
+            "ChF1c2Vyc2VydmljZS5wcm90bxoKZGF0YS5wcm90byIwCgpMb2dpblN0dWZm",
+            "EhAKCFVzZXJOYW1lGAEgASgJEhAKCFBhc3N3b3JkGAIgASgJIjMKC0xvZ2lu",
+            "UmVzdWx0Eg8KB1N1Y2Nlc3MYASABKAgSEwoEVXNlchgCIAEoCzIFLlVzZXIy",
+            "OwoLVXNlclNlcnZpY2USLAoNTG9naW5WYWxpZGF0ZRILLkxvZ2luU3R1ZmYa",
+            "DC5Mb2dpblJlc3VsdCIAQh2qAhpJbm1hbi5QbGF0Zm9ybS5TZXJ2aWNlU3R1",
+            "YmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Inman.Platform.ServiceStub.Data.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.LoginStuff), global::Inman.Platform.ServiceStub.LoginStuff.Parser, new[]{ "UserName", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.LoginResult), global::Inman.Platform.ServiceStub.LoginResult.Parser, new[]{ "Success", "User" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.User), global::Inman.Platform.ServiceStub.User.Parser, new[]{ "Id", "OpenId", "UserName" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.LoginResult), global::Inman.Platform.ServiceStub.LoginResult.Parser, new[]{ "Success", "User" }, null, null, null)
           }));
     }
     #endregion
@@ -238,9 +236,9 @@ namespace Inman.Platform.ServiceStub {
 
     /// <summary>Field number for the "User" field.</summary>
     public const int UserFieldNumber = 2;
-    private global::Inman.Platform.ServiceStub.User user_;
+    private global::Inman.Platform.ServiceStub.Data.User user_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Inman.Platform.ServiceStub.User User {
+    public global::Inman.Platform.ServiceStub.Data.User User {
       get { return user_; }
       set {
         user_ = value;
@@ -312,7 +310,7 @@ namespace Inman.Platform.ServiceStub {
       }
       if (other.user_ != null) {
         if (user_ == null) {
-          user_ = new global::Inman.Platform.ServiceStub.User();
+          user_ = new global::Inman.Platform.ServiceStub.Data.User();
         }
         User.MergeFrom(other.User);
       }
@@ -332,182 +330,9 @@ namespace Inman.Platform.ServiceStub {
           }
           case 18: {
             if (user_ == null) {
-              user_ = new global::Inman.Platform.ServiceStub.User();
+              user_ = new global::Inman.Platform.ServiceStub.Data.User();
             }
             input.ReadMessage(user_);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class User : pb::IMessage<User> {
-    private static readonly pb::MessageParser<User> _parser = new pb::MessageParser<User>(() => new User());
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<User> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Inman.Platform.ServiceStub.UserserviceReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public User() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public User(User other) : this() {
-      id_ = other.id_;
-      openId_ = other.openId_;
-      userName_ = other.userName_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public User Clone() {
-      return new User(this);
-    }
-
-    /// <summary>Field number for the "Id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private int id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "OpenId" field.</summary>
-    public const int OpenIdFieldNumber = 2;
-    private string openId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string OpenId {
-      get { return openId_; }
-      set {
-        openId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "UserName" field.</summary>
-    public const int UserNameFieldNumber = 3;
-    private string userName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string UserName {
-      get { return userName_; }
-      set {
-        userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as User);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(User other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      if (OpenId != other.OpenId) return false;
-      if (UserName != other.UserName) return false;
-      return true;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Id != 0) hash ^= Id.GetHashCode();
-      if (OpenId.Length != 0) hash ^= OpenId.GetHashCode();
-      if (UserName.Length != 0) hash ^= UserName.GetHashCode();
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Id != 0) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Id);
-      }
-      if (OpenId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(OpenId);
-      }
-      if (UserName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(UserName);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
-      }
-      if (OpenId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(OpenId);
-      }
-      if (UserName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(User other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Id != 0) {
-        Id = other.Id;
-      }
-      if (other.OpenId.Length != 0) {
-        OpenId = other.OpenId;
-      }
-      if (other.UserName.Length != 0) {
-        UserName = other.UserName;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            input.SkipLastField();
-            break;
-          case 8: {
-            Id = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            OpenId = input.ReadString();
-            break;
-          }
-          case 26: {
-            UserName = input.ReadString();
             break;
           }
         }

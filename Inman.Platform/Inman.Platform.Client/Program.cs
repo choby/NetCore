@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Channel channel = new Channel("127.0.0.1:50052", ChannelCredentials.Insecure);
+        Channel channel = new Channel("192.168.7.213:50052", ChannelCredentials.Insecure);
 
         var client = new UserService.UserServiceClient(channel);
         //String user = "you";

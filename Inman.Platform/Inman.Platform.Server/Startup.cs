@@ -1,5 +1,6 @@
 ﻿using Inman.Platform.Data.Repository;
 using Inman.Platform.Service;
+using Inman.Platform.ServiceStub;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PetaPoco.NetCore;
@@ -8,6 +9,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using static Inman.Platform.ServiceStub.UserService;
+using static Inman.Platform.ServiceStub.StockItemService;
+using static Inman.Platform.ServiceStub.ProductService;
+using static Inman.Platform.ServiceStub.GoodsService;
 
 namespace Inman.Platform.Server
 {
@@ -31,8 +35,9 @@ namespace Inman.Platform.Server
             services.AddTransient(typeof(Database), sp => new Database(new SqlConnection(configuration.GetSection("dbConn").Value)));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<UserServiceBase, UserServiceImpl>();
-            //构建容器
-            
+            services.AddTransient<StockItemServiceBase, StockItemServiceImpl>();
+            services.AddTransient<ProductServiceBase, ProductServiceImpl>();
+            services.AddTransient<GoodsServiceBase, GoodsServiceImpl>();
         }
     }
 }

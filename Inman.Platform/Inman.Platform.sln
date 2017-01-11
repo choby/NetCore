@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26014.0
+VisualStudioVersion = 15.0.26020.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Platform.Server", "Inman.Platform.Server\Inman.Platform.Server.csproj", "{AB836C4E-13BE-4167-8227-AFF412AFFA1B}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Platform.Data", "Inman.Platform.Data\Inman.Platform.Data.csproj", "{73812190-BAB6-427F-BE44-8E56678AF5AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.IdentityServer", "Inman.IdentityServer\Inman.IdentityServer.csproj", "{B2F7C51C-B88C-49FB-9528-3E58F2DBB361}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inman.SCM.Main", "Inman.SCM.Main\Inman.SCM.Main.csproj", "{685AC5B3-630A-45FF-99BA-1C26936E6398}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,18 @@ Global
 		{B2F7C51C-B88C-49FB-9528-3E58F2DBB361}.Release|x64.Build.0 = Release|x64
 		{B2F7C51C-B88C-49FB-9528-3E58F2DBB361}.Release|x86.ActiveCfg = Release|x86
 		{B2F7C51C-B88C-49FB-9528-3E58F2DBB361}.Release|x86.Build.0 = Release|x86
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|x64.ActiveCfg = Debug|x64
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|x64.Build.0 = Debug|x64
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|x86.ActiveCfg = Debug|x86
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Debug|x86.Build.0 = Debug|x86
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|x64.ActiveCfg = Release|x64
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|x64.Build.0 = Release|x64
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|x86.ActiveCfg = Release|x86
+		{685AC5B3-630A-45FF-99BA-1C26936E6398}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -41,7 +41,11 @@ set TOOLS_PATH=tools\windows_x86
 --csharp_out .  ^
 --grpc_out GRPC ^
 --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe ^
-protos/userservice.proto 
+protos/data.proto ^
+protos/userservice.proto ^
+protos/stockitemservice.proto ^
+protos/goodsservice.proto ^
+protos/productservice.proto 
 
 pause
 endlocal

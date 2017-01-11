@@ -1,0 +1,112 @@
+﻿
+syntax = "proto3";
+
+//for csharp
+option csharp_namespace = "Inman.Platform.ServiceStub.Data";
+
+message User{
+	int32 Id = 1;
+	string OpenId = 2;
+	string UserName = 3;
+}
+
+
+message StockItem {
+  int32 Id = 1;
+  int32 SupplierID = 2;
+  int32 ColorID = 3;
+  int32 ItemCategoryId1 = 4;
+  int32 ItemCategoryId2 = 5;
+  int32 ItemCategoryId3 = 6;
+  string FirstYear = 7;
+  string FirstSeason = 8;
+  string DevMonth = 9;
+  string Developer = 10;
+  string ItemCode = 11;
+  string ItemCode2 = 12;
+  string ColorCode = 13;
+  string ItemName = 14;
+  string ItemSpec = 15;
+  int32 BuyerId = 16;
+  int32 Buyer = 17;
+  double Price = 18;
+  double  DevPrice = 19;
+  double ExclusiveTaxPrice = 20;
+  double DevExclusiveTaxPrice = 21;
+  double ExclusiveTaxPriceAgent = 22;
+  double PriceAgent = 23;
+   double   KGPrice = 24;
+    string  Unit = 25;
+    string  Component = 26;
+     float LateralContraction = 27;
+    float  DirectContraction = 28;
+    float  ItemWidth = 29;
+    float  Weight = 30;
+     float KilogramMeter = 31;
+   string   DaysSupply = 32;
+    float  MOQ = 33;
+     float UpperInventory = 34;
+     float BelowInventory = 35;
+     string SupplierItemCode = 36;
+    string  SupplierItemColor = 37;
+    string  Remark = 38;
+     string PicturePath = 39;
+    bool  HaveApproveDevPrice = 40;
+     bool HaveApprovePrice = 41 ;
+    string  Brand = 42;
+     string DevType = 43;
+    int32  SortCode = 44;
+     bool Enabled = 45;
+     bool Deleted = 46;
+    int32  AccountID = 47;
+     double CreatedOn = 48;
+     string CreatedBy = 49;
+     int32 CreatedCustomerId = 50;
+     double ModifiedOn = 51;
+    string  ModifiedBy = 52;
+    int32  ModifiedCustomerId = 53;
+    string  ApprovalPriceRemark = 54;
+    int32  ExemptionState	    = 55;
+     int32 OwnerId			    = 56;
+}
+
+message Product {
+  int32 Id = 1;
+  int32 ColorId=2;
+  int32 GoodsId = 3;
+  string ProductSN = 4;
+  string PicturePath = 5;
+  string Remark = 6;
+  Goods Goods = 7;
+}
+
+message Goods {
+  int32 Id = 1;
+  int32 DesignID = 2;
+  string ProductCategory1 = 3;
+  string ProductCategory2 = 4;
+  string ProductCategory3 = 5;
+  string Brand = 6;
+  string ProductName = 7;
+  int32 ProductYear = 8;
+  string Season = 9;
+  string ExecStandard = 10;
+  string SafetyCass = 11;
+  string Component = 12;
+  double DevCost = 13;
+  string ProductSN = 14;
+  Design Design = 15;
+}
+
+message Design
+{
+	int32 Id = 1;
+	int32 DevYear = 2;
+	string DesignGroup = 3;
+	string DesignSeason = 4;
+	string Theme = 5;
+	string Collection = 6;
+	string DesignAssistantName = 7;
+}
+
+

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
+using static Inman.Platform.ServiceStub.StockItemService;
 
 namespace Inman.SCM
 {
@@ -28,6 +29,7 @@ namespace Inman.SCM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient(typeof(StockItemServiceClient), typeof(StockItemServiceClient));
             // Add framework services.
             services.AddMvc();
         }

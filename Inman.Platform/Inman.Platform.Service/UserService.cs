@@ -7,6 +7,7 @@ using Inman.Platform.ServiceStub;
 using static Inman.Platform.ServiceStub.UserService;
 using Inman.Platform.Data.Repository;
 using Inman.Platform.Data.Domain;
+using Inman.Platform.ServiceStub.Data;
 
 namespace Inman.Platform.Service
 {

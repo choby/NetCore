@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Product>
+@using Inman.Platform.ServiceStub.Data;
+
+<dl>
+    @Model.Count()
+    @foreach (var product in Model)
+    {
+        <dt>@product.ProductSN</dt>
+        <dd>@product.Goods.Brand</dd>
+        <dd>@product.Goods.Design.DevYear</dd>
+    }
+</dl>

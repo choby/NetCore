@@ -28,6 +28,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 syntax = "proto3";
+import "data.proto";
 
 // for java 
 //option java_multiple_files = true;
@@ -58,8 +59,4 @@ message LoginResult {
   User User = 2;
 }
 
-message User{
-	int32 Id = 1;
-	string OpenId = 2;
-	string UserName = 3;
-}
+

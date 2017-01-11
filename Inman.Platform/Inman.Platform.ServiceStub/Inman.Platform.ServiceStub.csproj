@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
     <EmbeddedResource Include="**\*.resx" />
@@ -11,6 +14,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="generate_protos.bat" />
+    <None Include="protos\data.proto" />
+    <None Include="protos\goodsservice.proto" />
+    <None Include="protos\productservice.proto" />
+    <None Include="protos\stockitemservice.proto" />
     <None Include="protos\userservice.proto" />
     <None Include="tools\windows_x64\grpc_csharp_plugin.exe" />
     <None Include="tools\windows_x64\protoc.exe" />
