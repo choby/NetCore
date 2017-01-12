@@ -32,7 +32,7 @@ namespace Inman.SCM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(typeof(Channel), sp => new Channel("localhost:50052", ChannelCredentials.Insecure));
+            services.AddSingleton(typeof(Channel), sp => new Channel("192.168.7.213:50052", ChannelCredentials.Insecure));
             services.AddTransient(typeof(StockItemServiceClient), typeof(StockItemServiceClient));
             services.AddTransient(typeof(ProductServiceClient), typeof(ProductServiceClient));
             services.AddTransient(typeof(GoodsServiceClient), typeof(GoodsServiceClient));

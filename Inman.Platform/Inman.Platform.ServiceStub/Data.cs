@@ -45,33 +45,71 @@ namespace Inman.Platform.ServiceStub.Data {
             "cmljZRgoIAEoCBIYChBIYXZlQXBwcm92ZVByaWNlGCkgASgIEg0KBUJyYW5k",
             "GCogASgJEg8KB0RldlR5cGUYKyABKAkSEAoIU29ydENvZGUYLCABKAUSDwoH",
             "RW5hYmxlZBgtIAEoCBIPCgdEZWxldGVkGC4gASgIEhEKCUFjY291bnRJRBgv",
-            "IAEoBRIRCglDcmVhdGVkT24YMCABKAESEQoJQ3JlYXRlZEJ5GDEgASgJEhkK",
-            "EUNyZWF0ZWRDdXN0b21lcklkGDIgASgFEhIKCk1vZGlmaWVkT24YMyABKAES",
+            "IAEoBRIRCglDcmVhdGVkT24YMCABKAkSEQoJQ3JlYXRlZEJ5GDEgASgJEhkK",
+            "EUNyZWF0ZWRDdXN0b21lcklkGDIgASgFEhIKCk1vZGlmaWVkT24YMyABKAkS",
             "EgoKTW9kaWZpZWRCeRg0IAEoCRIaChJNb2RpZmllZEN1c3RvbWVySWQYNSAB",
             "KAUSGwoTQXBwcm92YWxQcmljZVJlbWFyaxg2IAEoCRIWCg5FeGVtcHRpb25T",
-            "dGF0ZRg3IAEoBRIPCgdPd25lcklkGDggASgFIoYBCgdQcm9kdWN0EgoKAklk",
+            "dGF0ZRg3IAEoBRIPCgdPd25lcklkGDggASgFItECCgdQcm9kdWN0EgoKAklk",
             "GAEgASgFEg8KB0NvbG9ySWQYAiABKAUSDwoHR29vZHNJZBgDIAEoBRIRCglQ",
             "cm9kdWN0U04YBCABKAkSEwoLUGljdHVyZVBhdGgYBSABKAkSDgoGUmVtYXJr",
-            "GAYgASgJEhUKBUdvb2RzGAcgASgLMgYuR29vZHMitgIKBUdvb2RzEgoKAklk",
-            "GAEgASgFEhAKCERlc2lnbklEGAIgASgFEhgKEFByb2R1Y3RDYXRlZ29yeTEY",
-            "AyABKAkSGAoQUHJvZHVjdENhdGVnb3J5MhgEIAEoCRIYChBQcm9kdWN0Q2F0",
-            "ZWdvcnkzGAUgASgJEg0KBUJyYW5kGAYgASgJEhMKC1Byb2R1Y3ROYW1lGAcg",
-            "ASgJEhMKC1Byb2R1Y3RZZWFyGAggASgFEg4KBlNlYXNvbhgJIAEoCRIUCgxF",
-            "eGVjU3RhbmRhcmQYCiABKAkSEgoKU2FmZXR5Q2FzcxgLIAEoCRIRCglDb21w",
-            "b25lbnQYDCABKAkSDwoHRGV2Q29zdBgNIAEoARIRCglQcm9kdWN0U04YDiAB",
-            "KAkSFwoGRGVzaWduGA8gASgLMgcuRGVzaWduIpABCgZEZXNpZ24SCgoCSWQY",
-            "ASABKAUSDwoHRGV2WWVhchgCIAEoBRITCgtEZXNpZ25Hcm91cBgDIAEoCRIU",
-            "CgxEZXNpZ25TZWFzb24YBCABKAkSDQoFVGhlbWUYBSABKAkSEgoKQ29sbGVj",
-            "dGlvbhgGIAEoCRIbChNEZXNpZ25Bc3Npc3RhbnROYW1lGAcgASgJQiKqAh9J",
-            "bm1hbi5QbGF0Zm9ybS5TZXJ2aWNlU3R1Yi5EYXRhYgZwcm90bzM="));
+            "GAYgASgJEhEKCUFjY291bnRJRBgHIAEoBRIPCgdEZWxldGVkGAggASgIEg8K",
+            "B0VuYWJsZWQYCSABKAUSEQoJQ3JlYXRlZE9uGAogASgJEhEKCUNyZWF0ZWRC",
+            "eRgLIAEoCRIZChFDcmVhdGVkQ3VzdG9tZXJJZBgMIAEoBRISCgpNb2RpZmll",
+            "ZE9uGA0gASgJEhIKCk1vZGlmaWVkQnkYDiABKAkSGgoSTW9kaWZpZWRDdXN0",
+            "b21lcklkGA8gASgFEg8KB093bmVySWQYECABKAUSFQoFR29vZHMYESABKAsy",
+            "Bi5Hb29kcyLNBwoFR29vZHMSCgoCSWQYASABKAUSEAoIRGVzaWduSUQYAiAB",
+            "KAUSGAoQUHJvZHVjdENhdGVnb3J5MRgDIAEoCRIYChBQcm9kdWN0Q2F0ZWdv",
+            "cnkyGAQgASgJEhgKEFByb2R1Y3RDYXRlZ29yeTMYBSABKAkSDQoFQnJhbmQY",
+            "BiABKAkSEwoLUHJvZHVjdE5hbWUYByABKAkSEwoLUHJvZHVjdFllYXIYCCAB",
+            "KAUSDgoGU2Vhc29uGAkgASgJEhQKDEV4ZWNTdGFuZGFyZBgKIAEoCRISCgpT",
+            "YWZldHlDYXNzGAsgASgJEhEKCUNvbXBvbmVudBgMIAEoCRIPCgdEZXZDb3N0",
+            "GA0gASgBEhEKCVByb2R1Y3RTThgOIAEoCRIPCgdGT0JDb3N0GA8gASgBEhYK",
+            "DlByb2Nlc3NpbmdDb3N0GBAgASgBEhMKC1Byb2R1Y3RDb3N0GBEgASgBEhUK",
+            "DUludGVybmFsUHJpY2UYEiABKAESEgoKU2FsZXNQcmljZRgTIAEoARIQCghU",
+            "YWdQcmljZRgUIAEoARISCgpCYXRjaFByaWNlGBUgASgBEg8KB1JBRENvc3QY",
+            "FiABKAESEwoLSXNFbWVyZ2VuY3kYFyABKAgSFAoMUHJvZHVjdFRpdGxlGBgg",
+            "ASgJEhQKDFF1YWxpdHlHcmFkZRgZIAEoCRIOCgZGaWxsZXIYGiABKAkSGgoS",
+            "RmlsbEZlYXRoZXJQZXJjZW50GBsgASgCEiAKGFdhc2hpbmdNZXRob2RQaWN0",
+            "dXJlQ29kZRgcIAEoBRIdChVGaXJzdE9uc2FsZVNoZWx2ZURhdGUYHSABKAkS",
+            "EAoIU29ydENvZGUYHiABKAUSEQoJQWNjb3VudElEGB8gASgFEg8KB0RlbGV0",
+            "ZWQYICABKAgSDwoHRW5hYmxlZBghIAEoBRIRCglDcmVhdGVkT24YIiABKAkS",
+            "EQoJQ3JlYXRlZEJ5GCMgASgJEhkKEUNyZWF0ZWRDdXN0b21lcklkGCQgASgF",
+            "EhIKCk1vZGlmaWVkT24YJSABKAkSEgoKTW9kaWZpZWRCeRgmIAEoCRIaChJN",
+            "b2RpZmllZEN1c3RvbWVySWQYJyABKAUSCwoDU2V4GCggASgJEhwKFFdhc2hp",
+            "bmdNZXRob2RQaWN0dXJlGCkgASgJEhUKDUNhdGVnb3J5Q2xhc3MYKiABKAkS",
+            "EgoKSXNVcGxvYWRLMxgrIAEoCBIUCgxVcGxvYWRLM0RhdGUYLCABKAkSDwoH",
+            "T3duZXJJZBgtIAEoBRIXCgZEZXNpZ24YLiABKAsyBy5EZXNpZ24i4wcKBkRl",
+            "c2lnbhIKCgJJZBgBIAEoBRIPCgdEZXZZZWFyGAIgASgFEhMKC0Rlc2lnbkdy",
+            "b3VwGAMgASgJEhQKDERlc2lnblNlYXNvbhgEIAEoCRINCgVUaGVtZRgFIAEo",
+            "CRISCgpDb2xsZWN0aW9uGAYgASgJEhsKE0Rlc2lnbkFzc2lzdGFudE5hbWUY",
+            "ByABKAkSFwoPRGVzaWduUHJvZHVjdFNOGAggASgJEhMKC1Byb2R1Y3ROYW1l",
+            "GAkgASgJEh0KFUNvbW1pdFByb2R1Y3ROYW1lRGF0ZRgKIAEoCRIQCghNYXRl",
+            "cmlhbBgLIAEoCRISCgpUZWNobm9sb2d5GAwgASgJEg4KBkNvbGxhchgNIAEo",
+            "CRINCgVTaGFwZRgOIAEoCRITCgtDbG90aGVzTG9uZxgPIAEoCRITCgtTbGVl",
+            "dmVTaGFwZRgQIAEoCRISCgpTbGVldmVMb25nGBEgASgJEhkKEVR5cGVEZWNv",
+            "bXBvc2l0aW9uGBIgASgJEhMKC1BhcnRpY3VsYXJzGBMgASgJEg4KBkFla2J1",
+            "aBgUIAEoCRIRCglTa2lydExvbmcYFSABKAkSEgoKV2Fpc3RTaGFwZRgWIAEo",
+            "CRIPCgdFbGVtZW50GBcgASgJEhUKDVRyb3VzZXJzU2hhcGUYGCABKAkSDwoH",
+            "T3V0c2VhbRgZIAEoCRIOCgZQZXBsdW0YGiABKAkSEgoKQ29tbWlzc2lvbhgb",
+            "IAEoCRITCgtQaWN0dXJlUGF0aBgcIAEoCRIOCgZTdGF0dXMYHSABKAkSDQoF",
+            "QmF0Y2gYHiABKAkSEQoJVXBuZXdEYXRlGB8gASgJEg4KBlJlbWFyaxggIAEo",
+            "CRIQCghTb3J0Q29kZRghIAEoBRIRCglBY2NvdW50SUQYIiABKAUSDwoHRGVs",
+            "ZXRlZBgjIAEoCBIPCgdFbmFibGVkGCQgASgFEhEKCUNyZWF0ZWRPbhglIAEo",
+            "CRIRCglDcmVhdGVkQnkYJiABKAkSGQoRQ3JlYXRlZEN1c3RvbWVySWQYJyAB",
+            "KAUSEgoKTW9kaWZpZWRPbhgoIAEoCRISCgpNb2RpZmllZEJ5GCkgASgJEhoK",
+            "Ek1vZGlmaWVkQ3VzdG9tZXJJZBgqIAEoBRISCgpTaXplQ2F0ZUlkGCsgASgF",
+            "EhIKCklzTWFpblB1c2gYLCABKAkSEwoLV2F2ZVNlc3Npb24YLSABKAkSDgoG",
+            "R2VuZGVyGC4gASgJEhIKCkRlc2lnbkNhdGUYLyABKAkSDwoHT3duZXJJZBgw",
+            "IAEoBRIUCgxEZXNpZ25Tb3VyY2UYMSABKAkSEgoKUHJpY2VSYW5nZRgyIAEo",
+            "CUIiqgIfSW5tYW4uUGxhdGZvcm0uU2VydmljZVN0dWIuRGF0YWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.User), global::Inman.Platform.ServiceStub.Data.User.Parser, new[]{ "Id", "OpenId", "UserName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.StockItem), global::Inman.Platform.ServiceStub.Data.StockItem.Parser, new[]{ "Id", "SupplierID", "ColorID", "ItemCategoryId1", "ItemCategoryId2", "ItemCategoryId3", "FirstYear", "FirstSeason", "DevMonth", "Developer", "ItemCode", "ItemCode2", "ColorCode", "ItemName", "ItemSpec", "BuyerId", "Buyer", "Price", "DevPrice", "ExclusiveTaxPrice", "DevExclusiveTaxPrice", "ExclusiveTaxPriceAgent", "PriceAgent", "KGPrice", "Unit", "Component", "LateralContraction", "DirectContraction", "ItemWidth", "Weight", "KilogramMeter", "DaysSupply", "MOQ", "UpperInventory", "BelowInventory", "SupplierItemCode", "SupplierItemColor", "Remark", "PicturePath", "HaveApproveDevPrice", "HaveApprovePrice", "Brand", "DevType", "SortCode", "Enabled", "Deleted", "AccountID", "CreatedOn", "CreatedBy", "CreatedCustomerId", "ModifiedOn", "ModifiedBy", "ModifiedCustomerId", "ApprovalPriceRemark", "ExemptionState", "OwnerId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Product), global::Inman.Platform.ServiceStub.Data.Product.Parser, new[]{ "Id", "ColorId", "GoodsId", "ProductSN", "PicturePath", "Remark", "Goods" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Goods), global::Inman.Platform.ServiceStub.Data.Goods.Parser, new[]{ "Id", "DesignID", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Brand", "ProductName", "ProductYear", "Season", "ExecStandard", "SafetyCass", "Component", "DevCost", "ProductSN", "Design" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Design), global::Inman.Platform.ServiceStub.Data.Design.Parser, new[]{ "Id", "DevYear", "DesignGroup", "DesignSeason", "Theme", "Collection", "DesignAssistantName" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Product), global::Inman.Platform.ServiceStub.Data.Product.Parser, new[]{ "Id", "ColorId", "GoodsId", "ProductSN", "PicturePath", "Remark", "AccountID", "Deleted", "Enabled", "CreatedOn", "CreatedBy", "CreatedCustomerId", "ModifiedOn", "ModifiedBy", "ModifiedCustomerId", "OwnerId", "Goods" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Goods), global::Inman.Platform.ServiceStub.Data.Goods.Parser, new[]{ "Id", "DesignID", "ProductCategory1", "ProductCategory2", "ProductCategory3", "Brand", "ProductName", "ProductYear", "Season", "ExecStandard", "SafetyCass", "Component", "DevCost", "ProductSN", "FOBCost", "ProcessingCost", "ProductCost", "InternalPrice", "SalesPrice", "TagPrice", "BatchPrice", "RADCost", "IsEmergency", "ProductTitle", "QualityGrade", "Filler", "FillFeatherPercent", "WashingMethodPictureCode", "FirstOnsaleShelveDate", "SortCode", "AccountID", "Deleted", "Enabled", "CreatedOn", "CreatedBy", "CreatedCustomerId", "ModifiedOn", "ModifiedBy", "ModifiedCustomerId", "Sex", "WashingMethodPicture", "CategoryClass", "IsUploadK3", "UploadK3Date", "OwnerId", "Design" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.Data.Design), global::Inman.Platform.ServiceStub.Data.Design.Parser, new[]{ "Id", "DevYear", "DesignGroup", "DesignSeason", "Theme", "Collection", "DesignAssistantName", "DesignProductSN", "ProductName", "CommitProductNameDate", "Material", "Technology", "Collar", "Shape", "ClothesLong", "SleeveShape", "SleeveLong", "TypeDecomposition", "Particulars", "Aekbuh", "SkirtLong", "WaistShape", "Element", "TrousersShape", "Outseam", "Peplum", "Commission", "PicturePath", "Status", "Batch", "UpnewDate", "Remark", "SortCode", "AccountID", "Deleted", "Enabled", "CreatedOn", "CreatedBy", "CreatedCustomerId", "ModifiedOn", "ModifiedBy", "ModifiedCustomerId", "SizeCateId", "IsMainPush", "WaveSession", "Gender", "DesignCate", "OwnerId", "DesignSource", "PriceRange" }, null, null, null)
           }));
     }
     #endregion
@@ -857,12 +895,12 @@ namespace Inman.Platform.ServiceStub.Data {
 
     /// <summary>Field number for the "CreatedOn" field.</summary>
     public const int CreatedOnFieldNumber = 48;
-    private double createdOn_;
+    private string createdOn_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double CreatedOn {
+    public string CreatedOn {
       get { return createdOn_; }
       set {
-        createdOn_ = value;
+        createdOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -890,12 +928,12 @@ namespace Inman.Platform.ServiceStub.Data {
 
     /// <summary>Field number for the "ModifiedOn" field.</summary>
     public const int ModifiedOnFieldNumber = 51;
-    private double modifiedOn_;
+    private string modifiedOn_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double ModifiedOn {
+    public string ModifiedOn {
       get { return modifiedOn_; }
       set {
-        modifiedOn_ = value;
+        modifiedOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1076,10 +1114,10 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Enabled != false) hash ^= Enabled.GetHashCode();
       if (Deleted != false) hash ^= Deleted.GetHashCode();
       if (AccountID != 0) hash ^= AccountID.GetHashCode();
-      if (CreatedOn != 0D) hash ^= CreatedOn.GetHashCode();
+      if (CreatedOn.Length != 0) hash ^= CreatedOn.GetHashCode();
       if (CreatedBy.Length != 0) hash ^= CreatedBy.GetHashCode();
       if (CreatedCustomerId != 0) hash ^= CreatedCustomerId.GetHashCode();
-      if (ModifiedOn != 0D) hash ^= ModifiedOn.GetHashCode();
+      if (ModifiedOn.Length != 0) hash ^= ModifiedOn.GetHashCode();
       if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
       if (ModifiedCustomerId != 0) hash ^= ModifiedCustomerId.GetHashCode();
       if (ApprovalPriceRemark.Length != 0) hash ^= ApprovalPriceRemark.GetHashCode();
@@ -1283,9 +1321,9 @@ namespace Inman.Platform.ServiceStub.Data {
         output.WriteRawTag(248, 2);
         output.WriteInt32(AccountID);
       }
-      if (CreatedOn != 0D) {
-        output.WriteRawTag(129, 3);
-        output.WriteDouble(CreatedOn);
+      if (CreatedOn.Length != 0) {
+        output.WriteRawTag(130, 3);
+        output.WriteString(CreatedOn);
       }
       if (CreatedBy.Length != 0) {
         output.WriteRawTag(138, 3);
@@ -1295,9 +1333,9 @@ namespace Inman.Platform.ServiceStub.Data {
         output.WriteRawTag(144, 3);
         output.WriteInt32(CreatedCustomerId);
       }
-      if (ModifiedOn != 0D) {
-        output.WriteRawTag(153, 3);
-        output.WriteDouble(ModifiedOn);
+      if (ModifiedOn.Length != 0) {
+        output.WriteRawTag(154, 3);
+        output.WriteString(ModifiedOn);
       }
       if (ModifiedBy.Length != 0) {
         output.WriteRawTag(162, 3);
@@ -1465,8 +1503,8 @@ namespace Inman.Platform.ServiceStub.Data {
       if (AccountID != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(AccountID);
       }
-      if (CreatedOn != 0D) {
-        size += 2 + 8;
+      if (CreatedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedOn);
       }
       if (CreatedBy.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedBy);
@@ -1474,8 +1512,8 @@ namespace Inman.Platform.ServiceStub.Data {
       if (CreatedCustomerId != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(CreatedCustomerId);
       }
-      if (ModifiedOn != 0D) {
-        size += 2 + 8;
+      if (ModifiedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedOn);
       }
       if (ModifiedBy.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
@@ -1641,7 +1679,7 @@ namespace Inman.Platform.ServiceStub.Data {
       if (other.AccountID != 0) {
         AccountID = other.AccountID;
       }
-      if (other.CreatedOn != 0D) {
+      if (other.CreatedOn.Length != 0) {
         CreatedOn = other.CreatedOn;
       }
       if (other.CreatedBy.Length != 0) {
@@ -1650,7 +1688,7 @@ namespace Inman.Platform.ServiceStub.Data {
       if (other.CreatedCustomerId != 0) {
         CreatedCustomerId = other.CreatedCustomerId;
       }
-      if (other.ModifiedOn != 0D) {
+      if (other.ModifiedOn.Length != 0) {
         ModifiedOn = other.ModifiedOn;
       }
       if (other.ModifiedBy.Length != 0) {
@@ -1866,8 +1904,8 @@ namespace Inman.Platform.ServiceStub.Data {
             AccountID = input.ReadInt32();
             break;
           }
-          case 385: {
-            CreatedOn = input.ReadDouble();
+          case 386: {
+            CreatedOn = input.ReadString();
             break;
           }
           case 394: {
@@ -1878,8 +1916,8 @@ namespace Inman.Platform.ServiceStub.Data {
             CreatedCustomerId = input.ReadInt32();
             break;
           }
-          case 409: {
-            ModifiedOn = input.ReadDouble();
+          case 410: {
+            ModifiedOn = input.ReadString();
             break;
           }
           case 418: {
@@ -1938,6 +1976,16 @@ namespace Inman.Platform.ServiceStub.Data {
       productSN_ = other.productSN_;
       picturePath_ = other.picturePath_;
       remark_ = other.remark_;
+      accountID_ = other.accountID_;
+      deleted_ = other.deleted_;
+      enabled_ = other.enabled_;
+      createdOn_ = other.createdOn_;
+      createdBy_ = other.createdBy_;
+      createdCustomerId_ = other.createdCustomerId_;
+      modifiedOn_ = other.modifiedOn_;
+      modifiedBy_ = other.modifiedBy_;
+      modifiedCustomerId_ = other.modifiedCustomerId_;
+      ownerId_ = other.ownerId_;
       Goods = other.goods_ != null ? other.Goods.Clone() : null;
     }
 
@@ -2012,8 +2060,118 @@ namespace Inman.Platform.ServiceStub.Data {
       }
     }
 
+    /// <summary>Field number for the "AccountID" field.</summary>
+    public const int AccountIDFieldNumber = 7;
+    private int accountID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AccountID {
+      get { return accountID_; }
+      set {
+        accountID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Deleted" field.</summary>
+    public const int DeletedFieldNumber = 8;
+    private bool deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Deleted {
+      get { return deleted_; }
+      set {
+        deleted_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Enabled" field.</summary>
+    public const int EnabledFieldNumber = 9;
+    private int enabled_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Enabled {
+      get { return enabled_; }
+      set {
+        enabled_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CreatedOn" field.</summary>
+    public const int CreatedOnFieldNumber = 10;
+    private string createdOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedOn {
+      get { return createdOn_; }
+      set {
+        createdOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedBy" field.</summary>
+    public const int CreatedByFieldNumber = 11;
+    private string createdBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedBy {
+      get { return createdBy_; }
+      set {
+        createdBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedCustomerId" field.</summary>
+    public const int CreatedCustomerIdFieldNumber = 12;
+    private int createdCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CreatedCustomerId {
+      get { return createdCustomerId_; }
+      set {
+        createdCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedOn" field.</summary>
+    public const int ModifiedOnFieldNumber = 13;
+    private string modifiedOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedOn {
+      get { return modifiedOn_; }
+      set {
+        modifiedOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedBy" field.</summary>
+    public const int ModifiedByFieldNumber = 14;
+    private string modifiedBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedBy {
+      get { return modifiedBy_; }
+      set {
+        modifiedBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedCustomerId" field.</summary>
+    public const int ModifiedCustomerIdFieldNumber = 15;
+    private int modifiedCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ModifiedCustomerId {
+      get { return modifiedCustomerId_; }
+      set {
+        modifiedCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "OwnerId" field.</summary>
+    public const int OwnerIdFieldNumber = 16;
+    private int ownerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OwnerId {
+      get { return ownerId_; }
+      set {
+        ownerId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Goods" field.</summary>
-    public const int GoodsFieldNumber = 7;
+    public const int GoodsFieldNumber = 17;
     private global::Inman.Platform.ServiceStub.Data.Goods goods_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Inman.Platform.ServiceStub.Data.Goods Goods {
@@ -2042,6 +2200,16 @@ namespace Inman.Platform.ServiceStub.Data {
       if (ProductSN != other.ProductSN) return false;
       if (PicturePath != other.PicturePath) return false;
       if (Remark != other.Remark) return false;
+      if (AccountID != other.AccountID) return false;
+      if (Deleted != other.Deleted) return false;
+      if (Enabled != other.Enabled) return false;
+      if (CreatedOn != other.CreatedOn) return false;
+      if (CreatedBy != other.CreatedBy) return false;
+      if (CreatedCustomerId != other.CreatedCustomerId) return false;
+      if (ModifiedOn != other.ModifiedOn) return false;
+      if (ModifiedBy != other.ModifiedBy) return false;
+      if (ModifiedCustomerId != other.ModifiedCustomerId) return false;
+      if (OwnerId != other.OwnerId) return false;
       if (!object.Equals(Goods, other.Goods)) return false;
       return true;
     }
@@ -2055,6 +2223,16 @@ namespace Inman.Platform.ServiceStub.Data {
       if (ProductSN.Length != 0) hash ^= ProductSN.GetHashCode();
       if (PicturePath.Length != 0) hash ^= PicturePath.GetHashCode();
       if (Remark.Length != 0) hash ^= Remark.GetHashCode();
+      if (AccountID != 0) hash ^= AccountID.GetHashCode();
+      if (Deleted != false) hash ^= Deleted.GetHashCode();
+      if (Enabled != 0) hash ^= Enabled.GetHashCode();
+      if (CreatedOn.Length != 0) hash ^= CreatedOn.GetHashCode();
+      if (CreatedBy.Length != 0) hash ^= CreatedBy.GetHashCode();
+      if (CreatedCustomerId != 0) hash ^= CreatedCustomerId.GetHashCode();
+      if (ModifiedOn.Length != 0) hash ^= ModifiedOn.GetHashCode();
+      if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
+      if (ModifiedCustomerId != 0) hash ^= ModifiedCustomerId.GetHashCode();
+      if (OwnerId != 0) hash ^= OwnerId.GetHashCode();
       if (goods_ != null) hash ^= Goods.GetHashCode();
       return hash;
     }
@@ -2090,8 +2268,48 @@ namespace Inman.Platform.ServiceStub.Data {
         output.WriteRawTag(50);
         output.WriteString(Remark);
       }
+      if (AccountID != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(AccountID);
+      }
+      if (Deleted != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(Deleted);
+      }
+      if (Enabled != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        output.WriteRawTag(96);
+        output.WriteInt32(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        output.WriteRawTag(120);
+        output.WriteInt32(ModifiedCustomerId);
+      }
+      if (OwnerId != 0) {
+        output.WriteRawTag(128, 1);
+        output.WriteInt32(OwnerId);
+      }
       if (goods_ != null) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(138, 1);
         output.WriteMessage(Goods);
       }
     }
@@ -2117,8 +2335,38 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Remark.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Remark);
       }
+      if (AccountID != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AccountID);
+      }
+      if (Deleted != false) {
+        size += 1 + 1;
+      }
+      if (Enabled != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ModifiedCustomerId);
+      }
+      if (OwnerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(OwnerId);
+      }
       if (goods_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Goods);
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Goods);
       }
       return size;
     }
@@ -2145,6 +2393,36 @@ namespace Inman.Platform.ServiceStub.Data {
       }
       if (other.Remark.Length != 0) {
         Remark = other.Remark;
+      }
+      if (other.AccountID != 0) {
+        AccountID = other.AccountID;
+      }
+      if (other.Deleted != false) {
+        Deleted = other.Deleted;
+      }
+      if (other.Enabled != 0) {
+        Enabled = other.Enabled;
+      }
+      if (other.CreatedOn.Length != 0) {
+        CreatedOn = other.CreatedOn;
+      }
+      if (other.CreatedBy.Length != 0) {
+        CreatedBy = other.CreatedBy;
+      }
+      if (other.CreatedCustomerId != 0) {
+        CreatedCustomerId = other.CreatedCustomerId;
+      }
+      if (other.ModifiedOn.Length != 0) {
+        ModifiedOn = other.ModifiedOn;
+      }
+      if (other.ModifiedBy.Length != 0) {
+        ModifiedBy = other.ModifiedBy;
+      }
+      if (other.ModifiedCustomerId != 0) {
+        ModifiedCustomerId = other.ModifiedCustomerId;
+      }
+      if (other.OwnerId != 0) {
+        OwnerId = other.OwnerId;
       }
       if (other.goods_ != null) {
         if (goods_ == null) {
@@ -2186,7 +2464,47 @@ namespace Inman.Platform.ServiceStub.Data {
             Remark = input.ReadString();
             break;
           }
-          case 58: {
+          case 56: {
+            AccountID = input.ReadInt32();
+            break;
+          }
+          case 64: {
+            Deleted = input.ReadBool();
+            break;
+          }
+          case 72: {
+            Enabled = input.ReadInt32();
+            break;
+          }
+          case 82: {
+            CreatedOn = input.ReadString();
+            break;
+          }
+          case 90: {
+            CreatedBy = input.ReadString();
+            break;
+          }
+          case 96: {
+            CreatedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 106: {
+            ModifiedOn = input.ReadString();
+            break;
+          }
+          case 114: {
+            ModifiedBy = input.ReadString();
+            break;
+          }
+          case 120: {
+            ModifiedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 128: {
+            OwnerId = input.ReadInt32();
+            break;
+          }
+          case 138: {
             if (goods_ == null) {
               goods_ = new global::Inman.Platform.ServiceStub.Data.Goods();
             }
@@ -2237,6 +2555,37 @@ namespace Inman.Platform.ServiceStub.Data {
       component_ = other.component_;
       devCost_ = other.devCost_;
       productSN_ = other.productSN_;
+      fOBCost_ = other.fOBCost_;
+      processingCost_ = other.processingCost_;
+      productCost_ = other.productCost_;
+      internalPrice_ = other.internalPrice_;
+      salesPrice_ = other.salesPrice_;
+      tagPrice_ = other.tagPrice_;
+      batchPrice_ = other.batchPrice_;
+      rADCost_ = other.rADCost_;
+      isEmergency_ = other.isEmergency_;
+      productTitle_ = other.productTitle_;
+      qualityGrade_ = other.qualityGrade_;
+      filler_ = other.filler_;
+      fillFeatherPercent_ = other.fillFeatherPercent_;
+      washingMethodPictureCode_ = other.washingMethodPictureCode_;
+      firstOnsaleShelveDate_ = other.firstOnsaleShelveDate_;
+      sortCode_ = other.sortCode_;
+      accountID_ = other.accountID_;
+      deleted_ = other.deleted_;
+      enabled_ = other.enabled_;
+      createdOn_ = other.createdOn_;
+      createdBy_ = other.createdBy_;
+      createdCustomerId_ = other.createdCustomerId_;
+      modifiedOn_ = other.modifiedOn_;
+      modifiedBy_ = other.modifiedBy_;
+      modifiedCustomerId_ = other.modifiedCustomerId_;
+      sex_ = other.sex_;
+      washingMethodPicture_ = other.washingMethodPicture_;
+      categoryClass_ = other.categoryClass_;
+      isUploadK3_ = other.isUploadK3_;
+      uploadK3Date_ = other.uploadK3Date_;
+      ownerId_ = other.ownerId_;
       Design = other.design_ != null ? other.Design.Clone() : null;
     }
 
@@ -2399,8 +2748,349 @@ namespace Inman.Platform.ServiceStub.Data {
       }
     }
 
+    /// <summary>Field number for the "FOBCost" field.</summary>
+    public const int FOBCostFieldNumber = 15;
+    private double fOBCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double FOBCost {
+      get { return fOBCost_; }
+      set {
+        fOBCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ProcessingCost" field.</summary>
+    public const int ProcessingCostFieldNumber = 16;
+    private double processingCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double ProcessingCost {
+      get { return processingCost_; }
+      set {
+        processingCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ProductCost" field.</summary>
+    public const int ProductCostFieldNumber = 17;
+    private double productCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double ProductCost {
+      get { return productCost_; }
+      set {
+        productCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "InternalPrice" field.</summary>
+    public const int InternalPriceFieldNumber = 18;
+    private double internalPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double InternalPrice {
+      get { return internalPrice_; }
+      set {
+        internalPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SalesPrice" field.</summary>
+    public const int SalesPriceFieldNumber = 19;
+    private double salesPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double SalesPrice {
+      get { return salesPrice_; }
+      set {
+        salesPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "TagPrice" field.</summary>
+    public const int TagPriceFieldNumber = 20;
+    private double tagPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double TagPrice {
+      get { return tagPrice_; }
+      set {
+        tagPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BatchPrice" field.</summary>
+    public const int BatchPriceFieldNumber = 21;
+    private double batchPrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double BatchPrice {
+      get { return batchPrice_; }
+      set {
+        batchPrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RADCost" field.</summary>
+    public const int RADCostFieldNumber = 22;
+    private double rADCost_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double RADCost {
+      get { return rADCost_; }
+      set {
+        rADCost_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IsEmergency" field.</summary>
+    public const int IsEmergencyFieldNumber = 23;
+    private bool isEmergency_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsEmergency {
+      get { return isEmergency_; }
+      set {
+        isEmergency_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ProductTitle" field.</summary>
+    public const int ProductTitleFieldNumber = 24;
+    private string productTitle_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ProductTitle {
+      get { return productTitle_; }
+      set {
+        productTitle_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "QualityGrade" field.</summary>
+    public const int QualityGradeFieldNumber = 25;
+    private string qualityGrade_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string QualityGrade {
+      get { return qualityGrade_; }
+      set {
+        qualityGrade_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Filler" field.</summary>
+    public const int FillerFieldNumber = 26;
+    private string filler_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Filler {
+      get { return filler_; }
+      set {
+        filler_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "FillFeatherPercent" field.</summary>
+    public const int FillFeatherPercentFieldNumber = 27;
+    private float fillFeatherPercent_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float FillFeatherPercent {
+      get { return fillFeatherPercent_; }
+      set {
+        fillFeatherPercent_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "WashingMethodPictureCode" field.</summary>
+    public const int WashingMethodPictureCodeFieldNumber = 28;
+    private int washingMethodPictureCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int WashingMethodPictureCode {
+      get { return washingMethodPictureCode_; }
+      set {
+        washingMethodPictureCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "FirstOnsaleShelveDate" field.</summary>
+    public const int FirstOnsaleShelveDateFieldNumber = 29;
+    private string firstOnsaleShelveDate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string FirstOnsaleShelveDate {
+      get { return firstOnsaleShelveDate_; }
+      set {
+        firstOnsaleShelveDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SortCode" field.</summary>
+    public const int SortCodeFieldNumber = 30;
+    private int sortCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SortCode {
+      get { return sortCode_; }
+      set {
+        sortCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AccountID" field.</summary>
+    public const int AccountIDFieldNumber = 31;
+    private int accountID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AccountID {
+      get { return accountID_; }
+      set {
+        accountID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Deleted" field.</summary>
+    public const int DeletedFieldNumber = 32;
+    private bool deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Deleted {
+      get { return deleted_; }
+      set {
+        deleted_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Enabled" field.</summary>
+    public const int EnabledFieldNumber = 33;
+    private int enabled_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Enabled {
+      get { return enabled_; }
+      set {
+        enabled_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CreatedOn" field.</summary>
+    public const int CreatedOnFieldNumber = 34;
+    private string createdOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedOn {
+      get { return createdOn_; }
+      set {
+        createdOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedBy" field.</summary>
+    public const int CreatedByFieldNumber = 35;
+    private string createdBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedBy {
+      get { return createdBy_; }
+      set {
+        createdBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedCustomerId" field.</summary>
+    public const int CreatedCustomerIdFieldNumber = 36;
+    private int createdCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CreatedCustomerId {
+      get { return createdCustomerId_; }
+      set {
+        createdCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedOn" field.</summary>
+    public const int ModifiedOnFieldNumber = 37;
+    private string modifiedOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedOn {
+      get { return modifiedOn_; }
+      set {
+        modifiedOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedBy" field.</summary>
+    public const int ModifiedByFieldNumber = 38;
+    private string modifiedBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedBy {
+      get { return modifiedBy_; }
+      set {
+        modifiedBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedCustomerId" field.</summary>
+    public const int ModifiedCustomerIdFieldNumber = 39;
+    private int modifiedCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ModifiedCustomerId {
+      get { return modifiedCustomerId_; }
+      set {
+        modifiedCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Sex" field.</summary>
+    public const int SexFieldNumber = 40;
+    private string sex_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Sex {
+      get { return sex_; }
+      set {
+        sex_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "WashingMethodPicture" field.</summary>
+    public const int WashingMethodPictureFieldNumber = 41;
+    private string washingMethodPicture_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WashingMethodPicture {
+      get { return washingMethodPicture_; }
+      set {
+        washingMethodPicture_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CategoryClass" field.</summary>
+    public const int CategoryClassFieldNumber = 42;
+    private string categoryClass_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CategoryClass {
+      get { return categoryClass_; }
+      set {
+        categoryClass_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "IsUploadK3" field.</summary>
+    public const int IsUploadK3FieldNumber = 43;
+    private bool isUploadK3_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsUploadK3 {
+      get { return isUploadK3_; }
+      set {
+        isUploadK3_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UploadK3Date" field.</summary>
+    public const int UploadK3DateFieldNumber = 44;
+    private string uploadK3Date_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string UploadK3Date {
+      get { return uploadK3Date_; }
+      set {
+        uploadK3Date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OwnerId" field.</summary>
+    public const int OwnerIdFieldNumber = 45;
+    private int ownerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OwnerId {
+      get { return ownerId_; }
+      set {
+        ownerId_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Design" field.</summary>
-    public const int DesignFieldNumber = 15;
+    public const int DesignFieldNumber = 46;
     private global::Inman.Platform.ServiceStub.Data.Design design_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Inman.Platform.ServiceStub.Data.Design Design {
@@ -2437,6 +3127,37 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Component != other.Component) return false;
       if (DevCost != other.DevCost) return false;
       if (ProductSN != other.ProductSN) return false;
+      if (FOBCost != other.FOBCost) return false;
+      if (ProcessingCost != other.ProcessingCost) return false;
+      if (ProductCost != other.ProductCost) return false;
+      if (InternalPrice != other.InternalPrice) return false;
+      if (SalesPrice != other.SalesPrice) return false;
+      if (TagPrice != other.TagPrice) return false;
+      if (BatchPrice != other.BatchPrice) return false;
+      if (RADCost != other.RADCost) return false;
+      if (IsEmergency != other.IsEmergency) return false;
+      if (ProductTitle != other.ProductTitle) return false;
+      if (QualityGrade != other.QualityGrade) return false;
+      if (Filler != other.Filler) return false;
+      if (FillFeatherPercent != other.FillFeatherPercent) return false;
+      if (WashingMethodPictureCode != other.WashingMethodPictureCode) return false;
+      if (FirstOnsaleShelveDate != other.FirstOnsaleShelveDate) return false;
+      if (SortCode != other.SortCode) return false;
+      if (AccountID != other.AccountID) return false;
+      if (Deleted != other.Deleted) return false;
+      if (Enabled != other.Enabled) return false;
+      if (CreatedOn != other.CreatedOn) return false;
+      if (CreatedBy != other.CreatedBy) return false;
+      if (CreatedCustomerId != other.CreatedCustomerId) return false;
+      if (ModifiedOn != other.ModifiedOn) return false;
+      if (ModifiedBy != other.ModifiedBy) return false;
+      if (ModifiedCustomerId != other.ModifiedCustomerId) return false;
+      if (Sex != other.Sex) return false;
+      if (WashingMethodPicture != other.WashingMethodPicture) return false;
+      if (CategoryClass != other.CategoryClass) return false;
+      if (IsUploadK3 != other.IsUploadK3) return false;
+      if (UploadK3Date != other.UploadK3Date) return false;
+      if (OwnerId != other.OwnerId) return false;
       if (!object.Equals(Design, other.Design)) return false;
       return true;
     }
@@ -2458,6 +3179,37 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Component.Length != 0) hash ^= Component.GetHashCode();
       if (DevCost != 0D) hash ^= DevCost.GetHashCode();
       if (ProductSN.Length != 0) hash ^= ProductSN.GetHashCode();
+      if (FOBCost != 0D) hash ^= FOBCost.GetHashCode();
+      if (ProcessingCost != 0D) hash ^= ProcessingCost.GetHashCode();
+      if (ProductCost != 0D) hash ^= ProductCost.GetHashCode();
+      if (InternalPrice != 0D) hash ^= InternalPrice.GetHashCode();
+      if (SalesPrice != 0D) hash ^= SalesPrice.GetHashCode();
+      if (TagPrice != 0D) hash ^= TagPrice.GetHashCode();
+      if (BatchPrice != 0D) hash ^= BatchPrice.GetHashCode();
+      if (RADCost != 0D) hash ^= RADCost.GetHashCode();
+      if (IsEmergency != false) hash ^= IsEmergency.GetHashCode();
+      if (ProductTitle.Length != 0) hash ^= ProductTitle.GetHashCode();
+      if (QualityGrade.Length != 0) hash ^= QualityGrade.GetHashCode();
+      if (Filler.Length != 0) hash ^= Filler.GetHashCode();
+      if (FillFeatherPercent != 0F) hash ^= FillFeatherPercent.GetHashCode();
+      if (WashingMethodPictureCode != 0) hash ^= WashingMethodPictureCode.GetHashCode();
+      if (FirstOnsaleShelveDate.Length != 0) hash ^= FirstOnsaleShelveDate.GetHashCode();
+      if (SortCode != 0) hash ^= SortCode.GetHashCode();
+      if (AccountID != 0) hash ^= AccountID.GetHashCode();
+      if (Deleted != false) hash ^= Deleted.GetHashCode();
+      if (Enabled != 0) hash ^= Enabled.GetHashCode();
+      if (CreatedOn.Length != 0) hash ^= CreatedOn.GetHashCode();
+      if (CreatedBy.Length != 0) hash ^= CreatedBy.GetHashCode();
+      if (CreatedCustomerId != 0) hash ^= CreatedCustomerId.GetHashCode();
+      if (ModifiedOn.Length != 0) hash ^= ModifiedOn.GetHashCode();
+      if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
+      if (ModifiedCustomerId != 0) hash ^= ModifiedCustomerId.GetHashCode();
+      if (Sex.Length != 0) hash ^= Sex.GetHashCode();
+      if (WashingMethodPicture.Length != 0) hash ^= WashingMethodPicture.GetHashCode();
+      if (CategoryClass.Length != 0) hash ^= CategoryClass.GetHashCode();
+      if (IsUploadK3 != false) hash ^= IsUploadK3.GetHashCode();
+      if (UploadK3Date.Length != 0) hash ^= UploadK3Date.GetHashCode();
+      if (OwnerId != 0) hash ^= OwnerId.GetHashCode();
       if (design_ != null) hash ^= Design.GetHashCode();
       return hash;
     }
@@ -2525,8 +3277,132 @@ namespace Inman.Platform.ServiceStub.Data {
         output.WriteRawTag(114);
         output.WriteString(ProductSN);
       }
+      if (FOBCost != 0D) {
+        output.WriteRawTag(121);
+        output.WriteDouble(FOBCost);
+      }
+      if (ProcessingCost != 0D) {
+        output.WriteRawTag(129, 1);
+        output.WriteDouble(ProcessingCost);
+      }
+      if (ProductCost != 0D) {
+        output.WriteRawTag(137, 1);
+        output.WriteDouble(ProductCost);
+      }
+      if (InternalPrice != 0D) {
+        output.WriteRawTag(145, 1);
+        output.WriteDouble(InternalPrice);
+      }
+      if (SalesPrice != 0D) {
+        output.WriteRawTag(153, 1);
+        output.WriteDouble(SalesPrice);
+      }
+      if (TagPrice != 0D) {
+        output.WriteRawTag(161, 1);
+        output.WriteDouble(TagPrice);
+      }
+      if (BatchPrice != 0D) {
+        output.WriteRawTag(169, 1);
+        output.WriteDouble(BatchPrice);
+      }
+      if (RADCost != 0D) {
+        output.WriteRawTag(177, 1);
+        output.WriteDouble(RADCost);
+      }
+      if (IsEmergency != false) {
+        output.WriteRawTag(184, 1);
+        output.WriteBool(IsEmergency);
+      }
+      if (ProductTitle.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(ProductTitle);
+      }
+      if (QualityGrade.Length != 0) {
+        output.WriteRawTag(202, 1);
+        output.WriteString(QualityGrade);
+      }
+      if (Filler.Length != 0) {
+        output.WriteRawTag(210, 1);
+        output.WriteString(Filler);
+      }
+      if (FillFeatherPercent != 0F) {
+        output.WriteRawTag(221, 1);
+        output.WriteFloat(FillFeatherPercent);
+      }
+      if (WashingMethodPictureCode != 0) {
+        output.WriteRawTag(224, 1);
+        output.WriteInt32(WashingMethodPictureCode);
+      }
+      if (FirstOnsaleShelveDate.Length != 0) {
+        output.WriteRawTag(234, 1);
+        output.WriteString(FirstOnsaleShelveDate);
+      }
+      if (SortCode != 0) {
+        output.WriteRawTag(240, 1);
+        output.WriteInt32(SortCode);
+      }
+      if (AccountID != 0) {
+        output.WriteRawTag(248, 1);
+        output.WriteInt32(AccountID);
+      }
+      if (Deleted != false) {
+        output.WriteRawTag(128, 2);
+        output.WriteBool(Deleted);
+      }
+      if (Enabled != 0) {
+        output.WriteRawTag(136, 2);
+        output.WriteInt32(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        output.WriteRawTag(146, 2);
+        output.WriteString(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        output.WriteRawTag(154, 2);
+        output.WriteString(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        output.WriteRawTag(160, 2);
+        output.WriteInt32(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        output.WriteRawTag(170, 2);
+        output.WriteString(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(178, 2);
+        output.WriteString(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        output.WriteRawTag(184, 2);
+        output.WriteInt32(ModifiedCustomerId);
+      }
+      if (Sex.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(Sex);
+      }
+      if (WashingMethodPicture.Length != 0) {
+        output.WriteRawTag(202, 2);
+        output.WriteString(WashingMethodPicture);
+      }
+      if (CategoryClass.Length != 0) {
+        output.WriteRawTag(210, 2);
+        output.WriteString(CategoryClass);
+      }
+      if (IsUploadK3 != false) {
+        output.WriteRawTag(216, 2);
+        output.WriteBool(IsUploadK3);
+      }
+      if (UploadK3Date.Length != 0) {
+        output.WriteRawTag(226, 2);
+        output.WriteString(UploadK3Date);
+      }
+      if (OwnerId != 0) {
+        output.WriteRawTag(232, 2);
+        output.WriteInt32(OwnerId);
+      }
       if (design_ != null) {
-        output.WriteRawTag(122);
+        output.WriteRawTag(242, 2);
         output.WriteMessage(Design);
       }
     }
@@ -2576,8 +3452,101 @@ namespace Inman.Platform.ServiceStub.Data {
       if (ProductSN.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ProductSN);
       }
+      if (FOBCost != 0D) {
+        size += 1 + 8;
+      }
+      if (ProcessingCost != 0D) {
+        size += 2 + 8;
+      }
+      if (ProductCost != 0D) {
+        size += 2 + 8;
+      }
+      if (InternalPrice != 0D) {
+        size += 2 + 8;
+      }
+      if (SalesPrice != 0D) {
+        size += 2 + 8;
+      }
+      if (TagPrice != 0D) {
+        size += 2 + 8;
+      }
+      if (BatchPrice != 0D) {
+        size += 2 + 8;
+      }
+      if (RADCost != 0D) {
+        size += 2 + 8;
+      }
+      if (IsEmergency != false) {
+        size += 2 + 1;
+      }
+      if (ProductTitle.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ProductTitle);
+      }
+      if (QualityGrade.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(QualityGrade);
+      }
+      if (Filler.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Filler);
+      }
+      if (FillFeatherPercent != 0F) {
+        size += 2 + 4;
+      }
+      if (WashingMethodPictureCode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(WashingMethodPictureCode);
+      }
+      if (FirstOnsaleShelveDate.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(FirstOnsaleShelveDate);
+      }
+      if (SortCode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SortCode);
+      }
+      if (AccountID != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AccountID);
+      }
+      if (Deleted != false) {
+        size += 2 + 1;
+      }
+      if (Enabled != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ModifiedCustomerId);
+      }
+      if (Sex.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Sex);
+      }
+      if (WashingMethodPicture.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(WashingMethodPicture);
+      }
+      if (CategoryClass.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CategoryClass);
+      }
+      if (IsUploadK3 != false) {
+        size += 2 + 1;
+      }
+      if (UploadK3Date.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(UploadK3Date);
+      }
+      if (OwnerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(OwnerId);
+      }
       if (design_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Design);
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Design);
       }
       return size;
     }
@@ -2628,6 +3597,99 @@ namespace Inman.Platform.ServiceStub.Data {
       }
       if (other.ProductSN.Length != 0) {
         ProductSN = other.ProductSN;
+      }
+      if (other.FOBCost != 0D) {
+        FOBCost = other.FOBCost;
+      }
+      if (other.ProcessingCost != 0D) {
+        ProcessingCost = other.ProcessingCost;
+      }
+      if (other.ProductCost != 0D) {
+        ProductCost = other.ProductCost;
+      }
+      if (other.InternalPrice != 0D) {
+        InternalPrice = other.InternalPrice;
+      }
+      if (other.SalesPrice != 0D) {
+        SalesPrice = other.SalesPrice;
+      }
+      if (other.TagPrice != 0D) {
+        TagPrice = other.TagPrice;
+      }
+      if (other.BatchPrice != 0D) {
+        BatchPrice = other.BatchPrice;
+      }
+      if (other.RADCost != 0D) {
+        RADCost = other.RADCost;
+      }
+      if (other.IsEmergency != false) {
+        IsEmergency = other.IsEmergency;
+      }
+      if (other.ProductTitle.Length != 0) {
+        ProductTitle = other.ProductTitle;
+      }
+      if (other.QualityGrade.Length != 0) {
+        QualityGrade = other.QualityGrade;
+      }
+      if (other.Filler.Length != 0) {
+        Filler = other.Filler;
+      }
+      if (other.FillFeatherPercent != 0F) {
+        FillFeatherPercent = other.FillFeatherPercent;
+      }
+      if (other.WashingMethodPictureCode != 0) {
+        WashingMethodPictureCode = other.WashingMethodPictureCode;
+      }
+      if (other.FirstOnsaleShelveDate.Length != 0) {
+        FirstOnsaleShelveDate = other.FirstOnsaleShelveDate;
+      }
+      if (other.SortCode != 0) {
+        SortCode = other.SortCode;
+      }
+      if (other.AccountID != 0) {
+        AccountID = other.AccountID;
+      }
+      if (other.Deleted != false) {
+        Deleted = other.Deleted;
+      }
+      if (other.Enabled != 0) {
+        Enabled = other.Enabled;
+      }
+      if (other.CreatedOn.Length != 0) {
+        CreatedOn = other.CreatedOn;
+      }
+      if (other.CreatedBy.Length != 0) {
+        CreatedBy = other.CreatedBy;
+      }
+      if (other.CreatedCustomerId != 0) {
+        CreatedCustomerId = other.CreatedCustomerId;
+      }
+      if (other.ModifiedOn.Length != 0) {
+        ModifiedOn = other.ModifiedOn;
+      }
+      if (other.ModifiedBy.Length != 0) {
+        ModifiedBy = other.ModifiedBy;
+      }
+      if (other.ModifiedCustomerId != 0) {
+        ModifiedCustomerId = other.ModifiedCustomerId;
+      }
+      if (other.Sex.Length != 0) {
+        Sex = other.Sex;
+      }
+      if (other.WashingMethodPicture.Length != 0) {
+        WashingMethodPicture = other.WashingMethodPicture;
+      }
+      if (other.CategoryClass.Length != 0) {
+        CategoryClass = other.CategoryClass;
+      }
+      if (other.IsUploadK3 != false) {
+        IsUploadK3 = other.IsUploadK3;
+      }
+      if (other.UploadK3Date.Length != 0) {
+        UploadK3Date = other.UploadK3Date;
+      }
+      if (other.OwnerId != 0) {
+        OwnerId = other.OwnerId;
       }
       if (other.design_ != null) {
         if (design_ == null) {
@@ -2701,7 +3763,131 @@ namespace Inman.Platform.ServiceStub.Data {
             ProductSN = input.ReadString();
             break;
           }
-          case 122: {
+          case 121: {
+            FOBCost = input.ReadDouble();
+            break;
+          }
+          case 129: {
+            ProcessingCost = input.ReadDouble();
+            break;
+          }
+          case 137: {
+            ProductCost = input.ReadDouble();
+            break;
+          }
+          case 145: {
+            InternalPrice = input.ReadDouble();
+            break;
+          }
+          case 153: {
+            SalesPrice = input.ReadDouble();
+            break;
+          }
+          case 161: {
+            TagPrice = input.ReadDouble();
+            break;
+          }
+          case 169: {
+            BatchPrice = input.ReadDouble();
+            break;
+          }
+          case 177: {
+            RADCost = input.ReadDouble();
+            break;
+          }
+          case 184: {
+            IsEmergency = input.ReadBool();
+            break;
+          }
+          case 194: {
+            ProductTitle = input.ReadString();
+            break;
+          }
+          case 202: {
+            QualityGrade = input.ReadString();
+            break;
+          }
+          case 210: {
+            Filler = input.ReadString();
+            break;
+          }
+          case 221: {
+            FillFeatherPercent = input.ReadFloat();
+            break;
+          }
+          case 224: {
+            WashingMethodPictureCode = input.ReadInt32();
+            break;
+          }
+          case 234: {
+            FirstOnsaleShelveDate = input.ReadString();
+            break;
+          }
+          case 240: {
+            SortCode = input.ReadInt32();
+            break;
+          }
+          case 248: {
+            AccountID = input.ReadInt32();
+            break;
+          }
+          case 256: {
+            Deleted = input.ReadBool();
+            break;
+          }
+          case 264: {
+            Enabled = input.ReadInt32();
+            break;
+          }
+          case 274: {
+            CreatedOn = input.ReadString();
+            break;
+          }
+          case 282: {
+            CreatedBy = input.ReadString();
+            break;
+          }
+          case 288: {
+            CreatedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 298: {
+            ModifiedOn = input.ReadString();
+            break;
+          }
+          case 306: {
+            ModifiedBy = input.ReadString();
+            break;
+          }
+          case 312: {
+            ModifiedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 322: {
+            Sex = input.ReadString();
+            break;
+          }
+          case 330: {
+            WashingMethodPicture = input.ReadString();
+            break;
+          }
+          case 338: {
+            CategoryClass = input.ReadString();
+            break;
+          }
+          case 344: {
+            IsUploadK3 = input.ReadBool();
+            break;
+          }
+          case 354: {
+            UploadK3Date = input.ReadString();
+            break;
+          }
+          case 360: {
+            OwnerId = input.ReadInt32();
+            break;
+          }
+          case 370: {
             if (design_ == null) {
               design_ = new global::Inman.Platform.ServiceStub.Data.Design();
             }
@@ -2745,6 +3931,49 @@ namespace Inman.Platform.ServiceStub.Data {
       theme_ = other.theme_;
       collection_ = other.collection_;
       designAssistantName_ = other.designAssistantName_;
+      designProductSN_ = other.designProductSN_;
+      productName_ = other.productName_;
+      commitProductNameDate_ = other.commitProductNameDate_;
+      material_ = other.material_;
+      technology_ = other.technology_;
+      collar_ = other.collar_;
+      shape_ = other.shape_;
+      clothesLong_ = other.clothesLong_;
+      sleeveShape_ = other.sleeveShape_;
+      sleeveLong_ = other.sleeveLong_;
+      typeDecomposition_ = other.typeDecomposition_;
+      particulars_ = other.particulars_;
+      aekbuh_ = other.aekbuh_;
+      skirtLong_ = other.skirtLong_;
+      waistShape_ = other.waistShape_;
+      element_ = other.element_;
+      trousersShape_ = other.trousersShape_;
+      outseam_ = other.outseam_;
+      peplum_ = other.peplum_;
+      commission_ = other.commission_;
+      picturePath_ = other.picturePath_;
+      status_ = other.status_;
+      batch_ = other.batch_;
+      upnewDate_ = other.upnewDate_;
+      remark_ = other.remark_;
+      sortCode_ = other.sortCode_;
+      accountID_ = other.accountID_;
+      deleted_ = other.deleted_;
+      enabled_ = other.enabled_;
+      createdOn_ = other.createdOn_;
+      createdBy_ = other.createdBy_;
+      createdCustomerId_ = other.createdCustomerId_;
+      modifiedOn_ = other.modifiedOn_;
+      modifiedBy_ = other.modifiedBy_;
+      modifiedCustomerId_ = other.modifiedCustomerId_;
+      sizeCateId_ = other.sizeCateId_;
+      isMainPush_ = other.isMainPush_;
+      waveSession_ = other.waveSession_;
+      gender_ = other.gender_;
+      designCate_ = other.designCate_;
+      ownerId_ = other.ownerId_;
+      designSource_ = other.designSource_;
+      priceRange_ = other.priceRange_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2829,6 +4058,479 @@ namespace Inman.Platform.ServiceStub.Data {
       }
     }
 
+    /// <summary>Field number for the "DesignProductSN" field.</summary>
+    public const int DesignProductSNFieldNumber = 8;
+    private string designProductSN_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DesignProductSN {
+      get { return designProductSN_; }
+      set {
+        designProductSN_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ProductName" field.</summary>
+    public const int ProductNameFieldNumber = 9;
+    private string productName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ProductName {
+      get { return productName_; }
+      set {
+        productName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CommitProductNameDate" field.</summary>
+    public const int CommitProductNameDateFieldNumber = 10;
+    private string commitProductNameDate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CommitProductNameDate {
+      get { return commitProductNameDate_; }
+      set {
+        commitProductNameDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Material" field.</summary>
+    public const int MaterialFieldNumber = 11;
+    private string material_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Material {
+      get { return material_; }
+      set {
+        material_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Technology" field.</summary>
+    public const int TechnologyFieldNumber = 12;
+    private string technology_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Technology {
+      get { return technology_; }
+      set {
+        technology_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Collar" field.</summary>
+    public const int CollarFieldNumber = 13;
+    private string collar_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Collar {
+      get { return collar_; }
+      set {
+        collar_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Shape" field.</summary>
+    public const int ShapeFieldNumber = 14;
+    private string shape_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Shape {
+      get { return shape_; }
+      set {
+        shape_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ClothesLong" field.</summary>
+    public const int ClothesLongFieldNumber = 15;
+    private string clothesLong_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ClothesLong {
+      get { return clothesLong_; }
+      set {
+        clothesLong_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SleeveShape" field.</summary>
+    public const int SleeveShapeFieldNumber = 16;
+    private string sleeveShape_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SleeveShape {
+      get { return sleeveShape_; }
+      set {
+        sleeveShape_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SleeveLong" field.</summary>
+    public const int SleeveLongFieldNumber = 17;
+    private string sleeveLong_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SleeveLong {
+      get { return sleeveLong_; }
+      set {
+        sleeveLong_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "TypeDecomposition" field.</summary>
+    public const int TypeDecompositionFieldNumber = 18;
+    private string typeDecomposition_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string TypeDecomposition {
+      get { return typeDecomposition_; }
+      set {
+        typeDecomposition_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Particulars" field.</summary>
+    public const int ParticularsFieldNumber = 19;
+    private string particulars_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Particulars {
+      get { return particulars_; }
+      set {
+        particulars_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Aekbuh" field.</summary>
+    public const int AekbuhFieldNumber = 20;
+    private string aekbuh_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Aekbuh {
+      get { return aekbuh_; }
+      set {
+        aekbuh_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SkirtLong" field.</summary>
+    public const int SkirtLongFieldNumber = 21;
+    private string skirtLong_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SkirtLong {
+      get { return skirtLong_; }
+      set {
+        skirtLong_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "WaistShape" field.</summary>
+    public const int WaistShapeFieldNumber = 22;
+    private string waistShape_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WaistShape {
+      get { return waistShape_; }
+      set {
+        waistShape_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Element" field.</summary>
+    public const int ElementFieldNumber = 23;
+    private string element_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Element {
+      get { return element_; }
+      set {
+        element_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "TrousersShape" field.</summary>
+    public const int TrousersShapeFieldNumber = 24;
+    private string trousersShape_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string TrousersShape {
+      get { return trousersShape_; }
+      set {
+        trousersShape_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Outseam" field.</summary>
+    public const int OutseamFieldNumber = 25;
+    private string outseam_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Outseam {
+      get { return outseam_; }
+      set {
+        outseam_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Peplum" field.</summary>
+    public const int PeplumFieldNumber = 26;
+    private string peplum_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Peplum {
+      get { return peplum_; }
+      set {
+        peplum_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Commission" field.</summary>
+    public const int CommissionFieldNumber = 27;
+    private string commission_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Commission {
+      get { return commission_; }
+      set {
+        commission_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PicturePath" field.</summary>
+    public const int PicturePathFieldNumber = 28;
+    private string picturePath_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PicturePath {
+      get { return picturePath_; }
+      set {
+        picturePath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Status" field.</summary>
+    public const int StatusFieldNumber = 29;
+    private string status_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Status {
+      get { return status_; }
+      set {
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Batch" field.</summary>
+    public const int BatchFieldNumber = 30;
+    private string batch_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Batch {
+      get { return batch_; }
+      set {
+        batch_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "UpnewDate" field.</summary>
+    public const int UpnewDateFieldNumber = 31;
+    private string upnewDate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string UpnewDate {
+      get { return upnewDate_; }
+      set {
+        upnewDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Remark" field.</summary>
+    public const int RemarkFieldNumber = 32;
+    private string remark_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Remark {
+      get { return remark_; }
+      set {
+        remark_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SortCode" field.</summary>
+    public const int SortCodeFieldNumber = 33;
+    private int sortCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SortCode {
+      get { return sortCode_; }
+      set {
+        sortCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AccountID" field.</summary>
+    public const int AccountIDFieldNumber = 34;
+    private int accountID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int AccountID {
+      get { return accountID_; }
+      set {
+        accountID_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Deleted" field.</summary>
+    public const int DeletedFieldNumber = 35;
+    private bool deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Deleted {
+      get { return deleted_; }
+      set {
+        deleted_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Enabled" field.</summary>
+    public const int EnabledFieldNumber = 36;
+    private int enabled_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Enabled {
+      get { return enabled_; }
+      set {
+        enabled_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "CreatedOn" field.</summary>
+    public const int CreatedOnFieldNumber = 37;
+    private string createdOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedOn {
+      get { return createdOn_; }
+      set {
+        createdOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedBy" field.</summary>
+    public const int CreatedByFieldNumber = 38;
+    private string createdBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CreatedBy {
+      get { return createdBy_; }
+      set {
+        createdBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "CreatedCustomerId" field.</summary>
+    public const int CreatedCustomerIdFieldNumber = 39;
+    private int createdCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CreatedCustomerId {
+      get { return createdCustomerId_; }
+      set {
+        createdCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedOn" field.</summary>
+    public const int ModifiedOnFieldNumber = 40;
+    private string modifiedOn_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedOn {
+      get { return modifiedOn_; }
+      set {
+        modifiedOn_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedBy" field.</summary>
+    public const int ModifiedByFieldNumber = 41;
+    private string modifiedBy_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ModifiedBy {
+      get { return modifiedBy_; }
+      set {
+        modifiedBy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ModifiedCustomerId" field.</summary>
+    public const int ModifiedCustomerIdFieldNumber = 42;
+    private int modifiedCustomerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ModifiedCustomerId {
+      get { return modifiedCustomerId_; }
+      set {
+        modifiedCustomerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SizeCateId" field.</summary>
+    public const int SizeCateIdFieldNumber = 43;
+    private int sizeCateId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int SizeCateId {
+      get { return sizeCateId_; }
+      set {
+        sizeCateId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IsMainPush" field.</summary>
+    public const int IsMainPushFieldNumber = 44;
+    private string isMainPush_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string IsMainPush {
+      get { return isMainPush_; }
+      set {
+        isMainPush_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "WaveSession" field.</summary>
+    public const int WaveSessionFieldNumber = 45;
+    private string waveSession_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WaveSession {
+      get { return waveSession_; }
+      set {
+        waveSession_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Gender" field.</summary>
+    public const int GenderFieldNumber = 46;
+    private string gender_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Gender {
+      get { return gender_; }
+      set {
+        gender_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DesignCate" field.</summary>
+    public const int DesignCateFieldNumber = 47;
+    private string designCate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DesignCate {
+      get { return designCate_; }
+      set {
+        designCate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "OwnerId" field.</summary>
+    public const int OwnerIdFieldNumber = 48;
+    private int ownerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int OwnerId {
+      get { return ownerId_; }
+      set {
+        ownerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DesignSource" field.</summary>
+    public const int DesignSourceFieldNumber = 49;
+    private string designSource_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DesignSource {
+      get { return designSource_; }
+      set {
+        designSource_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "PriceRange" field.</summary>
+    public const int PriceRangeFieldNumber = 50;
+    private string priceRange_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PriceRange {
+      get { return priceRange_; }
+      set {
+        priceRange_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Design);
@@ -2849,6 +4551,49 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Theme != other.Theme) return false;
       if (Collection != other.Collection) return false;
       if (DesignAssistantName != other.DesignAssistantName) return false;
+      if (DesignProductSN != other.DesignProductSN) return false;
+      if (ProductName != other.ProductName) return false;
+      if (CommitProductNameDate != other.CommitProductNameDate) return false;
+      if (Material != other.Material) return false;
+      if (Technology != other.Technology) return false;
+      if (Collar != other.Collar) return false;
+      if (Shape != other.Shape) return false;
+      if (ClothesLong != other.ClothesLong) return false;
+      if (SleeveShape != other.SleeveShape) return false;
+      if (SleeveLong != other.SleeveLong) return false;
+      if (TypeDecomposition != other.TypeDecomposition) return false;
+      if (Particulars != other.Particulars) return false;
+      if (Aekbuh != other.Aekbuh) return false;
+      if (SkirtLong != other.SkirtLong) return false;
+      if (WaistShape != other.WaistShape) return false;
+      if (Element != other.Element) return false;
+      if (TrousersShape != other.TrousersShape) return false;
+      if (Outseam != other.Outseam) return false;
+      if (Peplum != other.Peplum) return false;
+      if (Commission != other.Commission) return false;
+      if (PicturePath != other.PicturePath) return false;
+      if (Status != other.Status) return false;
+      if (Batch != other.Batch) return false;
+      if (UpnewDate != other.UpnewDate) return false;
+      if (Remark != other.Remark) return false;
+      if (SortCode != other.SortCode) return false;
+      if (AccountID != other.AccountID) return false;
+      if (Deleted != other.Deleted) return false;
+      if (Enabled != other.Enabled) return false;
+      if (CreatedOn != other.CreatedOn) return false;
+      if (CreatedBy != other.CreatedBy) return false;
+      if (CreatedCustomerId != other.CreatedCustomerId) return false;
+      if (ModifiedOn != other.ModifiedOn) return false;
+      if (ModifiedBy != other.ModifiedBy) return false;
+      if (ModifiedCustomerId != other.ModifiedCustomerId) return false;
+      if (SizeCateId != other.SizeCateId) return false;
+      if (IsMainPush != other.IsMainPush) return false;
+      if (WaveSession != other.WaveSession) return false;
+      if (Gender != other.Gender) return false;
+      if (DesignCate != other.DesignCate) return false;
+      if (OwnerId != other.OwnerId) return false;
+      if (DesignSource != other.DesignSource) return false;
+      if (PriceRange != other.PriceRange) return false;
       return true;
     }
 
@@ -2862,6 +4607,49 @@ namespace Inman.Platform.ServiceStub.Data {
       if (Theme.Length != 0) hash ^= Theme.GetHashCode();
       if (Collection.Length != 0) hash ^= Collection.GetHashCode();
       if (DesignAssistantName.Length != 0) hash ^= DesignAssistantName.GetHashCode();
+      if (DesignProductSN.Length != 0) hash ^= DesignProductSN.GetHashCode();
+      if (ProductName.Length != 0) hash ^= ProductName.GetHashCode();
+      if (CommitProductNameDate.Length != 0) hash ^= CommitProductNameDate.GetHashCode();
+      if (Material.Length != 0) hash ^= Material.GetHashCode();
+      if (Technology.Length != 0) hash ^= Technology.GetHashCode();
+      if (Collar.Length != 0) hash ^= Collar.GetHashCode();
+      if (Shape.Length != 0) hash ^= Shape.GetHashCode();
+      if (ClothesLong.Length != 0) hash ^= ClothesLong.GetHashCode();
+      if (SleeveShape.Length != 0) hash ^= SleeveShape.GetHashCode();
+      if (SleeveLong.Length != 0) hash ^= SleeveLong.GetHashCode();
+      if (TypeDecomposition.Length != 0) hash ^= TypeDecomposition.GetHashCode();
+      if (Particulars.Length != 0) hash ^= Particulars.GetHashCode();
+      if (Aekbuh.Length != 0) hash ^= Aekbuh.GetHashCode();
+      if (SkirtLong.Length != 0) hash ^= SkirtLong.GetHashCode();
+      if (WaistShape.Length != 0) hash ^= WaistShape.GetHashCode();
+      if (Element.Length != 0) hash ^= Element.GetHashCode();
+      if (TrousersShape.Length != 0) hash ^= TrousersShape.GetHashCode();
+      if (Outseam.Length != 0) hash ^= Outseam.GetHashCode();
+      if (Peplum.Length != 0) hash ^= Peplum.GetHashCode();
+      if (Commission.Length != 0) hash ^= Commission.GetHashCode();
+      if (PicturePath.Length != 0) hash ^= PicturePath.GetHashCode();
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
+      if (Batch.Length != 0) hash ^= Batch.GetHashCode();
+      if (UpnewDate.Length != 0) hash ^= UpnewDate.GetHashCode();
+      if (Remark.Length != 0) hash ^= Remark.GetHashCode();
+      if (SortCode != 0) hash ^= SortCode.GetHashCode();
+      if (AccountID != 0) hash ^= AccountID.GetHashCode();
+      if (Deleted != false) hash ^= Deleted.GetHashCode();
+      if (Enabled != 0) hash ^= Enabled.GetHashCode();
+      if (CreatedOn.Length != 0) hash ^= CreatedOn.GetHashCode();
+      if (CreatedBy.Length != 0) hash ^= CreatedBy.GetHashCode();
+      if (CreatedCustomerId != 0) hash ^= CreatedCustomerId.GetHashCode();
+      if (ModifiedOn.Length != 0) hash ^= ModifiedOn.GetHashCode();
+      if (ModifiedBy.Length != 0) hash ^= ModifiedBy.GetHashCode();
+      if (ModifiedCustomerId != 0) hash ^= ModifiedCustomerId.GetHashCode();
+      if (SizeCateId != 0) hash ^= SizeCateId.GetHashCode();
+      if (IsMainPush.Length != 0) hash ^= IsMainPush.GetHashCode();
+      if (WaveSession.Length != 0) hash ^= WaveSession.GetHashCode();
+      if (Gender.Length != 0) hash ^= Gender.GetHashCode();
+      if (DesignCate.Length != 0) hash ^= DesignCate.GetHashCode();
+      if (OwnerId != 0) hash ^= OwnerId.GetHashCode();
+      if (DesignSource.Length != 0) hash ^= DesignSource.GetHashCode();
+      if (PriceRange.Length != 0) hash ^= PriceRange.GetHashCode();
       return hash;
     }
 
@@ -2900,6 +4688,178 @@ namespace Inman.Platform.ServiceStub.Data {
         output.WriteRawTag(58);
         output.WriteString(DesignAssistantName);
       }
+      if (DesignProductSN.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(DesignProductSN);
+      }
+      if (ProductName.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(ProductName);
+      }
+      if (CommitProductNameDate.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(CommitProductNameDate);
+      }
+      if (Material.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(Material);
+      }
+      if (Technology.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteString(Technology);
+      }
+      if (Collar.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(Collar);
+      }
+      if (Shape.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(Shape);
+      }
+      if (ClothesLong.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(ClothesLong);
+      }
+      if (SleeveShape.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(SleeveShape);
+      }
+      if (SleeveLong.Length != 0) {
+        output.WriteRawTag(138, 1);
+        output.WriteString(SleeveLong);
+      }
+      if (TypeDecomposition.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteString(TypeDecomposition);
+      }
+      if (Particulars.Length != 0) {
+        output.WriteRawTag(154, 1);
+        output.WriteString(Particulars);
+      }
+      if (Aekbuh.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Aekbuh);
+      }
+      if (SkirtLong.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(SkirtLong);
+      }
+      if (WaistShape.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(WaistShape);
+      }
+      if (Element.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(Element);
+      }
+      if (TrousersShape.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(TrousersShape);
+      }
+      if (Outseam.Length != 0) {
+        output.WriteRawTag(202, 1);
+        output.WriteString(Outseam);
+      }
+      if (Peplum.Length != 0) {
+        output.WriteRawTag(210, 1);
+        output.WriteString(Peplum);
+      }
+      if (Commission.Length != 0) {
+        output.WriteRawTag(218, 1);
+        output.WriteString(Commission);
+      }
+      if (PicturePath.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(PicturePath);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(234, 1);
+        output.WriteString(Status);
+      }
+      if (Batch.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(Batch);
+      }
+      if (UpnewDate.Length != 0) {
+        output.WriteRawTag(250, 1);
+        output.WriteString(UpnewDate);
+      }
+      if (Remark.Length != 0) {
+        output.WriteRawTag(130, 2);
+        output.WriteString(Remark);
+      }
+      if (SortCode != 0) {
+        output.WriteRawTag(136, 2);
+        output.WriteInt32(SortCode);
+      }
+      if (AccountID != 0) {
+        output.WriteRawTag(144, 2);
+        output.WriteInt32(AccountID);
+      }
+      if (Deleted != false) {
+        output.WriteRawTag(152, 2);
+        output.WriteBool(Deleted);
+      }
+      if (Enabled != 0) {
+        output.WriteRawTag(160, 2);
+        output.WriteInt32(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        output.WriteRawTag(170, 2);
+        output.WriteString(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        output.WriteRawTag(178, 2);
+        output.WriteString(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        output.WriteRawTag(184, 2);
+        output.WriteInt32(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        output.WriteRawTag(202, 2);
+        output.WriteString(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        output.WriteRawTag(208, 2);
+        output.WriteInt32(ModifiedCustomerId);
+      }
+      if (SizeCateId != 0) {
+        output.WriteRawTag(216, 2);
+        output.WriteInt32(SizeCateId);
+      }
+      if (IsMainPush.Length != 0) {
+        output.WriteRawTag(226, 2);
+        output.WriteString(IsMainPush);
+      }
+      if (WaveSession.Length != 0) {
+        output.WriteRawTag(234, 2);
+        output.WriteString(WaveSession);
+      }
+      if (Gender.Length != 0) {
+        output.WriteRawTag(242, 2);
+        output.WriteString(Gender);
+      }
+      if (DesignCate.Length != 0) {
+        output.WriteRawTag(250, 2);
+        output.WriteString(DesignCate);
+      }
+      if (OwnerId != 0) {
+        output.WriteRawTag(128, 3);
+        output.WriteInt32(OwnerId);
+      }
+      if (DesignSource.Length != 0) {
+        output.WriteRawTag(138, 3);
+        output.WriteString(DesignSource);
+      }
+      if (PriceRange.Length != 0) {
+        output.WriteRawTag(146, 3);
+        output.WriteString(PriceRange);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2925,6 +4885,135 @@ namespace Inman.Platform.ServiceStub.Data {
       }
       if (DesignAssistantName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DesignAssistantName);
+      }
+      if (DesignProductSN.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DesignProductSN);
+      }
+      if (ProductName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProductName);
+      }
+      if (CommitProductNameDate.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CommitProductNameDate);
+      }
+      if (Material.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Material);
+      }
+      if (Technology.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Technology);
+      }
+      if (Collar.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Collar);
+      }
+      if (Shape.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Shape);
+      }
+      if (ClothesLong.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClothesLong);
+      }
+      if (SleeveShape.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SleeveShape);
+      }
+      if (SleeveLong.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SleeveLong);
+      }
+      if (TypeDecomposition.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TypeDecomposition);
+      }
+      if (Particulars.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Particulars);
+      }
+      if (Aekbuh.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Aekbuh);
+      }
+      if (SkirtLong.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SkirtLong);
+      }
+      if (WaistShape.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(WaistShape);
+      }
+      if (Element.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Element);
+      }
+      if (TrousersShape.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TrousersShape);
+      }
+      if (Outseam.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Outseam);
+      }
+      if (Peplum.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Peplum);
+      }
+      if (Commission.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Commission);
+      }
+      if (PicturePath.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PicturePath);
+      }
+      if (Status.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Status);
+      }
+      if (Batch.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Batch);
+      }
+      if (UpnewDate.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(UpnewDate);
+      }
+      if (Remark.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Remark);
+      }
+      if (SortCode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SortCode);
+      }
+      if (AccountID != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AccountID);
+      }
+      if (Deleted != false) {
+        size += 2 + 1;
+      }
+      if (Enabled != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(Enabled);
+      }
+      if (CreatedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedOn);
+      }
+      if (CreatedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(CreatedBy);
+      }
+      if (CreatedCustomerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(CreatedCustomerId);
+      }
+      if (ModifiedOn.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedOn);
+      }
+      if (ModifiedBy.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ModifiedBy);
+      }
+      if (ModifiedCustomerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ModifiedCustomerId);
+      }
+      if (SizeCateId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(SizeCateId);
+      }
+      if (IsMainPush.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(IsMainPush);
+      }
+      if (WaveSession.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(WaveSession);
+      }
+      if (Gender.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Gender);
+      }
+      if (DesignCate.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(DesignCate);
+      }
+      if (OwnerId != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(OwnerId);
+      }
+      if (DesignSource.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(DesignSource);
+      }
+      if (PriceRange.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PriceRange);
       }
       return size;
     }
@@ -2954,6 +5043,135 @@ namespace Inman.Platform.ServiceStub.Data {
       }
       if (other.DesignAssistantName.Length != 0) {
         DesignAssistantName = other.DesignAssistantName;
+      }
+      if (other.DesignProductSN.Length != 0) {
+        DesignProductSN = other.DesignProductSN;
+      }
+      if (other.ProductName.Length != 0) {
+        ProductName = other.ProductName;
+      }
+      if (other.CommitProductNameDate.Length != 0) {
+        CommitProductNameDate = other.CommitProductNameDate;
+      }
+      if (other.Material.Length != 0) {
+        Material = other.Material;
+      }
+      if (other.Technology.Length != 0) {
+        Technology = other.Technology;
+      }
+      if (other.Collar.Length != 0) {
+        Collar = other.Collar;
+      }
+      if (other.Shape.Length != 0) {
+        Shape = other.Shape;
+      }
+      if (other.ClothesLong.Length != 0) {
+        ClothesLong = other.ClothesLong;
+      }
+      if (other.SleeveShape.Length != 0) {
+        SleeveShape = other.SleeveShape;
+      }
+      if (other.SleeveLong.Length != 0) {
+        SleeveLong = other.SleeveLong;
+      }
+      if (other.TypeDecomposition.Length != 0) {
+        TypeDecomposition = other.TypeDecomposition;
+      }
+      if (other.Particulars.Length != 0) {
+        Particulars = other.Particulars;
+      }
+      if (other.Aekbuh.Length != 0) {
+        Aekbuh = other.Aekbuh;
+      }
+      if (other.SkirtLong.Length != 0) {
+        SkirtLong = other.SkirtLong;
+      }
+      if (other.WaistShape.Length != 0) {
+        WaistShape = other.WaistShape;
+      }
+      if (other.Element.Length != 0) {
+        Element = other.Element;
+      }
+      if (other.TrousersShape.Length != 0) {
+        TrousersShape = other.TrousersShape;
+      }
+      if (other.Outseam.Length != 0) {
+        Outseam = other.Outseam;
+      }
+      if (other.Peplum.Length != 0) {
+        Peplum = other.Peplum;
+      }
+      if (other.Commission.Length != 0) {
+        Commission = other.Commission;
+      }
+      if (other.PicturePath.Length != 0) {
+        PicturePath = other.PicturePath;
+      }
+      if (other.Status.Length != 0) {
+        Status = other.Status;
+      }
+      if (other.Batch.Length != 0) {
+        Batch = other.Batch;
+      }
+      if (other.UpnewDate.Length != 0) {
+        UpnewDate = other.UpnewDate;
+      }
+      if (other.Remark.Length != 0) {
+        Remark = other.Remark;
+      }
+      if (other.SortCode != 0) {
+        SortCode = other.SortCode;
+      }
+      if (other.AccountID != 0) {
+        AccountID = other.AccountID;
+      }
+      if (other.Deleted != false) {
+        Deleted = other.Deleted;
+      }
+      if (other.Enabled != 0) {
+        Enabled = other.Enabled;
+      }
+      if (other.CreatedOn.Length != 0) {
+        CreatedOn = other.CreatedOn;
+      }
+      if (other.CreatedBy.Length != 0) {
+        CreatedBy = other.CreatedBy;
+      }
+      if (other.CreatedCustomerId != 0) {
+        CreatedCustomerId = other.CreatedCustomerId;
+      }
+      if (other.ModifiedOn.Length != 0) {
+        ModifiedOn = other.ModifiedOn;
+      }
+      if (other.ModifiedBy.Length != 0) {
+        ModifiedBy = other.ModifiedBy;
+      }
+      if (other.ModifiedCustomerId != 0) {
+        ModifiedCustomerId = other.ModifiedCustomerId;
+      }
+      if (other.SizeCateId != 0) {
+        SizeCateId = other.SizeCateId;
+      }
+      if (other.IsMainPush.Length != 0) {
+        IsMainPush = other.IsMainPush;
+      }
+      if (other.WaveSession.Length != 0) {
+        WaveSession = other.WaveSession;
+      }
+      if (other.Gender.Length != 0) {
+        Gender = other.Gender;
+      }
+      if (other.DesignCate.Length != 0) {
+        DesignCate = other.DesignCate;
+      }
+      if (other.OwnerId != 0) {
+        OwnerId = other.OwnerId;
+      }
+      if (other.DesignSource.Length != 0) {
+        DesignSource = other.DesignSource;
+      }
+      if (other.PriceRange.Length != 0) {
+        PriceRange = other.PriceRange;
       }
     }
 
@@ -2991,6 +5209,178 @@ namespace Inman.Platform.ServiceStub.Data {
           }
           case 58: {
             DesignAssistantName = input.ReadString();
+            break;
+          }
+          case 66: {
+            DesignProductSN = input.ReadString();
+            break;
+          }
+          case 74: {
+            ProductName = input.ReadString();
+            break;
+          }
+          case 82: {
+            CommitProductNameDate = input.ReadString();
+            break;
+          }
+          case 90: {
+            Material = input.ReadString();
+            break;
+          }
+          case 98: {
+            Technology = input.ReadString();
+            break;
+          }
+          case 106: {
+            Collar = input.ReadString();
+            break;
+          }
+          case 114: {
+            Shape = input.ReadString();
+            break;
+          }
+          case 122: {
+            ClothesLong = input.ReadString();
+            break;
+          }
+          case 130: {
+            SleeveShape = input.ReadString();
+            break;
+          }
+          case 138: {
+            SleeveLong = input.ReadString();
+            break;
+          }
+          case 146: {
+            TypeDecomposition = input.ReadString();
+            break;
+          }
+          case 154: {
+            Particulars = input.ReadString();
+            break;
+          }
+          case 162: {
+            Aekbuh = input.ReadString();
+            break;
+          }
+          case 170: {
+            SkirtLong = input.ReadString();
+            break;
+          }
+          case 178: {
+            WaistShape = input.ReadString();
+            break;
+          }
+          case 186: {
+            Element = input.ReadString();
+            break;
+          }
+          case 194: {
+            TrousersShape = input.ReadString();
+            break;
+          }
+          case 202: {
+            Outseam = input.ReadString();
+            break;
+          }
+          case 210: {
+            Peplum = input.ReadString();
+            break;
+          }
+          case 218: {
+            Commission = input.ReadString();
+            break;
+          }
+          case 226: {
+            PicturePath = input.ReadString();
+            break;
+          }
+          case 234: {
+            Status = input.ReadString();
+            break;
+          }
+          case 242: {
+            Batch = input.ReadString();
+            break;
+          }
+          case 250: {
+            UpnewDate = input.ReadString();
+            break;
+          }
+          case 258: {
+            Remark = input.ReadString();
+            break;
+          }
+          case 264: {
+            SortCode = input.ReadInt32();
+            break;
+          }
+          case 272: {
+            AccountID = input.ReadInt32();
+            break;
+          }
+          case 280: {
+            Deleted = input.ReadBool();
+            break;
+          }
+          case 288: {
+            Enabled = input.ReadInt32();
+            break;
+          }
+          case 298: {
+            CreatedOn = input.ReadString();
+            break;
+          }
+          case 306: {
+            CreatedBy = input.ReadString();
+            break;
+          }
+          case 312: {
+            CreatedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 322: {
+            ModifiedOn = input.ReadString();
+            break;
+          }
+          case 330: {
+            ModifiedBy = input.ReadString();
+            break;
+          }
+          case 336: {
+            ModifiedCustomerId = input.ReadInt32();
+            break;
+          }
+          case 344: {
+            SizeCateId = input.ReadInt32();
+            break;
+          }
+          case 354: {
+            IsMainPush = input.ReadString();
+            break;
+          }
+          case 362: {
+            WaveSession = input.ReadString();
+            break;
+          }
+          case 370: {
+            Gender = input.ReadString();
+            break;
+          }
+          case 378: {
+            DesignCate = input.ReadString();
+            break;
+          }
+          case 384: {
+            OwnerId = input.ReadInt32();
+            break;
+          }
+          case 394: {
+            DesignSource = input.ReadString();
+            break;
+          }
+          case 402: {
+            PriceRange = input.ReadString();
             break;
           }
         }

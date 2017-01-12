@@ -34,8 +34,8 @@ namespace Inman.SCM.Controllers
         public  IActionResult Index()
         {
             var productList = new List<Product>();
-            for (int i = 0; i < 1000; i++)
-            {
+            //for (int i = 0; i < 1000; i++)
+            //{
                 productList = new List<Product>();
                 var request = new StockItemRequest { Quantity = 10 };
                 request.StockItemId.AddRange(new List<int> {1004
@@ -103,19 +103,23 @@ namespace Inman.SCM.Controllers
                 var streamCall = _stockItemServiceClient.GetStockItemList(request);
                 list.AddRange(streamCall.StockItems);
 
+            list.ForEach(t => t.Id = 1000);
+
                 var productRequest = new ProductRequest { Quantity = 15 };
                 var productStreamCall = _productServiceClient.GetProductList(productRequest);
                
                 productList.AddRange(productStreamCall.Products);
+
+            productList.ForEach(t => t.Id = 1020303);
 
                 var goodsRequest = new GoodsRequest();
                 goodsRequest.GoodsId.AddRange(productList.Select(t => t.GoodsId));
                 var goodsStreamCall = _goodsServiceClient.GetGoodsList(goodsRequest);
                 var goodsList = new List<Goods>();
                 goodsList.AddRange(goodsStreamCall.Goodses);
+            goodsList.ForEach(t => t.Id = 1203244567);
 
-
-            }
+           // }
 
 
             return View(productList);

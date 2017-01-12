@@ -27,7 +27,7 @@ class Program
                  ProductService.BindService(serviceProvider.GetService<ProductServiceBase>()),
                   GoodsService.BindService(serviceProvider.GetService<GoodsServiceBase>())
             },
-            Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
+            Ports = { new ServerPort("192.168.7.213", Port, ServerCredentials.Insecure) }
         };
         server.Start();
 
