@@ -27,4 +27,15 @@
     <ProjectReference Include="..\Inman.Platform.ServiceStub\Inman.Platform.ServiceStub.csproj" />
     <ProjectReference Include="..\Inman.Platform.Service\Inman.Platform.Service.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="OpenSSL\server.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="OpenSSL\server.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

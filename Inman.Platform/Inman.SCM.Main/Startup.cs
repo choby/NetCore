@@ -12,6 +12,7 @@ using static Inman.Platform.ServiceStub.StockItemService;
 using Grpc.Core;
 using static Inman.Platform.ServiceStub.ProductService;
 using static Inman.Platform.ServiceStub.GoodsService;
+using System.IO;
 
 namespace Inman.SCM
 {
@@ -32,7 +33,14 @@ namespace Inman.SCM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(typeof(Channel), sp => new Channel("192.168.7.213:50052", ChannelCredentials.Insecure));
+            var cacert = File.ReadAllText("OpenSSL/ca.crt");
+            var clientcert = File.ReadAllText("OpenSSL/client.crt");
+            var clientkey = File.ReadAllText("OpenSSL/client.key");
+            var ssl = new SslCredentials(cacert, new KeyCertificatePair(clientcert, clientkey));
+           // var channel = new Channel("KEKYK", sslPort, ssl);
+           // var client = new MathService.MathServiceClient(channel);
+
+            services.AddSingleton(typeof(Channel), sp => new Channel("IOM_SERVER", 50052, ssl));
             services.AddTransient(typeof(StockItemServiceClient), typeof(StockItemServiceClient));
             services.AddTransient(typeof(ProductServiceClient), typeof(ProductServiceClient));
             services.AddTransient(typeof(GoodsServiceClient), typeof(GoodsServiceClient));

@@ -8,6 +8,9 @@ using static Inman.Platform.ServiceStub.StockItemService;
 using static Inman.Platform.ServiceStub.UserService;
 using static Inman.Platform.ServiceStub.ProductService;
 using static Inman.Platform.ServiceStub.GoodsService;
+using System.IO;
+using System.Collections.Generic;
+
 class Program
 {
     static IServiceProvider serviceProvider;
@@ -18,6 +21,12 @@ class Program
         serviceProvider = services.BuildServiceProvider();
 
         const int Port = 50052;
+        
+        var cacert = File.ReadAllText("OpenSSL/ca.crt");
+        var servercert = File.ReadAllText("OpenSSL/server.crt");
+        var serverkey = File.ReadAllText("OpenSSL/server.key");
+        var keypair = new KeyCertificatePair(servercert, serverkey);
+        var sslCredentials = new SslServerCredentials(new List<KeyCertificatePair>() { keypair }, cacert, false);
 
         Server server = new Server
         {
@@ -27,11 +36,11 @@ class Program
                  ProductService.BindService(serviceProvider.GetService<ProductServiceBase>()),
                   GoodsService.BindService(serviceProvider.GetService<GoodsServiceBase>())
             },
-            Ports = { new ServerPort("192.168.7.213", Port, ServerCredentials.Insecure) }
+            Ports = { new ServerPort("IOM_SERVER", Port, sslCredentials) }
         };
         server.Start();
 
-        Console.WriteLine("RouteGuide server listening on port " + Port);
+        //Console.WriteLine("RouteGuide server listening on port " + Port);
         Console.WriteLine("Press any key to stop the server...");
         Console.ReadKey();
 
