@@ -3,17 +3,40 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <OutputType>library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
-    
+    <Compile Remove="Authentication\**" />
+    <Compile Remove="Fakes\**" />
+    <Compile Remove="Pager\**" />
+    <Compile Remove="UI\**" />
+    <EmbeddedResource Remove="Authentication\**" />
+    <EmbeddedResource Remove="Fakes\**" />
+    <EmbeddedResource Remove="Pager\**" />
+    <EmbeddedResource Remove="UI\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="CommonHelper.cs" />
+    <Compile Remove="Controllers\ContollerExtensions.cs" />
+    <Compile Remove="Controllers\PersonalCache.cs" />
+    <Compile Remove="ExcelXlsFileResult.cs" />
+    <Compile Remove="Extensions\LayoutExtensions.cs" />
+    <Compile Remove="Filters\FormValueRequiredAttribute.cs" />
+    <Compile Remove="Filters\MemberOnlyAttribute.cs" />
+    <Compile Remove="MVCDependencyResolver.cs" />
+    <Compile Remove="WebHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http">
       <Version>1.1.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.0" />
     <PackageReference Include="NETStandard.Library">
       <Version>1.6.1</Version>
     </PackageReference>
@@ -25,6 +48,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj" />
     <ProjectReference Include="..\Inman.Infrastructure.IOC\Inman.Infrastructure.IOC.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Filters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

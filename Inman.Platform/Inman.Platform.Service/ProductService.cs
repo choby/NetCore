@@ -29,7 +29,7 @@ namespace Inman.Platform.Service
         }
         public override async Task<ProductResponse> GetProductList(ProductRequest request, ServerCallContext context)
         {
-            string sql = $"SELECT TOP {new Random().Next(10,50)} Id, ColorID,GoodsId ,PicturePath,Remark FROM Inman_Product";
+            string sql = $"SELECT   Id, ColorID,GoodsId ,PicturePath,Remark FROM Inman_Product Order By Id DESC OFFSET {new Random().Next(1, 10000)} ROWS FETCH NEXT {new Random().Next(10, 50)} ROWS ONLY";
             if (request.ProductId.Count > 0)
                 sql = $"{sql} WHERE Id in ({string.Join(",", request.ProductId)})";
 

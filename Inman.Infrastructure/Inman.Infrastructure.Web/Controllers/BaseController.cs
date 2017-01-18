@@ -8,10 +8,10 @@ namespace Inman.Infrastructure.Web
 {
     public class BaseController : Controller
     {
-        protected PersonalCache Personal
-        {
-            get { return PersonalCache.Instance; }
-        }
+        //protected PersonalCache Personal
+        //{
+        //    get { return PersonalCache.Instance; }
+        //}
 
         /// <summary>
         /// 判断页面提交方式是否为POST请求

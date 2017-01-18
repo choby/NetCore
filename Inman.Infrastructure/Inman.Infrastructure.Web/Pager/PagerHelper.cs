@@ -5,10 +5,9 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
-using System.Web.Mvc.Ajax;
-using System.Web.Routing;
 using Inman.Infrastructure.Common;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Routing;
 
 namespace Inman.Infrastructure.Web
 {

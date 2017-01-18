@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Inman.Infrastructure.IOC;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Inman.Infrastructure.Web
 {

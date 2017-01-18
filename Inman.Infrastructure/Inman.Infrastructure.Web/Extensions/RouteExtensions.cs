@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Routing;
+using System.Collections.Generic;
+
 
 namespace Inman.Infrastructure.Web
 {
@@ -8,19 +11,20 @@ namespace Inman.Infrastructure.Web
     {
         public static UrlHelper UrlHelper(this HtmlHelper htmlHelper)
         {
-            return new UrlHelper(htmlHelper.ViewContext.RequestContext);
+            var actionContext =  new ActionContext(htmlHelper.ViewContext.HttpContext, htmlHelper.ViewContext.RouteData, htmlHelper.ViewContext.ActionDescriptor);
+            return new UrlHelper(actionContext);
         }
 
         public static string MergeRouteUrl(this UrlHelper urlHelper, object values)
         {
-            var routeValues = MergeRouteValues(urlHelper.RequestContext.RouteData, values);
+            var routeValues = MergeRouteValues(urlHelper.ActionContext.RouteData, values);
 
             return urlHelper.RouteUrl(routeValues);
         }
 
         public static string MergeRouteUrl(this UrlHelper urlHelper, IDictionary<string, object> values)
         {
-            var routeValues = MergeRouteValues(urlHelper.RequestContext.RouteData, values);
+            var routeValues = MergeRouteValues(urlHelper.ActionContext.RouteData, values);
 
             return urlHelper.RouteUrl(routeValues);
         }
@@ -75,8 +79,8 @@ namespace Inman.Infrastructure.Web
         {
             var routeValues = values == null ? new RouteValueDictionary() : new RouteValueDictionary(values);
 
-            var rq = helper.RequestContext.HttpContext.Request.QueryString;
-            if (rq != null && rq.Count > 0)
+            var rq = helper.ActionContext.HttpContext.Request.Query;
+            if (rq != null && rq.Keys.Count > 0)
             {
                 var invalidParams = new[] { "x-requested-with", "xmlhttprequest", "page" };
                 foreach (string key in rq.Keys)
@@ -91,7 +95,7 @@ namespace Inman.Infrastructure.Web
             }
 
             if (string.IsNullOrWhiteSpace(controllerName))
-                controllerName = (string)helper.RequestContext.RouteData.Values["controller"];
+                controllerName = (string)helper.ActionContext.RouteData.Values["controller"];
 
             // action
             routeValues["action"] = actionName;
@@ -99,7 +103,7 @@ namespace Inman.Infrastructure.Web
             routeValues["controller"] = controllerName;
 
             // Return link
-            var urlHelper = new UrlHelper(helper.RequestContext);
+            var urlHelper = new UrlHelper(helper.ActionContext);
 
             return urlHelper.RouteUrl(routeValues);
         }

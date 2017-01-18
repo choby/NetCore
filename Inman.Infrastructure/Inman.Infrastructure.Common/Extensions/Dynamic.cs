@@ -385,7 +385,7 @@ namespace System.Linq.Dynamic
     {
         public override string ToString()
         {
-            PropertyInfo[] props = this.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            PropertyInfo[] props = this.GetType().GetTypeInfo().GetProperties(BindingFlags.Instance | BindingFlags.Public);
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
             for (int i = 0; i < props.Length; i++)

@@ -1,6 +1,6 @@
-﻿using System;
-using System.Web;
-using System.Web.Routing;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using System;
 
 namespace Inman.Infrastructure.Web
 {
@@ -12,11 +12,14 @@ namespace Inman.Infrastructure.Web
         {
             this._allowEmpty = allowEmpty;
         }
-        public bool Match(HttpContextBase httpContext, Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
+
+       
+
+        public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
         {
-            if (values.ContainsKey(parameterName))
+            if (values.ContainsKey(routeKey))
             {
-                string stringValue = values[parameterName] != null ? values[parameterName].ToString() : null;
+                string stringValue = values[routeKey] != null ? values[routeKey].ToString() : null;
 
                 if (!string.IsNullOrEmpty(stringValue))
                 {

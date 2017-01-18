@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Inman.Infrastructure.Common.IOC;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Mvc.Html;
+
 
 namespace Inman.Infrastructure.Web
 {
@@ -19,7 +22,7 @@ namespace Inman.Infrastructure.Web
         private readonly Dictionary<ResourceLocation, List<string>> _scriptParts;
         private readonly Dictionary<ResourceLocation, List<string>> _cssParts;
         //private readonly List<string> _canonicalUrlParts;
-
+        IHttpContextAccessor _httpContextAccessor;
         public PageTitleBuilder()
         {
             _titleParts = new List<string>();
@@ -29,6 +32,7 @@ namespace Inman.Infrastructure.Web
             _scriptParts = new Dictionary<ResourceLocation, List<string>>();
             _cssParts = new Dictionary<ResourceLocation, List<string>>();
             //_canonicalUrlParts = new List<string>();
+            _httpContextAccessor = EngineContext.Current.GetService<IHttpContextAccessor>();
         }
 
         public void AddTitleParts(params string[] parts)
@@ -210,7 +214,8 @@ namespace Inman.Infrastructure.Web
             var result = new StringBuilder();
             foreach (var part in _fileContentParts)
             {
-                result.Append(File.ReadAllText(HttpContext.Current.Server.MapPath(part)));
+                
+                result.Append(File.ReadAllText(AppContext.BaseDirectory+part));
                 result.Append(Environment.NewLine);
             }
             return result.ToString();

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
 using Inman.Infrastructure.Common.Extensions;
 using Inman.Infrastructure.Common;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Inman.Infrastructure.Web
 {

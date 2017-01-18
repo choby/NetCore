@@ -30,4 +30,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Inman.Platform.ServiceStub\Inman.Platform.ServiceStub.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="OpenSSL\client.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="OpenSSL\client.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
