@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using PetaPoco.NetCore;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using static Inman.Platform.ServiceStub.UserService;
 
 namespace Inman.IdentityServer
@@ -38,7 +39,16 @@ namespace Inman.IdentityServer
             //services.AddIdentity<>();
             //services.add
             services.AddTransient(typeof(Database), sp => new Database(new SqlConnection(Configuration.GetSection("dbConn").Value)));
-            services.AddSingleton(typeof(Channel), sp => new Channel("127.0.0.1:50052", ChannelCredentials.Insecure));
+
+            //使用openssl证书
+            //证书保存可以是磁盘文件，也可以是数据库记录
+            var cacert = File.ReadAllText("OpenSSL/ca.crt");
+            var clientcert = File.ReadAllText("OpenSSL/client.crt");
+            var clientkey = File.ReadAllText("OpenSSL/client.key");
+            var ssl = new SslCredentials(cacert, new KeyCertificatePair(clientcert, clientkey));
+           // 创建使用证书的通信管道
+            //使用加密证书时，服务器只能使用URI或者机器名，直接使用IP会抛异常提示找不到服务端
+            services.AddSingleton(typeof(Channel), sp => new Channel("IOM_SERVER", 50052, ssl)); //生命周期使用单例
 
             services.AddTransient(typeof(UserServiceClient), typeof(UserServiceClient));
 

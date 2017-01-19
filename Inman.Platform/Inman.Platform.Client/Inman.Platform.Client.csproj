@@ -8,6 +8,17 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OpenSSL\client.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OpenSSL\client.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.1.0" />
     <PackageReference Include="Grpc.Core" Version="1.0.1" />
     <PackageReference Include="Microsoft.NETCore.App" Version="1.1.0" />

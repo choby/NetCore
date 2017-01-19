@@ -44,4 +44,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Inman.Infrastructure.Common">
+      <HintPath>..\..\Inman.Infrastructure\Inman.Infrastructure.Web\bin\Debug\netstandard1.6\Inman.Infrastructure.Common.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Inman.Infrastructure.IOC">
+      <HintPath>..\..\Inman.Infrastructure\Inman.Infrastructure.Web\bin\Debug\netstandard1.6\Inman.Infrastructure.IOC.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Inman.Infrastructure.Web">
+      <HintPath>..\..\Inman.Infrastructure\Inman.Infrastructure.Web\bin\Debug\netstandard1.6\Inman.Infrastructure.Web.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
 </Project>

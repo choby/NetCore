@@ -96,7 +96,7 @@ namespace Inman.IdentityServer.Controllers
 
                     // issue authentication cookie with subject ID and username
                     var user = loginResult.User;  //_users.FindByUsername(model.Username);
-                    await HttpContext.Authentication.SignInAsync(user.Id.ToString(), user.UserName, props);
+                    await HttpContext.Authentication.SignInAsync(user.Id.ToString(), user.UserName, props,new Claim("name",user.UserName));
 
                     // make sure the returnUrl is still valid, and if yes - redirect back to authorize endpoint
                     if (_interaction.IsValidReturnUrl(model.ReturnUrl))

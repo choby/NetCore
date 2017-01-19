@@ -16,6 +16,7 @@ using System.IO;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System.Threading;
+//using Inman.Infrastructure.Web.Middleware;
 
 namespace Inman.SCM
 {
@@ -69,6 +70,8 @@ namespace Inman.SCM
             //var container = containerBuilder.Build();
 
             //return new AutofacServiceProvider(container);
+            //EngineContext.Initialize(false);
+            //return EngineContext.Current;//定义在Inman.Infrastructure.IOC中
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,15 +79,17 @@ namespace Inman.SCM
             IServiceProvider svp)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            
+            //loggerFactory.
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            //app.UseCustomErrorPages();//定义在Inman.Infrastructure.Web中
 
             if (env.IsDevelopment()) //环境变量中包含“ASPNETCORE_ENVIRONMENT”并且值为Development
             {
                 app.UseDeveloperExceptionPage();//开发环境中，显示详细的异常信息。
                 //app.UseDatabaseErrorPage();
                 //app.UseBrowserLink();
+               
             }
             else
             {
@@ -98,9 +103,9 @@ namespace Inman.SCM
 
             app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions
             {
-                AuthenticationScheme = "oidc",//使用openid认证方式
+                AuthenticationScheme = "oidc",//使用简化模式(OpenID Connect)认证方式 客户端确定 URL（用户认证服务），登录在用户认证服务，验证成功，返回客户端想要的用户数据，并使此用户为登录状态，可以在客户端进行注销用户。
                 SignInScheme = "Cookies",
-
+                
                 Authority = "http://localhost:5000",//身份认证中心地址，通常可以理解为SSO站点
                 RequireHttpsMetadata = false,//是否使用加密的http（https）协议
                 
@@ -108,10 +113,11 @@ namespace Inman.SCM
                 ClientSecret = "secret",//应用密钥
 
                 ResponseType = "code id_token",//
-                Scope = { "openid", "profile", "role" },//请求的使用范围"api1", "offline_access","openid","profile", "nickname" 默认：openid,profile
-
+                Scope = { "api1", "openid", "profile", "role" },//请求的使用范围"api1", "offline_access","openid","profile", "nickname" 默认：openid,profile
+                
                 GetClaimsFromUserInfoEndpoint = true, // 从用户信息节点获取信息，如果为false，则需要代码手动获取
-                SaveTokens = true
+                SaveTokens = true,//使用简单模式时，必须设置SaveTokens=true
+                UseTokenLifetime = true
             });
 
             app.UseStaticFiles();

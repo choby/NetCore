@@ -12,7 +12,7 @@ namespace Inman.Infrastructure.Common
         #region Fields
 
         private bool _ensureBinFolderAssembliesLoaded = true;
-        private bool _binFolderAssembliesLoaded = false;
+        //private bool _binFolderAssembliesLoaded = false;
 
         #endregion
 
