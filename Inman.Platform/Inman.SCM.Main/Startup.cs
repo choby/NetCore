@@ -61,7 +61,8 @@ namespace Inman.SCM
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // Add framework services.
             services.AddMvc();
-
+            //add kendo ui
+            services.AddKendo();
 
             //自定义依赖注入容器
             //var containerBuilder = new ContainerBuilder();
