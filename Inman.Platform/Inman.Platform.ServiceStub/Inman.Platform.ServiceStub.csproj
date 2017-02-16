@@ -2,32 +2,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <OutputType>library</OutputType>
   </PropertyGroup>
+  
   <ItemGroup>
-    <Compile Include="**\*.cs" />
-    <EmbeddedResource Include="**\*.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="generate_protos.bat" />
-    <None Include="protos\data.proto" />
-    <None Include="protos\goodsservice.proto" />
-    <None Include="protos\productservice.proto" />
-    <None Include="protos\stockitemservice.proto" />
-    <None Include="protos\userservice.proto" />
-    <None Include="tools\windows_x64\grpc_csharp_plugin.exe" />
-    <None Include="tools\windows_x64\protoc.exe" />
-    <None Include="tools\windows_x86\grpc_csharp_plugin.exe" />
-    <None Include="tools\windows_x86\protoc.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.1.0" />
-    <PackageReference Include="Grpc.Core" Version="1.0.1" />
-    <PackageReference Include="NETStandard.Library" Version="1.6.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.2.0" />
+    <PackageReference Include="Grpc.Core" Version="1.1.0" />
+   
   </ItemGroup>
   <ItemGroup>
     <Folder Include="grpc\" />
