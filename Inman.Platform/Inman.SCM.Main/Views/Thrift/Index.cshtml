@@ -1,0 +1,33 @@
+﻿@model IndexModel
+@using Inman.Platform.ServiceStub.Data;
+@using Inman.SCM.Main.Models;
+
+<dl>物料列表数量:@Model.StockItems.Count()</dl>
+
+<h1>展示不拼装的数据列表</h1>
+<dl>
+    @foreach (var product in Model.List1)
+    {
+        <dt> (Product表)大货款号: @product.ProductSN</dt>
+        <dd> (goods表)品牌: @product.Goods.Brand  开发成本：@product.Goods.DevCost 填充物： @product.Goods.Filler 充绒量： @product.Goods.FillFeatherPercent </dd>
+        <dd> (Design表)开发年份： @product.Goods.Design.DevYear 系列： @product.Goods.Design.Collection
+<hr />
+    </dd>
+        
+    }
+</dl>
+
+<br /><br />
+
+<h1>展示拼装的数据列表</h1>
+<dl>
+    @foreach (var product in Model.List2)
+    {
+        <dt> (Product表)大货款号: @product.ProductSN</dt>
+        <dd> (goods表)品牌: @product.Goods.Brand  开发成本：@product.Goods.DevCost 填充物： @product.Goods.Filler 充绒量： @product.Goods.FillFeatherPercent </dd>
+        <dd>
+            (Design表)开发年份： @product.Goods.Design.DevYear 系列： @product.Goods.Design.Collection
+            <hr />
+        </dd>
+    }
+</dl>

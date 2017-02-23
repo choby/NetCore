@@ -24,16 +24,17 @@ namespace Inman.Platform.ServiceStub {
           string.Concat(
             "ChRwcm9kdWN0c2VydmljZS5wcm90bxoKZGF0YS5wcm90byI1Cg5Qcm9kdWN0",
             "UmVxdWVzdBIQCghRdWFudGl0eRgBIAEoBRIRCglQcm9kdWN0SWQYAiADKAUi",
-            "PAoPUHJvZHVjdFJlc3BvbnNlEg0KBVRvdGFsGAEgASgFEhoKCFByb2R1Y3Rz",
-            "GAIgAygLMgguUHJvZHVjdDJyCg5Qcm9kdWN0U2VydmljZRIpCgpHZXRQcm9k",
-            "dWN0Eg8uUHJvZHVjdFJlcXVlc3QaCC5Qcm9kdWN0IgASNQoOR2V0UHJvZHVj",
-            "dExpc3QSDy5Qcm9kdWN0UmVxdWVzdBoQLlByb2R1Y3RSZXNwb25zZSIAQh2q",
-            "AhpJbm1hbi5QbGF0Zm9ybS5TZXJ2aWNlU3R1YmIGcHJvdG8z"));
+            "UQoPUHJvZHVjdFJlc3BvbnNlEg0KBVRvdGFsGAEgASgFEhoKCFByb2R1Y3Rz",
+            "GAIgAygLMgguUHJvZHVjdBITCgtFeGVjdXRlVGltZRgDIAEoCTJyCg5Qcm9k",
+            "dWN0U2VydmljZRIpCgpHZXRQcm9kdWN0Eg8uUHJvZHVjdFJlcXVlc3QaCC5Q",
+            "cm9kdWN0IgASNQoOR2V0UHJvZHVjdExpc3QSDy5Qcm9kdWN0UmVxdWVzdBoQ",
+            "LlByb2R1Y3RSZXNwb25zZSIAQh2qAhpJbm1hbi5QbGF0Zm9ybS5TZXJ2aWNl",
+            "U3R1YmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Inman.Platform.ServiceStub.Data.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductRequest), global::Inman.Platform.ServiceStub.ProductRequest.Parser, new[]{ "Quantity", "ProductId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductResponse), global::Inman.Platform.ServiceStub.ProductResponse.Parser, new[]{ "Total", "Products" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductResponse), global::Inman.Platform.ServiceStub.ProductResponse.Parser, new[]{ "Total", "Products", "ExecuteTime" }, null, null, null)
           }));
     }
     #endregion
@@ -204,6 +205,7 @@ namespace Inman.Platform.ServiceStub {
     public ProductResponse(ProductResponse other) : this() {
       total_ = other.total_;
       products_ = other.products_.Clone();
+      executeTime_ = other.executeTime_;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -232,6 +234,17 @@ namespace Inman.Platform.ServiceStub {
       get { return products_; }
     }
 
+    /// <summary>Field number for the "ExecuteTime" field.</summary>
+    public const int ExecuteTimeFieldNumber = 3;
+    private string executeTime_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ExecuteTime {
+      get { return executeTime_; }
+      set {
+        executeTime_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ProductResponse);
@@ -247,6 +260,7 @@ namespace Inman.Platform.ServiceStub {
       }
       if (Total != other.Total) return false;
       if(!products_.Equals(other.products_)) return false;
+      if (ExecuteTime != other.ExecuteTime) return false;
       return true;
     }
 
@@ -255,6 +269,7 @@ namespace Inman.Platform.ServiceStub {
       int hash = 1;
       if (Total != 0) hash ^= Total.GetHashCode();
       hash ^= products_.GetHashCode();
+      if (ExecuteTime.Length != 0) hash ^= ExecuteTime.GetHashCode();
       return hash;
     }
 
@@ -270,6 +285,10 @@ namespace Inman.Platform.ServiceStub {
         output.WriteInt32(Total);
       }
       products_.WriteTo(output, _repeated_products_codec);
+      if (ExecuteTime.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ExecuteTime);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -279,6 +298,9 @@ namespace Inman.Platform.ServiceStub {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Total);
       }
       size += products_.CalculateSize(_repeated_products_codec);
+      if (ExecuteTime.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ExecuteTime);
+      }
       return size;
     }
 
@@ -291,6 +313,9 @@ namespace Inman.Platform.ServiceStub {
         Total = other.Total;
       }
       products_.Add(other.products_);
+      if (other.ExecuteTime.Length != 0) {
+        ExecuteTime = other.ExecuteTime;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -307,6 +332,10 @@ namespace Inman.Platform.ServiceStub {
           }
           case 18: {
             products_.AddEntriesFrom(input, _repeated_products_codec);
+            break;
+          }
+          case 26: {
+            ExecuteTime = input.ReadString();
             break;
           }
         }

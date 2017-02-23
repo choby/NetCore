@@ -1,10 +1,13 @@
 ﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\FileSystemProfile.pubxml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.2.0" />
@@ -37,7 +40,10 @@
     <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2017.1.118" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Inman.Platform.Service.Thrift\Inman.Platform.ThriftService.csproj" />
+    <ProjectReference Include="..\Inman.Platform.ServiceStub.Thrift\Inman.Platform.ThriftStub.csproj" />
     <ProjectReference Include="..\Inman.Platform.ServiceStub\Inman.Platform.ServiceStub.csproj" />
+    <ProjectReference Include="..\Thrift\Thrift.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="OpenSSL\ca.crt">
@@ -63,5 +69,22 @@
       <HintPath>..\..\Inman.Infrastructure\Inman.Infrastructure.Web\bin\Debug\netstandard1.6\Inman.Infrastructure.Web.dll</HintPath>
       <Private>true</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\client.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\client.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\ThriftTest.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 </Project>

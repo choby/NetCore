@@ -36,7 +36,7 @@ class Program
                  ProductService.BindService(serviceProvider.GetService<ProductServiceBase>()),
                   GoodsService.BindService(serviceProvider.GetService<GoodsServiceBase>())
             },
-            Ports = { new ServerPort("IOM_SERVER", Port, sslCredentials) }
+            Ports = { new ServerPort("192.168.7.213", Port, ServerCredentials.Insecure) }
         };
         server.Start();
 

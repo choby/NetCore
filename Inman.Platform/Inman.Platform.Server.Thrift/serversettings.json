@@ -1,0 +1,11 @@
+﻿{
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "dbConn": "Data Source=192.168.7.135;Initial Catalog=SCM_DB_UAT_New;Persist Security Info=True;User ID=sa;Password=a135246A;MultipleActiveResultSets=True"
+}

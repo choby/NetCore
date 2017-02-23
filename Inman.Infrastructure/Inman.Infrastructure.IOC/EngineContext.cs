@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using Inman.Infrastructure.Common;
 using System.Diagnostics;
-using Inman.Infrastructure.IOC;
 using Autofac;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +13,7 @@ namespace Inman.Infrastructure.IOC
     /// </summary>
     public class EngineContext
     {
+        
         #region Initialization Methods
         /// <summary>Initializes a static instance of the Nop factory.</summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
@@ -56,13 +55,25 @@ namespace Inman.Infrastructure.IOC
             drInstances = drInstances.AsQueryable().OrderBy(t => t.Order).ToList();
             foreach (var dependencyRegistrar in drInstances)
                 dependencyRegistrar.Register(containerBuilder, typeFinder);
-         
+
+            if (serviceCollection != null)
+                containerBuilder.Populate(serviceCollection);
+
             var container = containerBuilder.Build();
 
             return new Engine(container);
         }
 
         #endregion
+
+
+        static IServiceCollection serviceCollection;
+
+        public static void Populate(IServiceCollection services)
+        {
+            serviceCollection = services;
+        }
+
 
         /// <summary>Gets the singleton Nop engine used to access Nop services.</summary>
         public static IEngine Current

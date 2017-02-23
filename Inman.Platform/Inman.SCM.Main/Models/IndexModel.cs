@@ -14,6 +14,7 @@ namespace Inman.SCM.Main.Models
             List1 = new List<Product>();
             List2 = new List<Product>();
         }
+        public string ExecuteTime { get; set; }
         public IEnumerable<StockItem> StockItems { get; set; }
         public IEnumerable<Product> List1 { get; set; }
         public IEnumerable<Product> List2 { get; set; }

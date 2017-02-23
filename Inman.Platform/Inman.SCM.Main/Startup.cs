@@ -16,6 +16,13 @@ using System.IO;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System.Threading;
+using Thrift.Protocols;
+using Thrift.Transports.Client;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+using Inman.Platform.ServiceStub.Thrift;
+using Inman.Infrastructure.Common.IOC;
 //using Inman.Infrastructure.Web.Middleware;
 
 namespace Inman.SCM
@@ -43,7 +50,7 @@ namespace Inman.SCM
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             //使用openssl证书
             //证书保存可以是磁盘文件，也可以是数据库记录
@@ -52,13 +59,38 @@ namespace Inman.SCM
             var clientkey = File.ReadAllText("OpenSSL/client.key");
             var ssl = new SslCredentials(cacert, new KeyCertificatePair(clientcert, clientkey));
             //创建使用证书的通信管道
-            //使用加密证书时，服务器只能使用URI或者机器名，直接使用IP会抛异常提示找不到服务端
-            services.AddSingleton(typeof(Channel), sp => new Channel("IOM_SERVER", 50052, ssl)); //生命周期使用单例
+            
+            services.AddSingleton(typeof(Channel), sp => new Channel("192.168.7.213:50052", ChannelCredentials.Insecure)); //生命周期使用单例//
             services.AddTransient(typeof(StockItemServiceClient), typeof(StockItemServiceClient));
             services.AddTransient(typeof(ProductServiceClient), typeof(ProductServiceClient));
             services.AddTransient(typeof(GoodsServiceClient), typeof(GoodsServiceClient));
-
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+            //var transport = new TTlsSocketClientTransport(IPAddress.Parse("192.168.7.213"), 9090, GetCertificate(), CertValidator, LocalCertificateSelectionCallback);
+            var transport = new TSocketClientTransport(IPAddress.Parse("127.0.0.1"), 9090);
+
+            var protocols = new Tuple<Protocol, TProtocol>[1];
+            protocols[0] = new Tuple<Protocol, TProtocol>(Protocol.Multiplexed, new TBinaryProtocol(transport));
+            var protocol = protocols[0];
+            services.AddSingleton(typeof(ProductService.Client), sp =>
+            {
+                var multiplex = new TMultiplexedProtocol(protocol.Item2, nameof(ProductService));
+                return new ProductService.Client(multiplex);
+            });
+
+            services.AddSingleton(typeof(GoodsService.Client), sp =>
+            {
+                var multiplex = new TMultiplexedProtocol(protocol.Item2, nameof(GoodsService));
+                return new GoodsService.Client(multiplex);
+            });
+
+
+            //services.AddTransient(typeof(ServiceStub.ProductRequest), sp =>
+            //{
+
+            //});
+
             // Add framework services.
             services.AddMvc();
             //add kendo ui
@@ -69,10 +101,10 @@ namespace Inman.SCM
             ////containerBuilder.RegisterModule<DefaultModule>();
             //containerBuilder.Populate(services);
             //var container = containerBuilder.Build();
-
             //return new AutofacServiceProvider(container);
-            //EngineContext.Initialize(false);
-            //return EngineContext.Current;//定义在Inman.Infrastructure.IOC中
+            EngineContext.Populate(services);
+            EngineContext.Initialize(false);
+            return EngineContext.Current;//定义在Inman.Infrastructure.IOC中
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -144,5 +176,55 @@ namespace Inman.SCM
             //    statusCodePagesFeature.Enabled = false;
             //}
         }
+
+        private static X509Certificate2 GetCertificate()
+        {
+            // due to files location in net core better to take certs from top folder
+            var certFile = GetCertPath(Directory.GetParent(Directory.GetCurrentDirectory()));
+            return new X509Certificate2(certFile, "ThriftTest");
+        }
+        private static bool CertValidator(object sender, X509Certificate certificate,
+            X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
+        private static string GetCertPath(DirectoryInfo di, int maxCount = 6)
+        {
+            var topDir = di;
+            var certFile =
+                topDir.EnumerateFiles("ThriftTest.pfx", SearchOption.AllDirectories)
+                    .FirstOrDefault();
+            if (certFile == null)
+            {
+                if (maxCount == 0)
+                    throw new FileNotFoundException("Cannot find file in directories");
+                return GetCertPath(di.Parent, maxCount - 1);
+            }
+
+            return certFile.FullName;
+        }
+        private static X509Certificate LocalCertificateSelectionCallback(object sender,
+           string targetHost, X509CertificateCollection localCertificates,
+           X509Certificate remoteCertificate, string[] acceptableIssuers)
+        {
+            return GetCertificate();
+        }
+        private enum Protocol
+        {
+            Binary,
+            Compact,
+            Json,
+            Multiplexed
+        }
+        private enum Transport
+        {
+            Tcp,
+            NamedPipe,
+            Http,
+            TcpBuffered,
+            Framed,
+            TcpTls
+        }
     }
+    
 }

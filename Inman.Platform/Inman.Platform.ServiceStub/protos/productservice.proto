@@ -55,5 +55,6 @@ message ProductResponse
 {
 	int32 Total = 1;
 	repeated Product Products = 2;
+	string ExecuteTime = 3;
 }
 
