@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System;
 using System.Text;
-using System.Web.Mvc;
+
 
 namespace LighTake.Infrastructure.Web.UI
 {
@@ -11,7 +13,7 @@ namespace LighTake.Infrastructure.Web.UI
         {
             string strSrc = string.Format("/{0}/{1}?temp={2}", controllerName, actionNamek, DateTime.Now.Millisecond);
             var tagBuild = new TagBuilder("img");
-            tagBuild.GenerateId(id);
+            tagBuild.GenerateId(id,"_");
             tagBuild.MergeAttribute("src", strSrc);
             tagBuild.MergeAttribute("alt", "Try another image");
             tagBuild.MergeAttribute("style", "cursor:pointer;");
@@ -19,8 +21,8 @@ namespace LighTake.Infrastructure.Web.UI
 
             string strAId = "a_" + id;
             var taga = new TagBuilder("a");
-            taga.GenerateId(strAId);
-            taga.SetInnerText("Try another");
+            taga.GenerateId(strAId, "_");
+            //taga.SetInnerText("Try another");
             taga.MergeAttribute("style", "color:white;");
             taga.MergeAttribute("href", "javascript:void");
 

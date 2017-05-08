@@ -22,7 +22,7 @@ namespace Inman.Infrastructure.Web
         private readonly Dictionary<ResourceLocation, List<string>> _scriptParts;
         private readonly Dictionary<ResourceLocation, List<string>> _cssParts;
         //private readonly List<string> _canonicalUrlParts;
-        IHttpContextAccessor _httpContextAccessor;
+      
         public PageTitleBuilder()
         {
             _titleParts = new List<string>();
@@ -32,7 +32,7 @@ namespace Inman.Infrastructure.Web
             _scriptParts = new Dictionary<ResourceLocation, List<string>>();
             _cssParts = new Dictionary<ResourceLocation, List<string>>();
             //_canonicalUrlParts = new List<string>();
-            _httpContextAccessor = EngineContext.Current.GetService<IHttpContextAccessor>();
+           
         }
 
         public void AddTitleParts(params string[] parts)

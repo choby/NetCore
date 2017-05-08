@@ -69,8 +69,11 @@ namespace Inman.Infrastructure.Web
         /// <returns>Result</returns>
         public static int GenerateRandomInteger(int min = 0, int max = int.MaxValue)
         {
+            
             var randomNumberBuffer = new byte[10];
-            new RNGCryptoServiceProvider().GetBytes(randomNumberBuffer);
+            RandomNumberGenerator.Create().GetBytes(randomNumberBuffer);
+            //new RNGCryptoServiceProvider().GetBytes(randomNumberBuffer);
+            //see more:http://stackoverflow.com/questions/38632735/rngcryptoserviceprovider-in-net-core
             return new Random(BitConverter.ToInt32(randomNumberBuffer, 0)).Next(min, max);
         }
 

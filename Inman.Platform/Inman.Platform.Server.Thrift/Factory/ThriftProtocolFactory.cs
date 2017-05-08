@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Thrift.Protocols;
 
-namespace Inman.Platform.ThriftServer
+namespace Inman.Platform.ThriftServer.Factory
 {
     public class ThriftProtocolFactory
     {

@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Inman.Infrastructure.Common;
-using Inman.Infrastructure.IOC;
-using System.Globalization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Primitives;
 
 namespace Inman.Infrastructure.Web
 {
@@ -16,73 +16,82 @@ namespace Inman.Infrastructure.Web
     /// </summary>
     public partial class WebHelper : IWebHelper
     {
-        
+        private readonly IHostingEnvironment _environment;
         private readonly HttpContext _httpContext;
-
+        private readonly ApplicationEnvironment _appEnvironment;
         /// <summary>
         /// Ctor
         /// </summary>
         /// <param name="httpContext">HTTP context</param>
-        public WebHelper(HttpContext httpContext)
+        public WebHelper(HttpContext httpContext, IHostingEnvironment environment
+            , ApplicationEnvironment appEnvironment)
         {
-            
+            this._environment = environment;
             this._httpContext = httpContext;
+            this._appEnvironment = appEnvironment;
         }
 
-        ///// <summary>
-        ///// Get URL referrer
-        ///// </summary>
-        ///// <returns>URL referrer</returns>
-        //public virtual string GetUrlReferrer()
-        //{
-        //    string referrerUrl = string.Empty;
+        /// <summary>
+        /// Get URL referrer
+        /// </summary>
+        /// <returns>URL referrer</returns>
+        public virtual string GetUrlReferrer()
+        {
+            string referrerUrl = string.Empty;
 
-        //    //URL referrer is null in some case (for example, in IE 8)
-        //    if (_httpContext != null &&
-        //        _httpContext.Request != null &&
-        //        _httpContext.Request.UrlReferrer != null)
-        //        referrerUrl = _httpContext.Request.UrlReferrer.PathAndQuery;
+            //URL referrer is null in some case (for example, in IE 8)
+            //if (_httpContext != null &&
+            //    _httpContext.Request != null &&
+            //    _httpContext.Request.UrlReferrer != null)
+            //    referrerUrl = _httpContext.Request.UrlReferrer.PathAndQuery;
+            //see more:http://stackoverflow.com/questions/38772394/how-can-i-get-url-referrer-in-asp-net-core-mvc
+            if (_httpContext != null &&
+                _httpContext.Request != null &&
+                _httpContext.Request.Headers["Referer"] != StringValues.Empty)
+                referrerUrl = _httpContext.Request.Headers["Referer"].ToString();
 
-        //    return referrerUrl;
-        //}
+            return referrerUrl;
+        }
 
-        ///// <summary>
-        ///// Get context IP address
-        ///// </summary>
-        ///// <returns>URL referrer</returns>
-        //public virtual string GetCurrentIpAddress()
-        //{
-        //    if (_httpContext == null || _httpContext.Request == null)
-        //        return string.Empty;
+        /// <summary>
+        /// Get context IP address
+        /// </summary>
+        /// <returns>URL referrer</returns>
+        public virtual string GetCurrentIpAddress()
+        {
+            if (_httpContext == null || _httpContext.Request == null)
+                return string.Empty;
 
-        //    if (_httpContext.Request.Headers != null)
-        //    {
-        //        //look for the X-Forwarded-For (XFF) HTTP header field
-        //        //it's used for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. 
-        //        string xff = _httpContext.Request.Headers.Keys
-        //            .Where(x => "X-FORWARDED-FOR".Equals(x, StringComparison.CurrentCultureIgnoreCase))
-        //            .Select(k => _httpContext.Request.Headers[k])
-        //            .FirstOrDefault();
+            if (_httpContext.Request.Headers != null)
+            {
+                //look for the X-Forwarded-For (XFF) HTTP header field
+                //it's used for identifying the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. 
+                string xff = _httpContext.Request.Headers.Keys
+                    .Where(x => "X-FORWARDED-FOR".Equals(x, StringComparison.CurrentCultureIgnoreCase))
+                    .Select(k => _httpContext.Request.Headers[k])
+                    .FirstOrDefault();
 
-        //        //if you want to exclude private IP addresses, then see http://stackoverflow.com/questions/2577496/how-can-i-get-the-clients-ip-address-in-asp-net-mvc
+                //if you want to exclude private IP addresses, then see http://stackoverflow.com/questions/2577496/how-can-i-get-the-clients-ip-address-in-asp-net-mvc
 
-        //        if (!String.IsNullOrEmpty(xff))
-        //        {
-        //            string lastIp = xff.Split(new char[] { ',' }).FirstOrDefault();
-        //            if (!String.IsNullOrEmpty(lastIp))
-        //            {
-        //                return lastIp;
-        //            }
-        //        }
-        //    }
+                if (!String.IsNullOrEmpty(xff))
+                {
+                    string lastIp = xff.Split(new char[] { ',' }).FirstOrDefault();
+                    if (!String.IsNullOrEmpty(lastIp))
+                    {
+                        return lastIp;
+                    }
+                }
+            }
 
-        //    if (_httpContext.Request.UserHostAddress != null)
-        //    {
-        //        return _httpContext.Request.UserHostAddress;
-        //    }
-
-        //    return string.Empty;
-        //}
+            //if (_httpContext.Request.UserHostAddress != null)
+            //{
+            //    return _httpContext.Request.UserHostAddress;
+            //}
+            //see more:http://stackoverflow.com/questions/27132908/userhostaddress-in-asp-net-core
+            if (_httpContext.Features.Get<IHttpConnectionFeature>()?.RemoteIpAddress != null)
+                return _httpContext.Features.Get<IHttpConnectionFeature>()?.RemoteIpAddress.ToString();
+            return string.Empty;
+        }
 
         ///// <summary>
         ///// Gets this page name
@@ -125,51 +134,51 @@ namespace Inman.Infrastructure.Web
         //    return url;
         //}
 
-        /// <summary>
-        /// Gets a value indicating whether current connection is secured
-        /// </summary>
-        /// <returns>true - secured, false - not secured</returns>
-        public virtual bool IsCurrentConnectionSecured()
-        {
-            bool useSsl = false;
-            if (_httpContext != null && _httpContext.Request != null)
-            {
-                useSsl = _httpContext.Request.IsHttps;
-                //when your hosting uses a load balancer on their server then the Request.IsSecureConnection is never got set to true, use the statement below
-                //just uncomment it
-                //useSSL = _httpContext.Request.ServerVariables["HTTP_CLUSTER_HTTPS"] == "on" ? true : false;
-            }
-
-            return useSsl;
-        }
-        
         ///// <summary>
-        ///// Gets server variable by name
+        ///// Gets a value indicating whether current connection is secured
         ///// </summary>
-        ///// <param name="name">Name</param>
-        ///// <returns>Server variable</returns>
-        //public virtual string ServerVariables(string name)
+        ///// <returns>true - secured, false - not secured</returns>
+        //public virtual bool IsCurrentConnectionSecured()
         //{
-        //    string result = string.Empty;
-
-        //    try
+        //    bool useSsl = false;
+        //    if (_httpContext != null && _httpContext.Request != null)
         //    {
-        //        if (_httpContext == null || _httpContext.Request == null)
-        //            return result;
+        //        useSsl = _httpContext.Request.IsHttps;
+        //        //when your hosting uses a load balancer on their server then the Request.IsSecureConnection is never got set to true, use the statement below
+        //        //just uncomment it
+        //        //useSSL = _httpContext.Request.ServerVariables["HTTP_CLUSTER_HTTPS"] == "on" ? true : false;
+        //    }
 
-        //        //put this method is try-catch 
-        //        //as described here http://www.nopcommerce.com/boards/t/21356/multi-store-roadmap-lets-discuss-update-done.aspx?p=6#90196
-        //        if (_httpContext.Request.ServerVariables[name] != null)
-        //        {
-        //            result = _httpContext.Request.ServerVariables[name];
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        result = string.Empty;
-        //    }
-        //    return result;
+        //    return useSsl;
         //}
+
+        /////// <summary>
+        /////// Gets server variable by name
+        /////// </summary>
+        /////// <param name="name">Name</param>
+        /////// <returns>Server variable</returns>
+        ////public virtual string ServerVariables(string name)
+        ////{
+        ////    string result = string.Empty;
+
+        ////    try
+        ////    {
+        ////        if (_httpContext == null || _httpContext.Request == null)
+        ////            return result;
+
+        ////        //put this method is try-catch 
+        ////        //as described here http://www.nopcommerce.com/boards/t/21356/multi-store-roadmap-lets-discuss-update-done.aspx?p=6#90196
+        ////        if (_httpContext.Request.ServerVariables[name] != null)
+        ////        {
+        ////            result = _httpContext.Request.ServerVariables[name];
+        ////        }
+        ////    }
+        ////    catch
+        ////    {
+        ////        result = string.Empty;
+        ////    }
+        ////    return result;
+        ////}
 
         ///// <summary>
         ///// Gets store host location
@@ -253,7 +262,7 @@ namespace Inman.Infrastructure.Web
         //        result += "/";
         //    return result.ToLowerInvariant();
         //}
-        
+
         ///// <summary>
         ///// Gets store location
         ///// </summary>
@@ -284,53 +293,53 @@ namespace Inman.Infrastructure.Web
         //    return result.ToLowerInvariant();
         //}
 
-        ///// <summary>
-        ///// Returns true if the requested resource is one of the typical resources that needn't be processed by the cms engine.
-        ///// </summary>
-        ///// <param name="request">HTTP Request</param>
-        ///// <returns>True if the request targets a static resource file.</returns>
-        ///// <remarks>
-        ///// These are the file extensions considered to be static resources:
-        ///// .css
-        /////	.gif
-        ///// .png 
-        ///// .jpg
-        ///// .jpeg
-        ///// .js
-        ///// .axd
-        ///// .ashx
-        ///// </remarks>
-        //public virtual bool IsStaticResource(HttpRequest request)
-        //{
-        //    if (request == null)
-        //        throw new ArgumentNullException("request");
+        /// <summary>
+        /// Returns true if the requested resource is one of the typical resources that needn't be processed by the cms engine.
+        /// </summary>
+        /// <param name="request">HTTP Request</param>
+        /// <returns>True if the request targets a static resource file.</returns>
+        /// <remarks>
+        /// These are the file extensions considered to be static resources:
+        /// .css
+        ///	.gif
+        /// .png 
+        /// .jpg
+        /// .jpeg
+        /// .js
+        /// .axd
+        /// .ashx
+        /// </remarks>
+        public virtual bool IsStaticResource(HttpRequest request)
+        {
+            if (request == null)
+                throw new ArgumentNullException("request");
 
-        //    string path = request.Path;
-        //    string extension = VirtualPathUtility.GetExtension(path);
+            string path = request.Path;
+            string extension = path.Substring(path.LastIndexOf('.')); //VirtualPathUtility.GetExtension(path);
+           
+            if (extension == null) return false;
 
-        //    if (extension == null) return false;
+            switch (extension.ToLower())
+            {
+                case ".axd":
+                case ".ashx":
+                case ".bmp":
+                case ".css":
+                case ".gif":
+                case ".htm":
+                case ".html":
+                case ".ico":
+                case ".jpeg":
+                case ".jpg":
+                case ".js":
+                case ".png":
+                case ".rar":
+                case ".zip":
+                    return true;
+            }
 
-        //    switch (extension.ToLower())
-        //    {
-        //        case ".axd":
-        //        case ".ashx":
-        //        case ".bmp":
-        //        case ".css":
-        //        case ".gif":
-        //        case ".htm":
-        //        case ".html":
-        //        case ".ico":
-        //        case ".jpeg":
-        //        case ".jpg":
-        //        case ".js":
-        //        case ".png":
-        //        case ".rar":
-        //        case ".zip":
-        //            return true;
-        //    }
-
-        //    return false;
-        //}
+            return false;
+        }
 
         /// <summary>
         /// Maps a virtual path to a physical disk path.
@@ -346,8 +355,9 @@ namespace Inman.Infrastructure.Web
             //}
             //else
             //{
-                //not hosted. For example, run in unit tests
-                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //not hosted. For example, run in unit tests
+            //see more:https://blog.mariusschulz.com/2016/05/22/getting-the-web-root-path-and-the-content-root-path-in-asp-net-core
+            string baseDirectory = _appEnvironment.ApplicationBasePath; //_environment.WebRootPath;
                 path = path.Replace("~/", "").TrimStart('/').Replace('/', '\\');
                 return Path.Combine(baseDirectory, path);
            // }
@@ -529,7 +539,7 @@ namespace Inman.Infrastructure.Web
 
             if (!String.IsNullOrEmpty(queryParam))
                 return CommonHelper.To<T>(queryParam);
-
+            
             return default(T);
         }
         
@@ -595,26 +605,7 @@ namespace Inman.Infrastructure.Web
         //    }
         //}
 
-        private bool TryWriteGlobalAsax()
-        {
-            try
-            {
-                //When a new plugin is dropped in the Plugins folder and is installed into nopCommerce, 
-                //even if the plugin has registered routes for its controllers, 
-                //these routes will not be working as the MVC framework couldn't 
-                //find the new controller types and couldn't instantiate the requested controller. 
-                //That's why you get these nasty errors 
-                //i.e "Controller does not implement IController".
-                //The issue is described here: http://www.nopcommerce.com/boards/t/10969/nop-20-plugin.aspx?p=4#51318
-                //The solutino is to touch global.asax file
-                File.SetLastWriteTimeUtc(MapPath("~/global.asax"), DateTime.UtcNow);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+     
 
         ///// <summary>
         ///// Get a value indicating whether the request is made by search engine (web crawler)
@@ -639,7 +630,7 @@ namespace Inman.Infrastructure.Web
         //            //result = regEx.Match(request.UserAgent).Success;
         //        }
         //    }
-        //    catch(Exception exc)
+        //    catch (Exception exc)
         //    {
         //        Debug.WriteLine(exc);
         //    }

@@ -1,7 +1,9 @@
-﻿using Inman.Platform.ThriftServer.Options;
+﻿using Inman.Platform.ThriftServer.Factory;
+using Inman.Platform.ThriftServer.Options;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using Thrift;
@@ -9,7 +11,7 @@ using Thrift.Protocols;
 using Thrift.Server;
 using Thrift.Transports;
 
-namespace Inman.Platform.ThriftServer
+namespace Inman.Platform.ThriftServer.Factory
 {
     public class ThriftServerFactory
     {
@@ -20,6 +22,7 @@ namespace Inman.Platform.ThriftServer
         private ILoggerFactory loggerFactory;
         private ThriftServerConfiguration config;
         private ILogger logger;
+        
 
         public void RunAsync(CancellationToken cancellationToken)
         {
@@ -58,10 +61,18 @@ namespace Inman.Platform.ThriftServer
             if (this.processor == null)
                 throw new Exception("运行服务器之前，必须调用RegisterProcessor()方法。");
 
-            var protocolFactory = new ThriftProtocolFactory(this.config);
-            if (this.inputProtocolFactory == null) this.inputProtocolFactory = protocolFactory.GetInputProtocolFactory();
-            if (this.outputProtocolFactory == null) this.outputProtocolFactory = protocolFactory.GetOutputProtocolFactory();
-
+            ThriftProtocolFactory protocolFactory = null;
+            if (this.inputProtocolFactory == null)
+            {
+                protocolFactory = new ThriftProtocolFactory(this.config);
+                this.inputProtocolFactory = protocolFactory.GetInputProtocolFactory();
+            }
+            if (this.outputProtocolFactory == null)
+            {
+                if(protocolFactory == null)
+                    protocolFactory = new ThriftProtocolFactory(this.config);
+                this.outputProtocolFactory = protocolFactory.GetOutputProtocolFactory();
+            }
             
             if (this.serverTransport == null)
             {
@@ -72,6 +83,7 @@ namespace Inman.Platform.ThriftServer
             if(this.loggerFactory == null) this.loggerFactory = new LoggerFactory().AddConsole(LogLevel.Trace).AddDebug(LogLevel.Trace);
 
             if (this.logger == null) this.logger = loggerFactory.CreateLogger(nameof(Inman.Platform.ThriftServer));
+            
         }
 
         public TBaseServer buildServer()

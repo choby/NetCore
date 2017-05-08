@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Inman.Infrastructure.Common.IOC;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 
 namespace Inman.Infrastructure.Web
@@ -19,7 +22,8 @@ namespace Inman.Infrastructure.Web
             : base(fileContents, contentType)
         {
             FileDownloadName = getFileName(fileNameWithoutExtionsion);
-            HttpContext.Current.Response.AddHeader("Content-Length", fileContents.Length.ToString());
+            var httpcontext= EngineContext.Current.GetService<HttpContext>();
+            httpcontext.Response.Headers.Add("Content-Length", fileContents.Length.ToString());
         }
 
         public ExcelXlsFileResult(byte[] fileContents, string fileNameWithoutExtionsion)

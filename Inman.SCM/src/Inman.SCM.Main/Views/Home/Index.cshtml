@@ -1,12 +1,97 @@
-﻿@model System.Security.Claims.ClaimsPrincipal
-@using System.Security.Claims
+﻿
+@using Inman.SCM.Main.Models;
+@using System.Linq;
+@using System.Linq.Expressions;
+@using Inman.Infrastructure.Common;
+
+<script src="~/kendo.filtermenu.js"></script>
+<script type="text/javascript">
+    var msg = '@(TempData["msg"])';
+    if (msg)
+        alert(msg);
+</script>
+<div id="filter-menu"></div>
+<br /><br />
+<div id="grid"></div>
+<script>
+    var data = [
+        { name: "Jane Doe", age: 30 },
+        { name: "John Doe", age: 33 }
+    ];
+
+    var dataSource = new kendo.data.DataSource({
+        data: data
+    });
+
+    $("#filter-menu").kendoInmanFilterMenu({
+        //dataSource: dataSource,
+        field: ["age"],
+        messages: {
+            and: "and",
+            or: "or",
+            filter: "Apply filter",
+            clear: "Clear filter"
+        }
+    });
+
+ 
+</script>
+<div>
+    大货款号：@Html.Kendo().TextBox().Name("ProductSN") 
 
 
-@(Model.Identity.Name)
-<dl>
-    @foreach (var claim in (Model as ClaimsPrincipal).Claims)
-    {
-        <dt>@claim.Type</dt>
-        <dd>@claim.Value</dd>
-    }
-</dl>
+   
+</div>
+<div>
+    <a href="/Home/Add" target="_blank">添加</a>
+</div>
+<div>
+    @(Html.Kendo().Grid<ProductModel>().Name("grid")
+                  .Columns(c =>
+                  {
+                      c.Bound(f => f.Id).ClientTemplate("<span> <a href='/Home/Edit?Id=#:Id #'>编辑<a/> </span>").Width(100).Filterable(false);
+                      c.Command(f => f.Destroy()).Title("删除").Width(100);
+                      c.Bound(f=>f.ProductSN).Title("大货款号").Width(100);
+                      c.Bound(f => f.Brand).Title("品牌").Width(100);
+                      c.Bound(f => f.ProductTitle).Width(100);
+                      c.Bound(f => f.ProductYear).Title("年份").Width(80);
+                      c.Bound(f => f.QualityGrade).Title("质量等级").Width(100);
+                      c.Bound(f => f.SafetyCass).Title("安全类别").Width(100);
+                      c.Bound(f => f.SalesPrice).Title("一口价").Width(100);
+                      c.Bound(f => f.CategoryClass).Title("品类").Width(100);
+                      c.Bound(f => f.Season).Title("季节").Width(100);
+                      c.Bound(f => f.ColorId).Title("颜色").Width(100);
+                      c.Bound(f => f.DevCost).Title("开发成本").Width(100);
+                      c.Bound(f => f.TagPrice).Title("吊牌价").Width(100);
+                      c.Bound(f => f.Filler).Title("含绒量").Width(100);
+                      c.Bound(f => f.Remark).Title("备注").Width(100);
+
+                  })
+                  .Scrollable(s=>s.Enabled(true))
+                  .DataSource(ds =>
+                                    ds.Ajax().Read(r => r.Url("/Home/Read")).PageSize(15).Batch(true).Model(m => m.Id(f => f.Id))
+                                    .Destroy(r=>r.Url("Home/Delete"))
+                  )
+                  
+                  // .NoRecords(no => no.Template("<div>无数据</div>"))
+                  .HtmlAttributes(new { style="width:100%;"})
+                  .Pageable(page=>
+                                  page.Enabled(true).Refresh(true).PageSizes(new int[] { 15, 30, 45 })
+                                  .Messages(m => m.ItemsPerPage("条每页")
+                                        .Empty("没有查询到数据")
+                                        .Display("当前显示第{0}-{1}条,共{2}条")
+                                        .First("第一页")
+                                        .Last("最后一页")
+                                        .Previous("上一页")
+                                        .Next("下一页")
+                                    )
+                  )
+                  .Filterable(configurator =>
+                    configurator.Enabled(true)
+                    .Mode(GridFilterMode.Menu)
+                        .Extra(true)
+                        .Operators(o => o.ForString(s => s.Clear().Contains("包含"))))
+                        .ColumnMenu(menu => menu.Filterable(true).Sortable(true).Messages(m => m.Lock("冻结").Unlock("解冻")))
+            )      
+        
+</div>

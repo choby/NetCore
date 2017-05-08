@@ -15,9 +15,12 @@ namespace Inman.Infrastructure.Web.Middleware
         private readonly ILogger _logger;
         private static readonly IDictionary<int, string> _errorPages = new Dictionary<int, string>();
 
-        public CustomErrorPagesMiddleware(IHostingEnvironment env, ILoggerFactory loggerFactory, RequestDelegate next)
+        public CustomErrorPagesMiddleware(IHostingEnvironment env
+            , ILoggerFactory loggerFactory
+            , RequestDelegate next)
         {
-            _next = next;
+            
+               _next = next;
             _logger = loggerFactory.CreateLogger<CustomErrorPagesMiddleware>();
         }
 

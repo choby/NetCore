@@ -1,38 +1,87 @@
-﻿<Project ToolsVersion="15.0" Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.1.0" />
-    <PackageReference Include="Grpc.Core" Version="1.0.1" />
-    <PackageReference Include="IdentityModel" Version="2.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="1.1.0" />
-    <PackageReference Include="Microsoft.NETCore.App" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink.Loader" Version="14.1.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.0" />
+    <None Remove="Properties\PublishProfiles\FileSystemProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Inman.Platform.ServiceStub">
-      <HintPath>bin\Debug\netcoreapp1.0\Inman.Platform.ServiceStub.dll</HintPath>
-    </Reference>
+    <Content Include="wwwroot\kendo.filtermenu.js" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.5.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.1.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.2.0" />
+    <PackageReference Include="Grpc.Core" Version="1.2.2" />
+    <PackageReference Include="IdentityModel" Version="2.8.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="1.1.1" />
+   
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink.Loader" Version="14.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.3" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2017.1.118" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Inman.Infrastructure\Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj" />
+    <ProjectReference Include="..\..\..\Inman.Infrastructure\Inman.Infrastructure.Web\Inman.Infrastructure.Web.csproj" />
+    <ProjectReference Include="..\..\..\Inman.Platform\Inman.Platform.ServiceStub\Inman.Platform.ServiceStub.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="OpenSSL\client.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="OpenSSL\client.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="OpenSSL\ca.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\client.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\client.key">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="OpenSSL\ThriftTest.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\AutoMapper\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
 </Project>

@@ -34,7 +34,7 @@ setlocal
 @rem enter this directory
 cd /d %~dp0
 
-set TOOLS_PATH=tools\windows_x86
+set TOOLS_PATH=tools\windows_x64
 
 %TOOLS_PATH%\protoc.exe ^
 -I./protos ^
@@ -44,7 +44,6 @@ set TOOLS_PATH=tools\windows_x86
 protos/data.proto ^
 protos/userservice.proto ^
 protos/stockitemservice.proto ^
-protos/goodsservice.proto ^
 protos/productservice.proto 
 
 pause

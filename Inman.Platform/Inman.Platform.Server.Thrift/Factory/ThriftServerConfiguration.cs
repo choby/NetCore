@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Inman.Platform.ThriftServer
+namespace Inman.Platform.ThriftServer.Factory
 {
     public class ThriftServerConfiguration
     {
@@ -13,5 +13,7 @@ namespace Inman.Platform.ThriftServer
         public int Port { get; set; }
         public string Cert { get; set; }
         public int Timeout { get; set; }
+        public bool UseBufferedSockets { get; set; }
+        public string CertificateName { get; set; }
     }
 }

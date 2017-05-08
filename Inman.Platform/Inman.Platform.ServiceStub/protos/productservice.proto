@@ -45,11 +45,16 @@ service ProductService {
   // Sends a greeting
   rpc GetProduct (ProductRequest) returns (Product) {}
   rpc GetProductList(ProductRequest) returns (ProductResponse){}
+  rpc UpdateProduct(ProductUpdate) returns (UpdateResult){}
+  rpc AddProduct(ProductUpdate) returns(UpdateResult){}
+  rpc DeleteProduct(ProductDelete) returns(DeleteResult){}
 }
 message ProductRequest
 {
-	int32 Quantity = 1;
-	repeated int32 ProductId = 2;
+	int32 Page = 1;
+	int32 PageSize = 2;
+	repeated int32 ProductId = 3;
+	DemandDescriptor DemandDescriptor = 4;
 }
 message ProductResponse
 {
@@ -57,4 +62,22 @@ message ProductResponse
 	repeated Product Products = 2;
 	string ExecuteTime = 3;
 }
+message ProductUpdate
+{
+	Product Product = 1;
+}
 
+message UpdateResult
+{
+	bool Success = 1;
+	string Message = 2;
+}
+message ProductDelete
+{
+	repeated int32 Id = 1;
+}
+message DeleteResult
+{
+	bool Success = 1;
+	string Message = 2;
+}

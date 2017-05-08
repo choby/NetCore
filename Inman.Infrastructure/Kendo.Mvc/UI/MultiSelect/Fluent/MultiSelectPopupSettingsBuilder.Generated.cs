@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using Kendo.Mvc.Extensions;
+
+namespace Kendo.Mvc.UI.Fluent
+{
+    /// <summary>
+    /// Defines the fluent API for configuring MultiSelectPopupSettings
+    /// </summary>
+    public partial class MultiSelectPopupSettingsBuilder
+        
+    {
+        /// <summary>
+        /// Defines a jQuery selector that will be used to find a container element, where the popup will be appended to.
+        /// </summary>
+        /// <param name="value">The value for AppendTo</param>
+        public MultiSelectPopupSettingsBuilder AppendTo(string value)
+        {
+            Container.AppendTo = value;
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies how to position the popup element based on anchor point. The value is
+		/// space separated "y" plus "x" position.The available "y" positions are:
+		/// - "bottom"
+		/// - "center"
+		/// - "top"The available "x" positions are:
+		/// - "left"
+		/// - "center"
+		/// - "right"
+        /// </summary>
+        /// <param name="value">The value for Origin</param>
+        public MultiSelectPopupSettingsBuilder Origin(string value)
+        {
+            Container.Origin = value;
+            return this;
+        }
+
+        /// <summary>
+        /// Specifies which point of the popup element to attach to the anchor's origin point. The value is
+		/// space separated "y" plus "x" position.The available "y" positions are:
+		/// - "bottom"
+		/// - "center"
+		/// - "top"The available "x" positions are:
+		/// - "left"
+		/// - "center"
+		/// - "right"
+        /// </summary>
+        /// <param name="value">The value for Position</param>
+        public MultiSelectPopupSettingsBuilder Position(string value)
+        {
+            Container.Position = value;
+            return this;
+        }
+
+    }
+}

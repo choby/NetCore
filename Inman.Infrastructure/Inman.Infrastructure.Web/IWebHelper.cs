@@ -38,7 +38,7 @@ namespace Inman.Infrastructure.Web
         /// Gets a value indicating whether current connection is secured
         /// </summary>
         /// <returns>true - secured, false - not secured</returns>
-        bool IsCurrentConnectionSecured();
+        //bool IsCurrentConnectionSecured();
         
         ///// <summary>
         ///// Gets server variable by name

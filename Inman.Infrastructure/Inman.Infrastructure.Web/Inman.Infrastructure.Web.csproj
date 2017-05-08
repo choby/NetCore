@@ -6,43 +6,43 @@
   <PropertyGroup>
     <OutputType>library</OutputType>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>E:\Core\NetCore\packages\Inman.Infrastructure.Web\</OutputPath>
+  </PropertyGroup>
  
   <ItemGroup>
     <Compile Remove="Authentication\**" />
     <Compile Remove="Fakes\**" />
     <Compile Remove="Pager\**" />
-    <Compile Remove="UI\**" />
     <EmbeddedResource Remove="Authentication\**" />
     <EmbeddedResource Remove="Fakes\**" />
     <EmbeddedResource Remove="Pager\**" />
-    <EmbeddedResource Remove="UI\**" />
+    <None Remove="Fakes\**" />
+    <None Remove="Pager\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="CommonHelper.cs" />
-    <Compile Remove="Controllers\ContollerExtensions.cs" />
-    <Compile Remove="Controllers\PersonalCache.cs" />
-    <Compile Remove="ExcelXlsFileResult.cs" />
     <Compile Remove="Extensions\LayoutExtensions.cs" />
-    <Compile Remove="Filters\FormValueRequiredAttribute.cs" />
     <Compile Remove="Filters\MemberOnlyAttribute.cs" />
-    <Compile Remove="MVCDependencyResolver.cs" />
-    <Compile Remove="WebHelper.cs" />
+    <Compile Remove="UI\HtmlHelperExtensions.cs" />
+    <Compile Remove="UI\KendoUIExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.0" />
+    <PackageReference Include="Autofac" Version="4.5.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http">
-      <Version>1.1.0</Version>
+      <Version>1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
    
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj" />
-    <ProjectReference Include="..\Inman.Infrastructure.IOC\Inman.Infrastructure.IOC.csproj" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Filters\" />
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj" />
   </ItemGroup>
  
 </Project>

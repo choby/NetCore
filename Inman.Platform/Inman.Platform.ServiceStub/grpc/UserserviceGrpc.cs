@@ -39,9 +39,9 @@ using Grpc.Core;
 
 namespace Inman.Platform.ServiceStub {
   /// <summary>
-  ///  The greeting service definition.
+  /// The greeting service definition.
   /// </summary>
-  public static class UserService
+  public static partial class UserService
   {
     static readonly string __ServiceName = "UserService";
 
@@ -62,11 +62,14 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Base class for server-side implementations of UserService</summary>
-    public abstract class UserServiceBase
+    public abstract partial class UserServiceBase
     {
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.LoginResult> LoginValidate(global::Inman.Platform.ServiceStub.LoginStuff request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -75,7 +78,7 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Client for UserService</summary>
-    public class UserServiceClient : ClientBase<UserServiceClient>
+    public partial class UserServiceClient : ClientBase<UserServiceClient>
     {
       /// <summary>Creates a new client for UserService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
@@ -98,33 +101,50 @@ namespace Inman.Platform.ServiceStub {
       }
 
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.LoginResult LoginValidate(global::Inman.Platform.ServiceStub.LoginStuff request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return LoginValidate(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.LoginResult LoginValidate(global::Inman.Platform.ServiceStub.LoginStuff request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_LoginValidate, null, options, request);
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.LoginResult> LoginValidateAsync(global::Inman.Platform.ServiceStub.LoginStuff request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return LoginValidateAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.LoginResult> LoginValidateAsync(global::Inman.Platform.ServiceStub.LoginStuff request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_LoginValidate, null, options, request);
       }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override UserServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new UserServiceClient(configuration);
@@ -132,6 +152,7 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(UserServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()

@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Inman.Infrastructure.Common.IOC;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System.IO;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Inman.Infrastructure.Web
 {
@@ -41,17 +44,37 @@ namespace Inman.Infrastructure.Web
         /// <returns>Result</returns>
         public static string RenderPartialViewToString(this Controller controller, string viewName, object model)
         {
+            //to core modify : 2017-03-02
+            //see more :http://stackoverflow.com/questions/31905624/where-are-the-controllercontext-and-viewengines-properties-in-mvc-6-controller
             //Original source code: http://craftycodeblog.com/2010/05/15/asp-net-mvc-render-partial-view-to-string/
             if (string.IsNullOrEmpty(viewName))
-                viewName = controller.ControllerContext.RouteData.GetRequiredString("action");
+                viewName = controller.ControllerContext.ActionDescriptor.DisplayName; //controller.ControllerContext.RouteData.GetRequiredString("action");
 
             controller.ViewData.Model = model;
 
             using (var sw = new StringWriter())
             {
-                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
-                var viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
-                viewResult.View.Render(viewContext, sw);
+
+                //ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
+                //var viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
+                //viewResult.View.Render(viewContext, sw);
+
+                var engine = EngineContext.Current.GetService<ICompositeViewEngine>();//Resolver.GetService(typeof(ICompositeViewEngine))
+          
+                ViewEngineResult viewResult = engine.FindView(controller.ControllerContext, viewName,false);
+
+                ViewContext viewContext = new ViewContext(
+                    controller.ControllerContext,
+                    viewResult.View,
+                    controller.ViewData,
+                    controller.TempData,
+                    sw,
+                    new HtmlHelperOptions() //Added this parameter in
+                );
+
+                //Everything is async now!
+                var t = viewResult.View.RenderAsync(viewContext);
+                t.Wait();
 
                 return sw.GetStringBuilder().ToString();
             }

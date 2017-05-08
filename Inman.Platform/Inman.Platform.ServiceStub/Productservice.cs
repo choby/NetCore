@@ -22,19 +22,31 @@ namespace Inman.Platform.ServiceStub {
     static ProductserviceReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChRwcm9kdWN0c2VydmljZS5wcm90bxoKZGF0YS5wcm90byI1Cg5Qcm9kdWN0",
-            "UmVxdWVzdBIQCghRdWFudGl0eRgBIAEoBRIRCglQcm9kdWN0SWQYAiADKAUi",
-            "UQoPUHJvZHVjdFJlc3BvbnNlEg0KBVRvdGFsGAEgASgFEhoKCFByb2R1Y3Rz",
-            "GAIgAygLMgguUHJvZHVjdBITCgtFeGVjdXRlVGltZRgDIAEoCTJyCg5Qcm9k",
-            "dWN0U2VydmljZRIpCgpHZXRQcm9kdWN0Eg8uUHJvZHVjdFJlcXVlc3QaCC5Q",
-            "cm9kdWN0IgASNQoOR2V0UHJvZHVjdExpc3QSDy5Qcm9kdWN0UmVxdWVzdBoQ",
-            "LlByb2R1Y3RSZXNwb25zZSIAQh2qAhpJbm1hbi5QbGF0Zm9ybS5TZXJ2aWNl",
-            "U3R1YmIGcHJvdG8z"));
+            "ChRwcm9kdWN0c2VydmljZS5wcm90bxoKZGF0YS5wcm90byJwCg5Qcm9kdWN0",
+            "UmVxdWVzdBIMCgRQYWdlGAEgASgFEhAKCFBhZ2VTaXplGAIgASgFEhEKCVBy",
+            "b2R1Y3RJZBgDIAMoBRIrChBEZW1hbmREZXNjcmlwdG9yGAQgASgLMhEuRGVt",
+            "YW5kRGVzY3JpcHRvciJRCg9Qcm9kdWN0UmVzcG9uc2USDQoFVG90YWwYASAB",
+            "KAUSGgoIUHJvZHVjdHMYAiADKAsyCC5Qcm9kdWN0EhMKC0V4ZWN1dGVUaW1l",
+            "GAMgASgJIioKDVByb2R1Y3RVcGRhdGUSGQoHUHJvZHVjdBgBIAEoCzIILlBy",
+            "b2R1Y3QiMAoMVXBkYXRlUmVzdWx0Eg8KB1N1Y2Nlc3MYASABKAgSDwoHTWVz",
+            "c2FnZRgCIAEoCSIbCg1Qcm9kdWN0RGVsZXRlEgoKAklkGAEgAygFIjAKDERl",
+            "bGV0ZVJlc3VsdBIPCgdTdWNjZXNzGAEgASgIEg8KB01lc3NhZ2UYAiABKAky",
+            "hQIKDlByb2R1Y3RTZXJ2aWNlEikKCkdldFByb2R1Y3QSDy5Qcm9kdWN0UmVx",
+            "dWVzdBoILlByb2R1Y3QiABI1Cg5HZXRQcm9kdWN0TGlzdBIPLlByb2R1Y3RS",
+            "ZXF1ZXN0GhAuUHJvZHVjdFJlc3BvbnNlIgASMAoNVXBkYXRlUHJvZHVjdBIO",
+            "LlByb2R1Y3RVcGRhdGUaDS5VcGRhdGVSZXN1bHQiABItCgpBZGRQcm9kdWN0",
+            "Eg4uUHJvZHVjdFVwZGF0ZRoNLlVwZGF0ZVJlc3VsdCIAEjAKDURlbGV0ZVBy",
+            "b2R1Y3QSDi5Qcm9kdWN0RGVsZXRlGg0uRGVsZXRlUmVzdWx0IgBCHaoCGklu",
+            "bWFuLlBsYXRmb3JtLlNlcnZpY2VTdHViYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Inman.Platform.ServiceStub.Data.DataReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductRequest), global::Inman.Platform.ServiceStub.ProductRequest.Parser, new[]{ "Quantity", "ProductId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductResponse), global::Inman.Platform.ServiceStub.ProductResponse.Parser, new[]{ "Total", "Products", "ExecuteTime" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductRequest), global::Inman.Platform.ServiceStub.ProductRequest.Parser, new[]{ "Page", "PageSize", "ProductId", "DemandDescriptor" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductResponse), global::Inman.Platform.ServiceStub.ProductResponse.Parser, new[]{ "Total", "Products", "ExecuteTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductUpdate), global::Inman.Platform.ServiceStub.ProductUpdate.Parser, new[]{ "Product" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.UpdateResult), global::Inman.Platform.ServiceStub.UpdateResult.Parser, new[]{ "Success", "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.ProductDelete), global::Inman.Platform.ServiceStub.ProductDelete.Parser, new[]{ "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Inman.Platform.ServiceStub.DeleteResult), global::Inman.Platform.ServiceStub.DeleteResult.Parser, new[]{ "Success", "Message" }, null, null, null)
           }));
     }
     #endregion
@@ -65,8 +77,10 @@ namespace Inman.Platform.ServiceStub {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ProductRequest(ProductRequest other) : this() {
-      quantity_ = other.quantity_;
+      page_ = other.page_;
+      pageSize_ = other.pageSize_;
       productId_ = other.productId_.Clone();
+      DemandDescriptor = other.demandDescriptor_ != null ? other.DemandDescriptor.Clone() : null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -74,25 +88,47 @@ namespace Inman.Platform.ServiceStub {
       return new ProductRequest(this);
     }
 
-    /// <summary>Field number for the "Quantity" field.</summary>
-    public const int QuantityFieldNumber = 1;
-    private int quantity_;
+    /// <summary>Field number for the "Page" field.</summary>
+    public const int PageFieldNumber = 1;
+    private int page_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Quantity {
-      get { return quantity_; }
+    public int Page {
+      get { return page_; }
       set {
-        quantity_ = value;
+        page_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PageSize" field.</summary>
+    public const int PageSizeFieldNumber = 2;
+    private int pageSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int PageSize {
+      get { return pageSize_; }
+      set {
+        pageSize_ = value;
       }
     }
 
     /// <summary>Field number for the "ProductId" field.</summary>
-    public const int ProductIdFieldNumber = 2;
+    public const int ProductIdFieldNumber = 3;
     private static readonly pb::FieldCodec<int> _repeated_productId_codec
-        = pb::FieldCodec.ForInt32(18);
+        = pb::FieldCodec.ForInt32(26);
     private readonly pbc::RepeatedField<int> productId_ = new pbc::RepeatedField<int>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<int> ProductId {
       get { return productId_; }
+    }
+
+    /// <summary>Field number for the "DemandDescriptor" field.</summary>
+    public const int DemandDescriptorFieldNumber = 4;
+    private global::Inman.Platform.ServiceStub.Data.DemandDescriptor demandDescriptor_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Inman.Platform.ServiceStub.Data.DemandDescriptor DemandDescriptor {
+      get { return demandDescriptor_; }
+      set {
+        demandDescriptor_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -108,16 +144,20 @@ namespace Inman.Platform.ServiceStub {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Quantity != other.Quantity) return false;
+      if (Page != other.Page) return false;
+      if (PageSize != other.PageSize) return false;
       if(!productId_.Equals(other.productId_)) return false;
+      if (!object.Equals(DemandDescriptor, other.DemandDescriptor)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Quantity != 0) hash ^= Quantity.GetHashCode();
+      if (Page != 0) hash ^= Page.GetHashCode();
+      if (PageSize != 0) hash ^= PageSize.GetHashCode();
       hash ^= productId_.GetHashCode();
+      if (demandDescriptor_ != null) hash ^= DemandDescriptor.GetHashCode();
       return hash;
     }
 
@@ -128,20 +168,34 @@ namespace Inman.Platform.ServiceStub {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Quantity != 0) {
+      if (Page != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(Quantity);
+        output.WriteInt32(Page);
+      }
+      if (PageSize != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(PageSize);
       }
       productId_.WriteTo(output, _repeated_productId_codec);
+      if (demandDescriptor_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(DemandDescriptor);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Quantity != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Quantity);
+      if (Page != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Page);
+      }
+      if (PageSize != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(PageSize);
       }
       size += productId_.CalculateSize(_repeated_productId_codec);
+      if (demandDescriptor_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DemandDescriptor);
+      }
       return size;
     }
 
@@ -150,10 +204,19 @@ namespace Inman.Platform.ServiceStub {
       if (other == null) {
         return;
       }
-      if (other.Quantity != 0) {
-        Quantity = other.Quantity;
+      if (other.Page != 0) {
+        Page = other.Page;
+      }
+      if (other.PageSize != 0) {
+        PageSize = other.PageSize;
       }
       productId_.Add(other.productId_);
+      if (other.demandDescriptor_ != null) {
+        if (demandDescriptor_ == null) {
+          demandDescriptor_ = new global::Inman.Platform.ServiceStub.Data.DemandDescriptor();
+        }
+        DemandDescriptor.MergeFrom(other.DemandDescriptor);
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -165,12 +228,23 @@ namespace Inman.Platform.ServiceStub {
             input.SkipLastField();
             break;
           case 8: {
-            Quantity = input.ReadInt32();
+            Page = input.ReadInt32();
             break;
           }
-          case 18:
           case 16: {
+            PageSize = input.ReadInt32();
+            break;
+          }
+          case 26:
+          case 24: {
             productId_.AddEntriesFrom(input, _repeated_productId_codec);
+            break;
+          }
+          case 34: {
+            if (demandDescriptor_ == null) {
+              demandDescriptor_ = new global::Inman.Platform.ServiceStub.Data.DemandDescriptor();
+            }
+            input.ReadMessage(demandDescriptor_);
             break;
           }
         }
@@ -336,6 +410,529 @@ namespace Inman.Platform.ServiceStub {
           }
           case 26: {
             ExecuteTime = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ProductUpdate : pb::IMessage<ProductUpdate> {
+    private static readonly pb::MessageParser<ProductUpdate> _parser = new pb::MessageParser<ProductUpdate>(() => new ProductUpdate());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ProductUpdate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Inman.Platform.ServiceStub.ProductserviceReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductUpdate(ProductUpdate other) : this() {
+      Product = other.product_ != null ? other.Product.Clone() : null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductUpdate Clone() {
+      return new ProductUpdate(this);
+    }
+
+    /// <summary>Field number for the "Product" field.</summary>
+    public const int ProductFieldNumber = 1;
+    private global::Inman.Platform.ServiceStub.Data.Product product_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Inman.Platform.ServiceStub.Data.Product Product {
+      get { return product_; }
+      set {
+        product_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ProductUpdate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ProductUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Product, other.Product)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (product_ != null) hash ^= Product.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (product_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Product);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (product_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Product);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ProductUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.product_ != null) {
+        if (product_ == null) {
+          product_ = new global::Inman.Platform.ServiceStub.Data.Product();
+        }
+        Product.MergeFrom(other.Product);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            if (product_ == null) {
+              product_ = new global::Inman.Platform.ServiceStub.Data.Product();
+            }
+            input.ReadMessage(product_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class UpdateResult : pb::IMessage<UpdateResult> {
+    private static readonly pb::MessageParser<UpdateResult> _parser = new pb::MessageParser<UpdateResult>(() => new UpdateResult());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Inman.Platform.ServiceStub.ProductserviceReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateResult(UpdateResult other) : this() {
+      success_ = other.success_;
+      message_ = other.message_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateResult Clone() {
+      return new UpdateResult(this);
+    }
+
+    /// <summary>Field number for the "Success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (Message != other.Message) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateResult other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class ProductDelete : pb::IMessage<ProductDelete> {
+    private static readonly pb::MessageParser<ProductDelete> _parser = new pb::MessageParser<ProductDelete>(() => new ProductDelete());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ProductDelete> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Inman.Platform.ServiceStub.ProductserviceReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductDelete() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductDelete(ProductDelete other) : this() {
+      id_ = other.id_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ProductDelete Clone() {
+      return new ProductDelete(this);
+    }
+
+    /// <summary>Field number for the "Id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private static readonly pb::FieldCodec<int> _repeated_id_codec
+        = pb::FieldCodec.ForInt32(10);
+    private readonly pbc::RepeatedField<int> id_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<int> Id {
+      get { return id_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ProductDelete);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ProductDelete other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!id_.Equals(other.id_)) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= id_.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      id_.WriteTo(output, _repeated_id_codec);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += id_.CalculateSize(_repeated_id_codec);
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ProductDelete other) {
+      if (other == null) {
+        return;
+      }
+      id_.Add(other.id_);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10:
+          case 8: {
+            id_.AddEntriesFrom(input, _repeated_id_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class DeleteResult : pb::IMessage<DeleteResult> {
+    private static readonly pb::MessageParser<DeleteResult> _parser = new pb::MessageParser<DeleteResult>(() => new DeleteResult());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DeleteResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Inman.Platform.ServiceStub.ProductserviceReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteResult(DeleteResult other) : this() {
+      success_ = other.success_;
+      message_ = other.message_;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DeleteResult Clone() {
+      return new DeleteResult(this);
+    }
+
+    /// <summary>Field number for the "Success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Message" field.</summary>
+    public const int MessageFieldNumber = 2;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DeleteResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DeleteResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (Message != other.Message) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Message);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DeleteResult other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            Message = input.ReadString();
             break;
           }
         }

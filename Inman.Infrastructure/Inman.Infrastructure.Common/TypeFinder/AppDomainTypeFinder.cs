@@ -19,13 +19,13 @@ namespace Inman.Infrastructure.Common
     {
         #region Private Fields
 
-        private bool loadAppDomainAssemblies = true;
+        
 
-        private string assemblySkipLoadingPattern = "^System|^mscorlib|^Microsoft|^CppCodeProvider|^VJSharpCodeProvider|^WebDev|^Castle|^Iesi|^log4net|^NHibernate|^nunit|^TestDriven|^MbUnit|^Rhino|^QuickGraph|^TestFu|^Telerik|^ComponentArt|^MvcContrib|^AjaxControlToolkit|^Antlr3|^Remotion|^Recaptcha|^Aspose.BarCode";
+        private string assemblySkipLoadingPattern = "^System|^mscorlib|^Microsoft|^CppCodeProvider|^VJSharpCodeProvider|^WebDev|^Castle|^Iesi|^log4net|^NHibernate|^nunit|^TestDriven|^MbUnit|^Rhino|^QuickGraph|^TestFu|^Telerik|^ComponentArt|^MvcContrib|^AjaxControlToolkit|^Antlr3|^Remotion|^Recaptcha|^Aspose.BarCode|^PetaPoco|^Newtonsoft|^NuGet|^Kendo|^Autofac|^Google|^Grpc|^IdentityModel|^Thrift|^Remotion|^AutoMapper|^BouncyCastle|^Dapper";
 
         private string assemblyRestrictToLoadingPattern = ".*";
         private IList<string> assemblyNames = new List<string>();
-
+       
         #endregion
 
         #region Constructors
@@ -33,7 +33,7 @@ namespace Inman.Infrastructure.Common
         /// <summary>Creates a new instance of the AppDomainTypeFinder.</summary>
         public AppDomainTypeFinder()
         {
-
+           
         }
 
         #endregion
@@ -46,12 +46,7 @@ namespace Inman.Infrastructure.Common
         //    get { return AppDomain.CurrentDomain; }
         //}
 
-        /// <summary>Gets or sets wether Nop should iterate assemblies in the app domain when loading Nop types. Loading patterns are applied when loading these assemblies.</summary>
-        public bool LoadAppDomainAssemblies
-        {
-            get { return loadAppDomainAssemblies; }
-            set { loadAppDomainAssemblies = value; }
-        }
+        
 
         /// <summary>Gets or sets assemblies loaded a startup in addition to those loaded in the AppDomain.</summary>
         public IList<string> AssemblyNames
@@ -106,6 +101,9 @@ namespace Inman.Infrastructure.Common
 
         public IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, IEnumerable<Assembly> assemblies, bool onlyConcreteClasses = true)
         {
+            
+            //// -See more at: https://weblogs.asp.net/ricardoperes/using-mef-in-net-core#sthash.q9t6fmJp.dpuf
+
             var assignTypeInfoFrom = assignTypeFrom.GetTypeInfo(); //to core modify
             var result = new List<Type>();
             try
@@ -125,7 +123,7 @@ namespace Inman.Infrastructure.Common
                         foreach (var t in types)
                         {
                             var typeInfo = t.GetTypeInfo();
-                            if (assignTypeInfoFrom.IsAssignableFrom(t) || (assignTypeInfoFrom.IsGenericTypeDefinition && DoesTypeImplementOpenGeneric(t, assignTypeFrom)))
+                            if (assignTypeFrom.IsAssignableFrom(t) || (assignTypeInfoFrom.IsGenericTypeDefinition && DoesTypeImplementOpenGeneric(t, assignTypeFrom)))
                             {
                                 if (!typeInfo.IsInterface)
                                 {
@@ -207,12 +205,12 @@ namespace Inman.Infrastructure.Common
 
         public IEnumerable<Assembly> FindAssembliesWithAttribute<T>(DirectoryInfo assemblyPath)
         {
-            var assemblies = (from f in Directory.GetFiles(assemblyPath.FullName, "*.dll")
-                              select AssemblyLoadContext.Default.LoadFromAssemblyPath(f) //Assembly.LoadFrom(f) //to core modify
+            var assemblies = (from f in Directory.GetFiles(assemblyPath.FullName, "*.dll").Where(path => Matches(Path.GetFileName(path)))
+                              select GetAssemblyByPath(f)//assemblyLoadContext.LoadFromAssemblyPath(f) //Assembly.LoadFrom(f) //to core modify
                                   into assembly
-                                  let customAttributes = assembly.GetCustomAttributes(typeof(T))//assembly.GetCustomAttributes(typeof(T), false)//to core modify
+                              let customAttributes = assembly.GetCustomAttributes(typeof(T))//assembly.GetCustomAttributes(typeof(T), false)//to core modify
                               where customAttributes.Any()
-                                  select assembly).ToList();
+                              select assembly).ToList();
             return FindAssembliesWithAttribute<T>(assemblies);
         }
 
@@ -222,11 +220,7 @@ namespace Inman.Infrastructure.Common
         {
             var addedAssemblyNames = new List<string>();
             var assemblies = new List<Assembly>();
-
-            if (LoadAppDomainAssemblies)
-                AddAssembliesInAppDomain(addedAssemblyNames, assemblies);
-            AddConfiguredAssemblies(addedAssemblyNames, assemblies);
-
+            AddAssembliesInAppDomain(addedAssemblyNames, assemblies); 
             return assemblies;
         }
 
@@ -238,47 +232,31 @@ namespace Inman.Infrastructure.Common
         private void AddAssembliesInAppDomain(List<string> addedAssemblyNames, List<Assembly> assemblies)
         {
             //to core modify
-            var dlls = Directory.GetFiles(AppContext.BaseDirectory, "*.dll");
+            var dlls = Directory.GetFiles(AppContext.BaseDirectory, "*.dll").Where(path => Matches(Path.GetFileName(path)));
+            
             foreach (var dll in dlls)
             {
-                var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(dll);
-                if (Matches(assembly.FullName))
-                {
-                    if (!addedAssemblyNames.Contains(assembly.FullName))
-                    {
-                        assemblies.Add(assembly);
-                        addedAssemblyNames.Add(assembly.FullName);
-                    }
-                }
-            }
-
-            //foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
-            //{
-            //    if (Matches(assembly.FullName))
-            //    {
-            //        if (!addedAssemblyNames.Contains(assembly.FullName))
-            //        {
-            //            assemblies.Add(assembly);
-            //            addedAssemblyNames.Add(assembly.FullName);
-            //        }
-            //    }
-            //}
-        }
-
-        /// <summary>Adds specificly configured assemblies.</summary>
-        protected virtual void AddConfiguredAssemblies(List<string> addedAssemblyNames, List<Assembly> assemblies)
-        {
-            foreach (string assemblyName in AssemblyNames)
-            {
-                Assembly assembly = Assembly.Load(new AssemblyName(assemblyName));
+                var assembly = GetAssemblyByPath(dll); 
                 if (!addedAssemblyNames.Contains(assembly.FullName))
                 {
                     assemblies.Add(assembly);
                     addedAssemblyNames.Add(assembly.FullName);
                 }
             }
+           
         }
 
+        private Assembly GetAssemblyByPath(string path)
+        {
+            // If you pre-load the assembly by uncommenting this line, it works fine.
+            // AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
+            //see more :https://github.com/dotnet/corefx/issues/10365
+            var assemblyName = AssemblyLoadContext.GetAssemblyName(path);
+            AssemblyLoadContext.Default.Resolving += new Resolver(path).Resolving;
+            return Assembly.Load(assemblyName);// Quits here with 'System.ExecutionEngineException'.
+        }
+
+        
         /// <summary>Check if a dll is one of the shipped dlls that we know don't need to be investigated.</summary>
         /// <param name="assemblyFullName">The name of the assembly to check.</param>
         /// <returns>True if the assembly should be loaded into Nop.</returns>
@@ -297,45 +275,7 @@ namespace Inman.Infrastructure.Common
             return Regex.IsMatch(assemblyFullName, pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }
 
-        /// <summary>Makes sure matching assemblies in the supplied folder are loaded in the app domain.</summary>
-        /// <param name="directoryPath">The physical path to a directory containing dlls to load in the app domain.</param>
-        //protected virtual void LoadMatchingAssemblies(string directoryPath)
-        //{
-        //    var loadedAssemblyNames = new List<string>();
-        //    foreach (Assembly a in GetAssemblies())
-        //    {
-        //        loadedAssemblyNames.Add(a.FullName);
-        //    }
-
-        //    if (!Directory.Exists(directoryPath))
-        //    {
-        //        return;
-        //    }
-
-        //    foreach (string dllPath in Directory.GetFiles(directoryPath, "*.dll"))
-        //    {
-        //        try
-        //        {
-        //            var an = AssemblyLoadContext.Default.LoadFromAssemblyPath(dllPath); //AssemblyName.GetAssemblyName(dllPath); //to core modify
-        //            if (Matches(an.FullName) && !loadedAssemblyNames.Contains(an.FullName))
-        //            {
-        //                App.Load(an);
-        //            }
-
-        //            //old loading stuff
-        //            //Assembly a = Assembly.ReflectionOnlyLoadFrom(dllPath);
-        //            //if (Matches(a.FullName) && !loadedAssemblyNames.Contains(a.FullName))
-        //            //{
-        //            //    App.Load(a.FullName);
-        //            //}
-        //        }
-        //        catch (BadImageFormatException ex)
-        //        {
-        //            Trace.TraceError(ex.ToString());
-        //        }
-        //    }
-        //}
-
+        
         protected virtual bool DoesTypeImplementOpenGeneric(Type type, Type openGeneric)
         {
             try
@@ -364,6 +304,28 @@ namespace Inman.Infrastructure.Common
                 return false;
             }
         }
+        class Resolver
+        {
+            string resolvePath;
+            AssemblyName resolveName;
 
+            public Resolver(string assemblyPath)
+            {
+                resolveName = AssemblyLoadContext.GetAssemblyName(assemblyPath);
+                resolvePath = assemblyPath;
+            }
+
+            public Assembly Resolving(AssemblyLoadContext context, AssemblyName assemblyName)
+            {
+                if (assemblyName.FullName == resolveName.FullName)
+                {
+                    var assembly = context.LoadFromAssemblyPath(resolvePath);
+                    //Console.WriteLine("Resolving: " + Path.GetFileNameWithoutExtension(resolvePath) + " -> " + assembly);
+                    return assembly;
+                }
+
+                return null;
+            }
+        }
     }
 }

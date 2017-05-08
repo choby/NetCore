@@ -39,9 +39,9 @@ using Grpc.Core;
 
 namespace Inman.Platform.ServiceStub {
   /// <summary>
-  ///  The greeting service definition.
+  /// The greeting service definition.
   /// </summary>
-  public static class StockItemService
+  public static partial class StockItemService
   {
     static readonly string __ServiceName = "StockItemService";
 
@@ -70,11 +70,14 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Base class for server-side implementations of StockItemService</summary>
-    public abstract class StockItemServiceBase
+    public abstract partial class StockItemServiceBase
     {
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.Data.StockItem> GetStockItem(global::Inman.Platform.ServiceStub.StockItemRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -88,7 +91,7 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Client for StockItemService</summary>
-    public class StockItemServiceClient : ClientBase<StockItemServiceClient>
+    public partial class StockItemServiceClient : ClientBase<StockItemServiceClient>
     {
       /// <summary>Creates a new client for StockItemService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
@@ -111,29 +114,45 @@ namespace Inman.Platform.ServiceStub {
       }
 
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.Data.StockItem GetStockItem(global::Inman.Platform.ServiceStub.StockItemRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetStockItem(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.Data.StockItem GetStockItem(global::Inman.Platform.ServiceStub.StockItemRequest request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetStockItem, null, options, request);
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.Data.StockItem> GetStockItemAsync(global::Inman.Platform.ServiceStub.StockItemRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetStockItemAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.Data.StockItem> GetStockItemAsync(global::Inman.Platform.ServiceStub.StockItemRequest request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStockItem, null, options, request);
@@ -154,6 +173,7 @@ namespace Inman.Platform.ServiceStub {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStockItemList, null, options, request);
       }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override StockItemServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new StockItemServiceClient(configuration);
@@ -161,6 +181,7 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(StockItemServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()

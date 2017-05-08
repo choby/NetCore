@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using Inman.Infrastructure.IOC;
+﻿using Inman.Infrastructure.IOC;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Inman.Infrastructure.Web
@@ -8,19 +8,19 @@ namespace Inman.Infrastructure.Web
     {
         public static void AddTitleParts(this HtmlHelper html, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AddTitleParts(parts);
         }
 
         public static void AppendTitleParts(this HtmlHelper html, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AppendTitleParts(parts);
         }
 
         public static MvcHtmlString Title(this HtmlHelper html, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             html.AppendTitleParts(parts);
             return MvcHtmlString.Create(html.Encode(pageTitleBuilder.GenerateTitle()));
         }
@@ -32,18 +32,18 @@ namespace Inman.Infrastructure.Web
 
         public static void AddScriptParts(this HtmlHelper html, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AddScriptParts(location, parts);
         }
 
-        public static void AppendScriptParts(this HtmlHelper html, params string[] parts)
+        public static void AppendScriptParts(this IHtmlHelper<dynamic> html, params string[] parts)
         {
             AppendScriptParts(html, ResourceLocation.Head, parts);
         }
 
         public static void AppendScriptParts(this HtmlHelper html, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AppendScriptParts(location, parts);
         }
 
@@ -54,7 +54,7 @@ namespace Inman.Infrastructure.Web
 
         public static MvcHtmlString Scripts(this HtmlHelper html, UrlHelper urlHelper, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             html.AppendScriptParts(parts);
             return MvcHtmlString.Create(pageTitleBuilder.GenerateScripts(urlHelper, location));
         }
@@ -66,7 +66,7 @@ namespace Inman.Infrastructure.Web
 
         public static void AddCssFileParts(this HtmlHelper html, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AddCssFileParts(location, parts);
         }
 
@@ -77,7 +77,7 @@ namespace Inman.Infrastructure.Web
 
         public static void AppendCssFileParts(this HtmlHelper html, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             pageTitleBuilder.AppendCssFileParts(location, parts);
         }
 
@@ -88,7 +88,7 @@ namespace Inman.Infrastructure.Web
 
         public static MvcHtmlString CssFiles(this HtmlHelper html, UrlHelper urlHelper, ResourceLocation location, params string[] parts)
         {
-            var pageTitleBuilder = EngineContext.Current.Resolve<IPageTitleBuilder>();
+            var pageTitleBuilder = EngineContext.Current.GetService<IPageTitleBuilder>();
             html.AppendCssFileParts(parts);
             return MvcHtmlString.Create(pageTitleBuilder.GenerateCssFiles(urlHelper, location));
         }

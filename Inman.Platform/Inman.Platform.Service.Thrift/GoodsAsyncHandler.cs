@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Inman.Platform.Data.Repository;
 using Inman.Platform.ServiceStub.Thrift;
 using Inman.Platform.ServiceStub.Thrift.Data;
 

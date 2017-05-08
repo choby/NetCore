@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using System;
 using System.Diagnostics;
 using System.Reflection;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Routing;
 
 namespace Inman.Infrastructure.Web
 {
@@ -23,7 +26,7 @@ namespace Inman.Infrastructure.Web
             this._requirement = requirement;
         }
 
-        public override bool IsValidForRequest(ControllerContext controllerContext, MethodInfo methodInfo)
+        public override bool IsValidForRequest(RouteContext routeContext, ActionDescriptor action)
         {
             foreach (string buttonName in _submitButtonNames)
             {
@@ -35,16 +38,16 @@ namespace Inman.Infrastructure.Web
                         case FormValueRequirement.Equal:
                             {
                                 //do not iterate because "Invalid request" exception can be thrown
-                                value = controllerContext.HttpContext.Request.Form[buttonName];
+                                value = routeContext.HttpContext.Request.Form[buttonName];
                             }
                             break;
                         case FormValueRequirement.StartsWith:
                             {
-                                foreach (var formValue in controllerContext.HttpContext.Request.Form.AllKeys)
+                                foreach (var formValue in routeContext.HttpContext.Request.Form.Keys)
                                 {
-                                    if (formValue.StartsWith(buttonName, StringComparison.InvariantCultureIgnoreCase))
+                                    if (formValue.StartsWith(buttonName, StringComparison.CurrentCultureIgnoreCase))
                                     {
-                                        value = controllerContext.HttpContext.Request.Form[formValue];
+                                        value = routeContext.HttpContext.Request.Form[formValue];
                                         break;
                                     }
                                 }
@@ -62,6 +65,8 @@ namespace Inman.Infrastructure.Web
             }
             return false;
         }
+
+       
     }
 
     public enum FormValueRequirement

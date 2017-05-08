@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26206.0
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Infrastructure.Common", "Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj", "{4015CB75-FD5C-49DC-BB91-D1E33A3F0EB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inman.Infrastructure.Common", "Inman.Infrastructure.Common\Inman.Infrastructure.Common.csproj", "{4015CB75-FD5C-49DC-BB91-D1E33A3F0EB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Infrastructure.Data", "Inman.Infrastructure.Data\Inman.Infrastructure.Data.csproj", "{32633BB9-ADB7-4887-A9F1-0D67BC765D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inman.Infrastructure.Data", "Inman.Infrastructure.Data\Inman.Infrastructure.Data.csproj", "{32633BB9-ADB7-4887-A9F1-0D67BC765D9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Infrastructure.EF", "Inman.Infrastructure.EF\Inman.Infrastructure.EF.csproj", "{39A95AC0-172E-49A7-830E-C78C7560D652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inman.Infrastructure.EF", "Inman.Infrastructure.EF\Inman.Infrastructure.EF.csproj", "{39A95AC0-172E-49A7-830E-C78C7560D652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Infrastructure.IOC", "Inman.Infrastructure.IOC\Inman.Infrastructure.IOC.csproj", "{EFDBA3AE-93DD-4B8C-9F3B-4C61F2A748CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inman.Infrastructure.Web", "Inman.Infrastructure.Web\Inman.Infrastructure.Web.csproj", "{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inman.Infrastructure.Web", "Inman.Infrastructure.Web\Inman.Infrastructure.Web.csproj", "{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kendo.Mvc", "Kendo.Mvc\Kendo.Mvc.csproj", "{FE2EA670-4D95-422D-9CA1-E4B0A468165B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{39A95AC0-172E-49A7-830E-C78C7560D652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39A95AC0-172E-49A7-830E-C78C7560D652}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{39A95AC0-172E-49A7-830E-C78C7560D652}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{EFDBA3AE-93DD-4B8C-9F3B-4C61F2A748CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFDBA3AE-93DD-4B8C-9F3B-4C61F2A748CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFDBA3AE-93DD-4B8C-9F3B-4C61F2A748CD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFDBA3AE-93DD-4B8C-9F3B-4C61F2A748CD}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CEA1BE5-8E95-44C6-B525-A69B1B4D9D56}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FE2EA670-4D95-422D-9CA1-E4B0A468165B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2EA670-4D95-422D-9CA1-E4B0A468165B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2EA670-4D95-422D-9CA1-E4B0A468165B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2EA670-4D95-422D-9CA1-E4B0A468165B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

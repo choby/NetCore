@@ -39,15 +39,19 @@ using Grpc.Core;
 
 namespace Inman.Platform.ServiceStub {
   /// <summary>
-  ///  The greeting service definition.
+  /// The greeting service definition.
   /// </summary>
-  public static class ProductService
+  public static partial class ProductService
   {
     static readonly string __ServiceName = "ProductService";
 
     static readonly Marshaller<global::Inman.Platform.ServiceStub.ProductRequest> __Marshaller_ProductRequest = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.ProductRequest.Parser.ParseFrom);
     static readonly Marshaller<global::Inman.Platform.ServiceStub.Data.Product> __Marshaller_Product = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.Data.Product.Parser.ParseFrom);
     static readonly Marshaller<global::Inman.Platform.ServiceStub.ProductResponse> __Marshaller_ProductResponse = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.ProductResponse.Parser.ParseFrom);
+    static readonly Marshaller<global::Inman.Platform.ServiceStub.ProductUpdate> __Marshaller_ProductUpdate = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.ProductUpdate.Parser.ParseFrom);
+    static readonly Marshaller<global::Inman.Platform.ServiceStub.UpdateResult> __Marshaller_UpdateResult = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.UpdateResult.Parser.ParseFrom);
+    static readonly Marshaller<global::Inman.Platform.ServiceStub.ProductDelete> __Marshaller_ProductDelete = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.ProductDelete.Parser.ParseFrom);
+    static readonly Marshaller<global::Inman.Platform.ServiceStub.DeleteResult> __Marshaller_DeleteResult = Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Inman.Platform.ServiceStub.DeleteResult.Parser.ParseFrom);
 
     static readonly Method<global::Inman.Platform.ServiceStub.ProductRequest, global::Inman.Platform.ServiceStub.Data.Product> __Method_GetProduct = new Method<global::Inman.Platform.ServiceStub.ProductRequest, global::Inman.Platform.ServiceStub.Data.Product>(
         MethodType.Unary,
@@ -63,6 +67,27 @@ namespace Inman.Platform.ServiceStub {
         __Marshaller_ProductRequest,
         __Marshaller_ProductResponse);
 
+    static readonly Method<global::Inman.Platform.ServiceStub.ProductUpdate, global::Inman.Platform.ServiceStub.UpdateResult> __Method_UpdateProduct = new Method<global::Inman.Platform.ServiceStub.ProductUpdate, global::Inman.Platform.ServiceStub.UpdateResult>(
+        MethodType.Unary,
+        __ServiceName,
+        "UpdateProduct",
+        __Marshaller_ProductUpdate,
+        __Marshaller_UpdateResult);
+
+    static readonly Method<global::Inman.Platform.ServiceStub.ProductUpdate, global::Inman.Platform.ServiceStub.UpdateResult> __Method_AddProduct = new Method<global::Inman.Platform.ServiceStub.ProductUpdate, global::Inman.Platform.ServiceStub.UpdateResult>(
+        MethodType.Unary,
+        __ServiceName,
+        "AddProduct",
+        __Marshaller_ProductUpdate,
+        __Marshaller_UpdateResult);
+
+    static readonly Method<global::Inman.Platform.ServiceStub.ProductDelete, global::Inman.Platform.ServiceStub.DeleteResult> __Method_DeleteProduct = new Method<global::Inman.Platform.ServiceStub.ProductDelete, global::Inman.Platform.ServiceStub.DeleteResult>(
+        MethodType.Unary,
+        __ServiceName,
+        "DeleteProduct",
+        __Marshaller_ProductDelete,
+        __Marshaller_DeleteResult);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -70,11 +95,14 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Base class for server-side implementations of ProductService</summary>
-    public abstract class ProductServiceBase
+    public abstract partial class ProductServiceBase
     {
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.Data.Product> GetProduct(global::Inman.Platform.ServiceStub.ProductRequest request, ServerCallContext context)
       {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
@@ -85,10 +113,25 @@ namespace Inman.Platform.ServiceStub {
         throw new RpcException(new Status(StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.UpdateResult> UpdateProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.UpdateResult> AddProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Inman.Platform.ServiceStub.DeleteResult> DeleteProduct(global::Inman.Platform.ServiceStub.ProductDelete request, ServerCallContext context)
+      {
+        throw new RpcException(new Status(StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Client for ProductService</summary>
-    public class ProductServiceClient : ClientBase<ProductServiceClient>
+    public partial class ProductServiceClient : ClientBase<ProductServiceClient>
     {
       /// <summary>Creates a new client for ProductService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
@@ -111,29 +154,45 @@ namespace Inman.Platform.ServiceStub {
       }
 
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.Data.Product GetProduct(global::Inman.Platform.ServiceStub.ProductRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetProduct(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Inman.Platform.ServiceStub.Data.Product GetProduct(global::Inman.Platform.ServiceStub.ProductRequest request, CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetProduct, null, options, request);
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.Data.Product> GetProductAsync(global::Inman.Platform.ServiceStub.ProductRequest request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
       {
         return GetProductAsync(request, new CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      ///  Sends a greeting
+      /// Sends a greeting
       /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.Data.Product> GetProductAsync(global::Inman.Platform.ServiceStub.ProductRequest request, CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetProduct, null, options, request);
@@ -154,6 +213,55 @@ namespace Inman.Platform.ServiceStub {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetProductList, null, options, request);
       }
+      public virtual global::Inman.Platform.ServiceStub.UpdateResult UpdateProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return UpdateProduct(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Inman.Platform.ServiceStub.UpdateResult UpdateProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateProduct, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.UpdateResult> UpdateProductAsync(global::Inman.Platform.ServiceStub.ProductUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return UpdateProductAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.UpdateResult> UpdateProductAsync(global::Inman.Platform.ServiceStub.ProductUpdate request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateProduct, null, options, request);
+      }
+      public virtual global::Inman.Platform.ServiceStub.UpdateResult AddProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return AddProduct(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Inman.Platform.ServiceStub.UpdateResult AddProduct(global::Inman.Platform.ServiceStub.ProductUpdate request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_AddProduct, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.UpdateResult> AddProductAsync(global::Inman.Platform.ServiceStub.ProductUpdate request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return AddProductAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.UpdateResult> AddProductAsync(global::Inman.Platform.ServiceStub.ProductUpdate request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_AddProduct, null, options, request);
+      }
+      public virtual global::Inman.Platform.ServiceStub.DeleteResult DeleteProduct(global::Inman.Platform.ServiceStub.ProductDelete request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteProduct(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Inman.Platform.ServiceStub.DeleteResult DeleteProduct(global::Inman.Platform.ServiceStub.ProductDelete request, CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteProduct, null, options, request);
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.DeleteResult> DeleteProductAsync(global::Inman.Platform.ServiceStub.ProductDelete request, Metadata headers = null, DateTime? deadline = null, CancellationToken cancellationToken = default(CancellationToken))
+      {
+        return DeleteProductAsync(request, new CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual AsyncUnaryCall<global::Inman.Platform.ServiceStub.DeleteResult> DeleteProductAsync(global::Inman.Platform.ServiceStub.ProductDelete request, CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteProduct, null, options, request);
+      }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override ProductServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new ProductServiceClient(configuration);
@@ -161,11 +269,15 @@ namespace Inman.Platform.ServiceStub {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(ProductServiceBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetProduct, serviceImpl.GetProduct)
-          .AddMethod(__Method_GetProductList, serviceImpl.GetProductList).Build();
+          .AddMethod(__Method_GetProductList, serviceImpl.GetProductList)
+          .AddMethod(__Method_UpdateProduct, serviceImpl.UpdateProduct)
+          .AddMethod(__Method_AddProduct, serviceImpl.AddProduct)
+          .AddMethod(__Method_DeleteProduct, serviceImpl.DeleteProduct).Build();
     }
 
   }

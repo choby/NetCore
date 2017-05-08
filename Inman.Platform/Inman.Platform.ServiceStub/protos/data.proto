@@ -4,6 +4,14 @@ syntax = "proto3";
 //for csharp
 option csharp_namespace = "Inman.Platform.ServiceStub.Data";
 
+message DemandDescriptor
+{
+	string Filter= 1;
+	string Group = 2;
+	string Sort = 3;
+	string Aggregate = 4;
+}
+
 message User{
 	int32 Id = 1;
 	string OpenId = 2;
@@ -36,38 +44,38 @@ message StockItem {
   double ExclusiveTaxPriceAgent = 22;
   double PriceAgent = 23;
    double   KGPrice = 24;
-    string  Unit = 25;
-    string  Component = 26;
-     float LateralContraction = 27;
-    float  DirectContraction = 28;
-    float  ItemWidth = 29;
-    float  Weight = 30;
-     float KilogramMeter = 31;
+	string  Unit = 25;
+	string  Component = 26;
+	 float LateralContraction = 27;
+	float  DirectContraction = 28;
+	float  ItemWidth = 29;
+	float  Weight = 30;
+	 float KilogramMeter = 31;
    string   DaysSupply = 32;
-    float  MOQ = 33;
-     float UpperInventory = 34;
-     float BelowInventory = 35;
-     string SupplierItemCode = 36;
-    string  SupplierItemColor = 37;
-    string  Remark = 38;
-     string PicturePath = 39;
-    bool  HaveApproveDevPrice = 40;
-     bool HaveApprovePrice = 41 ;
-    string  Brand = 42;
-     string DevType = 43;
-    int32  SortCode = 44;
-     bool Enabled = 45;
-     bool Deleted = 46;
-    int32  AccountID = 47;
-     string CreatedOn = 48;
-     string CreatedBy = 49;
-     int32 CreatedCustomerId = 50;
-     string ModifiedOn = 51;
-    string  ModifiedBy = 52;
-    int32  ModifiedCustomerId = 53;
-    string  ApprovalPriceRemark = 54;
-    int32  ExemptionState	    = 55;
-     int32 OwnerId			    = 56;
+	float  MOQ = 33;
+	 float UpperInventory = 34;
+	 float BelowInventory = 35;
+	 string SupplierItemCode = 36;
+	string  SupplierItemColor = 37;
+	string  Remark = 38;
+	 string PicturePath = 39;
+	bool  HaveApproveDevPrice = 40;
+	 bool HaveApprovePrice = 41 ;
+	string  Brand = 42;
+	 string DevType = 43;
+	int32  SortCode = 44;
+	 bool Enabled = 45;
+	 bool Deleted = 46;
+	int32  AccountID = 47;
+	 string CreatedOn = 48;
+	 string CreatedBy = 49;
+	 int32 CreatedCustomerId = 50;
+	 string ModifiedOn = 51;
+	string  ModifiedBy = 52;
+	int32  ModifiedCustomerId = 53;
+	string  ApprovalPriceRemark = 54;
+	int32  ExemptionState	    = 55;
+	 int32 OwnerId			    = 56;
 }
 
 message Product {
@@ -87,57 +95,42 @@ message Product {
   string ModifiedBy = 14;
   int32 ModifiedCustomerId = 15;
   int32 OwnerId = 16;
-  Goods Goods = 17;
+  int32 DesignID = 17;
+  string ProductCategory1 = 18;
+  string ProductCategory2 = 19;
+  string ProductCategory3 = 20;
+  string Brand =21;
+  string ProductName = 22;
+  int32 ProductYear = 23;
+  string Season = 24;
+  string ExecStandard = 25;
+  string SafetyCass = 26;
+  string Component = 27;
+  double DevCost = 28;
+  double FOBCost = 29;
+  double ProcessingCost = 30;
+  double ProductCost = 31;
+  double InternalPrice = 32;
+  double SalesPrice = 33;
+  double TagPrice = 34;
+  double BatchPrice = 35;
+  double RADCost = 36;
+  bool IsEmergency = 37;
+  string ProductTitle = 38;
+  string QualityGrade = 39;
+  string Filler = 40;
+  float FillFeatherPercent = 41;
+  int32 WashingMethodPictureCode =  42;
+  string FirstOnsaleShelveDate = 43;
+  int32 SortCode = 44;
+  string Sex = 45;
+  string WashingMethodPicture = 46;
+  string CategoryClass = 47;
+  bool IsUploadK3 = 48;
+  string UploadK3Date = 49;
 }
 
-message Goods {
-  int32 Id = 1;
-  int32 DesignID = 2;
-  string ProductCategory1 = 3;
-  string ProductCategory2 = 4;
-  string ProductCategory3 = 5;
-  string Brand = 6;
-  string ProductName = 7;
-  int32 ProductYear = 8;
-  string Season = 9;
-  string ExecStandard = 10;
-  string SafetyCass = 11;
-  string Component = 12;
-  double DevCost = 13;
-  string ProductSN = 14;
-  double FOBCost = 15;
-  double ProcessingCost = 16;
-  double ProductCost = 17;
-  double InternalPrice = 18;
-  double SalesPrice = 19;
-  double TagPrice = 20;
-  double BatchPrice = 21;
-  double RADCost = 22;
-  bool IsEmergency = 23;
-  string ProductTitle = 24;
-  string QualityGrade = 25;
-  string Filler = 26;
-  float FillFeatherPercent = 27;
-  int32 WashingMethodPictureCode =  28;
-  string FirstOnsaleShelveDate = 29;
-  int32 SortCode = 30;
-  int32 AccountID = 31;
-  bool Deleted = 32;
-  int32 Enabled = 33;
-  string CreatedOn = 34;
-  string CreatedBy = 35;
-  int32 CreatedCustomerId = 36;
-  string ModifiedOn = 37;
-  string ModifiedBy = 38;
-  int32 ModifiedCustomerId = 39;
-  string Sex = 40;
-  string WashingMethodPicture = 41;
-  string CategoryClass = 42;
-  bool IsUploadK3 = 43;
-  string UploadK3Date = 44;
-  int32 OwnerId = 45;
-  Design Design = 46;
-}
+
 
 message Design
 {

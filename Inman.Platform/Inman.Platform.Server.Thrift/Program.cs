@@ -18,6 +18,7 @@ using Thrift.Protocols;
 using Inman.Platform.Service;
 using Inman.Platform.ServiceStub.Thrift;
 using Thrift.Server;
+using Inman.Platform.ThriftServer.Factory;
 using Inman.Platform.ThriftServer;
 
 class Program

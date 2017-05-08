@@ -5,13 +5,12 @@ using System.Text;
 using Thrift.Transports;
 using Thrift.Transports.Server;
 
-namespace Inman.Platform.ThriftServer
+namespace Inman.Platform.ThriftServer.Factory
 {
     public class ThriftTransportFactory
     {
         private TransportOption transportOption;
         private ThriftServerConfiguration config;
-
 
         public ThriftTransportFactory()
         {
@@ -40,9 +39,11 @@ namespace Inman.Platform.ThriftServer
                 case TransportOption.NamedPipe:
                     serverTransport = new TNamedPipeServerTransport(".test");
                     break;
-                //case TransportOption.TcpTls:
-                //    serverTransport = new TTlsServerSocketTransport(9090, false, GetCertificate(), ClientCertValidator, LocalCertificateSelectionCallback);
-                //    break;
+                case TransportOption.TcpTls:
+                    var certificateFactory = new ThriftCertificateFactory(this.config);
+                    var certificate2 = certificateFactory.GetCertificate();
+                    serverTransport = new TTlsServerSocketTransport(9090, this.config.UseBufferedSockets, certificate2);
+                    break;
                 case TransportOption.Framed:
                     serverTransport = new TServerFramedTransport(config.Port);
                     break;

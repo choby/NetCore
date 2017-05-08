@@ -2,6 +2,10 @@
 using System.Diagnostics;
 using Autofac;
 using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using Autofac.Extensions.DependencyInjection;
+using System.Reflection;
+
 
 namespace Inman.Infrastructure.Common.IOC
 {
@@ -10,6 +14,13 @@ namespace Inman.Infrastructure.Common.IOC
     /// </summary>
     public class EngineContext
     {
+        static IServiceCollection serviceCollection;
+
+        public static void Populate(IServiceCollection services)
+        {
+            serviceCollection = services;
+        }
+
         #region Initialization Methods
         /// <summary>Initializes a static instance of the Nop factory.</summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
@@ -42,22 +53,26 @@ namespace Inman.Infrastructure.Common.IOC
         public static IEngine CreateEngineInstance()
         {
             ContainerBuilder containerBuilder = new ContainerBuilder();
-            var typeFinder = new WebAppTypeFinder();
+            if (serviceCollection != null) containerBuilder.Populate(serviceCollection);
+
+            var typeFinder = new AppDomainTypeFinder();
             containerBuilder.Register<ITypeFinder>(context=> typeFinder).Keyed("sys.typeFinder", typeof(ITypeFinder)).SingleInstance();
-           
+
             var drTypes = typeFinder.FindClassesOfType<IDependencyRegistrar>();
             var drInstances = drTypes.Select(drType => (IDependencyRegistrar)Activator.CreateInstance(drType)).ToList();
             //sort
             drInstances = drInstances.AsQueryable().OrderBy(t => t.Order).ToList();
             foreach (var dependencyRegistrar in drInstances)
                 dependencyRegistrar.Register(containerBuilder, typeFinder);
-         
+
             var container = containerBuilder.Build();
 
             return new Engine(container);
         }
 
         #endregion
+
+       
 
         /// <summary>Gets the singleton Nop engine used to access Nop services.</summary>
         public static IEngine Current

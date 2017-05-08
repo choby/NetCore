@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Principal;
-using System.Web;
-using System.Web.SessionState;
+
 
 namespace Inman.Infrastructure.Web
 {
-    public class FakeHttpContext : HttpContextBase
+    public class FakeHttpContext : HttpContext
     {
-        private readonly HttpCookieCollection _cookies;
+        private readonly IRequestCookieCollection _cookies;
         private readonly NameValueCollection _formParams;
         private IPrincipal _principal;
         private readonly NameValueCollection _queryStringParams;
@@ -17,8 +17,8 @@ namespace Inman.Infrastructure.Web
         private readonly string _method;
         private readonly SessionStateItemCollection _sessionItems;
         private readonly NameValueCollection _serverVariables;
-        private HttpResponseBase _response;
-        private HttpRequestBase _request;
+        private HttpResponse _response;
+        private HttpRequest _request;
         private readonly Dictionary<object, object> _items;
 
         public static FakeHttpContext Root()
@@ -38,7 +38,7 @@ namespace Inman.Infrastructure.Web
 
         public FakeHttpContext(string relativeUrl, 
             IPrincipal principal, NameValueCollection formParams,
-            NameValueCollection queryStringParams, HttpCookieCollection cookies,
+            NameValueCollection queryStringParams, IRequestCookieCollection cookies,
             SessionStateItemCollection sessionItems, NameValueCollection serverVariables)
             : this(relativeUrl, null, principal, formParams, queryStringParams, cookies, sessionItems, serverVariables)
         {
@@ -46,8 +46,8 @@ namespace Inman.Infrastructure.Web
 
         public FakeHttpContext(string relativeUrl, string method,
             IPrincipal principal, NameValueCollection formParams,
-            NameValueCollection queryStringParams, HttpCookieCollection cookies,
-            SessionStateItemCollection sessionItems, NameValueCollection serverVariables)
+            NameValueCollection queryStringParams, IRequestCookieCollection cookies,
+            IRequestCookieCollection sessionItems, NameValueCollection serverVariables)
         {
             _relativeUrl = relativeUrl;
             _method = method;
@@ -61,7 +61,7 @@ namespace Inman.Infrastructure.Web
             _items = new Dictionary<object, object>();
         }
 
-        public override HttpRequestBase Request
+        public override HttpRequest Request
         {
             get
             {
@@ -70,12 +70,12 @@ namespace Inman.Infrastructure.Web
             }
         }
 
-        public void SetRequest(HttpRequestBase request)
+        public void SetRequest(HttpRequest request)
         {
             _request = request;
         }
 
-        public override HttpResponseBase Response
+        public override HttpResponse Response
         {
             get
             {
@@ -83,7 +83,7 @@ namespace Inman.Infrastructure.Web
             }
         }
 
-        public void SetResponse(HttpResponseBase response)
+        public void SetResponse(HttpResponse response)
         {
             _response = response;
         }

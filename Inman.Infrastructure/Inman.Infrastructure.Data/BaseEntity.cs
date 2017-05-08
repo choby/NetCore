@@ -7,7 +7,7 @@ namespace Inman.Infrastructure.Data
     /// By Leo
     /// Base class for entities
     /// </summary>
-    public abstract partial class BaseEntity
+    public abstract partial class BaseEntity : IEntity<int>
     {
         //protected BaseEntity()
         //{
@@ -34,10 +34,7 @@ namespace Inman.Infrastructure.Data
 
         public int OwnerId { get; set; }
 
-        public bool IsEnabled
-        {
-            get { return Enabled == 1; }
-        }
+       
 
         //[NotMapped]
         //public EnabledEnum EnabledEnum

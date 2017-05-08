@@ -1,35 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using Inman.Infrastructure.IOC;
-
+using Autofac;
+using Inman.Infrastructure.Common;
+using Inman.Infrastructure.Common.IOC;
+using Microsoft.AspNetCore.Http;
 
 namespace Inman.Infrastructure.Web
 {
-    public class MVCDependencyResolver : IDependencyResolver
+    public class MVCDependencyRegistrar : IDependencyRegistrar
     {
-        public object GetService(Type serviceType)
-        {
-            try
-            {
-                return EngineContext.Current.Resolve(serviceType);
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        public int Order => 0;
 
-        public IEnumerable<object> GetServices(Type serviceType)
+        public void Register(ContainerBuilder builder, ITypeFinder typeFinder)
         {
-            try
+            builder.RegisterType<WebHelper>().As<IWebHelper>().InstancePerLifetimeScope();
+            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>().InstancePerLifetimeScope();
+            builder.Register(c =>
             {
-                var type = typeof(IEnumerable<>).MakeGenericType(serviceType);
-                return (IEnumerable<object>)EngineContext.Current.Resolve(type);
-            }
-            catch
-            {
-                return null;
-            } 
+                var httpContextAccessor = c.Resolve<IHttpContextAccessor>();
+                return httpContextAccessor.HttpContext;
+            }).As<HttpContext>().InstancePerLifetimeScope();
         }
     }
 }

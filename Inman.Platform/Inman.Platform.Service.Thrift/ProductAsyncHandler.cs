@@ -32,26 +32,26 @@ namespace Inman.Platform.Service
         public async Task<ProductList> GetProductListAsync(ProductRequest request, CancellationToken cancellationToken)
         {
             DateTime beginTime = DateTime.Now;
-            string sql = $"SELECT   Id, ColorID,GoodsId ,PicturePath,Remark FROM Inman_Product Order By Id DESC OFFSET {new Random().Next(1, 10000)} ROWS FETCH NEXT {new Random().Next(10, 50)} ROWS ONLY";
+            string sql = $"SELECT   Id, ColorID,GoodsId ,PicturePath,Remark FROM Inman_Product Order By Id DESC OFFSET {new Random().Next(1, 10000)} ROWS FETCH NEXT 100 ROWS ONLY";
             if (request.ProductId.Count > 0)
                 sql = $"{sql} WHERE Id in ({string.Join(",", request.ProductId)})";
 
             var list = await _iRepository.GetListAsync(sql);
 
-            //var goodsList = await _iGoodsRepository.GetListAsync($"SELECT * FROM Inman_Goods WHERE Id in({string.Join(",", list.Select(d => d.GoodsId))})");
+            var goodsList = await _iGoodsRepository.GetListAsync($"SELECT * FROM Inman_Goods WHERE Id in({string.Join(",", list.Select(d => d.GoodsId))})");
 
-            //var designList = await _iDesignRepository.GetListAsync($"SELECT * FROM Inman_Design WHERE Id in({string.Join(",", goodsList.Select(d => d.DesignID))})");
+            var designList = await _iDesignRepository.GetListAsync($"SELECT * FROM Inman_Design WHERE Id in({string.Join(",", goodsList.Select(d => d.DesignID))})");
 
-            //foreach (var goods in goodsList)
-            //{
-            //    goods.Design = designList.FirstOrDefault(d => d.Id == goods.DesignID);
-            //}
+            foreach (var goods in goodsList)
+            {
+                goods.Design = designList.FirstOrDefault(d => d.Id == goods.DesignID);
+            }
 
-            //foreach (var product in list)
-            //{
-            //    product.Goods = goodsList.FirstOrDefault(d => d.Id == product.GoodsId);
-            //    product.ProductSN = product.Goods?.ProductSN;
-            //}
+            foreach (var product in list)
+            {
+                product.Goods = goodsList.FirstOrDefault(d => d.Id == product.GoodsId);
+                product.ProductSN = product.Goods?.ProductSN;
+            }
 
 
             var response = new ProductList();

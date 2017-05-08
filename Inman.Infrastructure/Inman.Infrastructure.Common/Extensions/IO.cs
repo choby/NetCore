@@ -80,12 +80,13 @@ namespace Inman.Infrastructure.Common.Extensions
         /// </summary>
         /// <param name="steam"></param>
         /// <returns></returns>
-        public static byte[] ToBytes(this Stream steam)
+        public static byte[] GetAllBytes(this Stream stream)
         {
-            byte[] infbytes = new byte[steam.Length];
-            steam.Read(infbytes, 0, infbytes.Length);
-            steam.Seek(0, SeekOrigin.Begin);
-            return infbytes;
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
         }
     }
 }

@@ -1,0 +1,128 @@
+﻿
+@using Inman.Platform.ServiceStub.Data;
+@using System.Linq;
+@using System.Linq.Expressions;
+@model Product
+
+
+<div>
+    <form method="post">
+        <table>
+            <tr>
+                <td>
+                    大货款号:
+                </td>
+                <td>
+                    @(Html.Kendo().TextBoxFor(m=>m.ProductSN))
+                </td>
+                <td>
+                    大货产品:
+                </td>
+                <td>
+                    @(Html.Kendo().TextBoxFor(m=>m.ProductName))
+                </td>
+                <td>
+                    年份:
+                </td>
+                <td>
+                    @Html.Kendo().IntegerTextBoxFor(m=>m.ProductYear)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    成品进价:
+                </td>
+                <td>
+                  @Html.Kendo().NumericTextBoxFor(m => m.FOBCost)
+                </td>
+                <td>
+                    一口价:
+                </td>
+                <td>
+                    @Html.Kendo().NumericTextBoxFor(m => m.SalesPrice)
+                </td>
+                <td>
+                    吊牌价:
+                </td>
+                <td>
+                    @Html.Kendo().NumericTextBoxFor(m => m.TagPrice)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    质量等级:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.QualityGrade)
+                </td>
+                <td>
+                    执行标准:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.ExecStandard)
+                </td>
+                <td>
+                    填充物:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.Filler)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    季节:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.Season)
+                </td>
+                <td>
+                    品牌:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.Brand)
+                </td>
+                <td>
+                    性别:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.Sex)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    大类:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.ProductCategory1)
+                </td>
+                <td>
+                    二级分类:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.ProductCategory2)
+                </td>
+                <td>
+                    三级分类:
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.ProductCategory3)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    备注:  
+                </td>
+                <td>
+                    @Html.Kendo().TextBoxFor(m => m.Remark)
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div>
+            @Html.Kendo().Button().Content("更新").Name("upate")
+        </div>
+    </form>
+</div>

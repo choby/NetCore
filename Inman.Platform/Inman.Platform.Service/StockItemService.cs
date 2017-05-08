@@ -7,13 +7,14 @@ using Inman.Platform.ServiceStub;
 using static Inman.Platform.ServiceStub.StockItemService;
 using Inman.Platform.Data.Repository;
 using Inman.Platform.ServiceStub.Data;
+using Inman.Platform.Data.Entities;
 
 namespace Inman.Platform.Service
 {
     public class StockItemServiceImpl : StockItemServiceBase
     {
-        IRepository<StockItem> _iRepository;
-        public StockItemServiceImpl(IRepository<StockItem> iRepository)
+        IRepository<Inman_StockItem> _iRepository;
+        public StockItemServiceImpl(IRepository<Inman_StockItem> iRepository)
         {
             _iRepository = iRepository;
         }

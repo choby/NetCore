@@ -1,4 +1,4 @@
-﻿using Inman.Platform.Data.Repository;
+﻿using Inman.Infrastructure.Data.Repositories;
 using Inman.Platform.Service;
 using Inman.Platform.ServiceStub;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +11,7 @@ using System.Text;
 using static Inman.Platform.ServiceStub.UserService;
 using static Inman.Platform.ServiceStub.StockItemService;
 using static Inman.Platform.ServiceStub.ProductService;
-using static Inman.Platform.ServiceStub.GoodsService;
+using System.Data;
 
 namespace Inman.Platform.Server
 {
@@ -30,14 +30,13 @@ namespace Inman.Platform.Server
 
         public static void ConfigureServices(IServiceCollection services)
         {
-            
             //注入
-            services.AddTransient(typeof(Database), sp => new Database(new SqlConnection(configuration.GetSection("dbConn").Value)));
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            //services.AddTransient(typeof(Database), sp => new Database(new SqlConnection(configuration.GetSection("dbConn").Value)));
+            services.AddTransient(typeof(IDbConnection), sp => new SqlConnection(configuration.GetSection("dbConn").Value));
+            services.AddTransient(typeof(IDapperRepository<,>), typeof(DapperRepository<,>));
             services.AddTransient<UserServiceBase, UserServiceImpl>();
-            services.AddTransient<StockItemServiceBase, StockItemServiceImpl>();
             services.AddTransient<ProductServiceBase, ProductServiceImpl>();
-            services.AddTransient<GoodsServiceBase, GoodsServiceImpl>();
+           
         }
     }
 }
