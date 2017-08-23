@@ -13,23 +13,22 @@
     <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="IOC\**" />
     <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="IOC\**" />
     <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="IOC\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Caching\Extensions.cs" />
     <Compile Remove="Caching\NullCache.cs" />
     <Compile Remove="Caching\PerRequestCacheManager.cs" />
     <Compile Remove="Caching\SessionCacheManager.cs" />
-    <Compile Remove="ConvertListToDataTable.cs" />
-    <Compile Remove="Extensions\DataTables.cs" />
     <Compile Remove="Extensions\Dynamic.cs" />
     <Compile Remove="HttpHelper.cs" />
     <Compile Remove="TypeFinder\AppDomain.cs" />
     <Compile Remove="TypeFinder\AssemblyLoadContext.cs" />
     <Compile Remove="TypeFinder\WebAppTypeFinder.cs" />
-    <Compile Remove="Utities\DynamicMethodExecutor.cs" />
-    <Compile Remove="Utities\SerializeUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">
@@ -84,6 +83,11 @@
     <PackageReference Include="System.Xml.XmlSerializer">
       <Version>4.3.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.viewfeatures\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
+    </Reference>
   </ItemGroup>
   
 </Project>
